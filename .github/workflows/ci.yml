@@ -74,7 +74,7 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw 'Server syntax check failed.' }
           node --check Website/app.js
           if ($LASTEXITCODE -ne 0) { throw 'Browser script syntax check failed.' }
-          node --test --test-reporter=tap Website/tests/website.test.cjs | Tee-Object website-tests.tap
+          node --test --test-reporter=tap Website/tests/website.test.cjs Website/tests/deployment.test.cjs | Tee-Object website-tests.tap
           if ($LASTEXITCODE -ne 0) { throw 'Website tests failed.' }
 
       - name: Write test summary

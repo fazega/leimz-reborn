@@ -1,5 +1,6 @@
 /local.settings.json
 /.tools/
+/Website/dist/
 **/build/
 **/logs/
 **/.local/

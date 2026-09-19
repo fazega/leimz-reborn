@@ -12,12 +12,6 @@ import com.client.map.managers.MapManager;
 
 public class Camera {
 
-    private static int NB_TILES_X = (Base.sizeOfScreen_x / Base.Tile_x) + 1;
-    private static int NB_TILES_Y = (Base.sizeOfScreen_y / Base.Tile_y) + 1;
-
-    private Tile lastFocus = null;
-    private Vector2f lastDecalage = null;
-
     private float zoomScale = 1.0f;
     private float fuzzy = 1.0f;
 
@@ -28,96 +22,57 @@ public class Camera {
     }
 
     public void focusOn(Tile tile, Vector2f decalage) {
-        NB_TILES_X = (Base.sizeOfScreen_x / Base.Tile_x) + 1;
-        NB_TILES_Y = (Base.sizeOfScreen_y / Base.Tile_y) + 1;
-        if (lastFocus == null && lastDecalage == null) {
-            lastFocus = tile;
-            lastDecalage = decalage;
-        } else if (lastFocus == tile && lastDecalage == decalage) return;
-
-        int decalage_x = (int) decalage.x - 2 * Base.Tile_x * 2;
-        int decalage_y = (int) decalage.y - Base.Tile_y * 2;
-
-        // Recuperation de l'index de depart en x et y des Tile e afficher.
-        int indiceStart_x = (int) (tile.getPos().x - (NB_TILES_X / 2));
-        int indiceStart_y = (int) (tile.getPos().y - (NB_TILES_Y / 2));
-
-        // Recuperation de l'index de fin en x et y des Tile e afficher.
-        int indiceFin_x = indiceStart_x + NB_TILES_X;
-        int indiceFin_y = indiceStart_y + NB_TILES_Y;
-
-        // Maintenant, on ajoute x pour faire "deborder" la map pour avoir une map rempli sur
-        // l'ecran de jeu
-        indiceStart_x -= 4;
-        indiceStart_y -= 2;
-        indiceFin_x += 4;
-        indiceFin_y += 2;
-
-        // Attention aux cas ou le joueur se situe sur une extremite de la map.
-        int x_offset = (indiceStart_x > 0) ? 0 : -indiceStart_x;
-        int y_offset = (indiceStart_y > 0) ? 0 : -indiceStart_y;
-        indiceStart_x = (indiceStart_x < 0) ? 0 : indiceStart_x;
-        indiceStart_y = (indiceStart_y < 0) ? 0 : indiceStart_y;
-        indiceFin_x =
-                (indiceFin_x >= MapManager.instance.getEntire_map().getGrille().length)
-                        ? MapManager.instance.getEntire_map().getGrille().length
-                        : indiceFin_x;
-        indiceFin_y =
-                (indiceFin_y >= MapManager.instance.getEntire_map().getGrille()[0].length)
-                        ? MapManager.instance.getEntire_map().getGrille()[0].length
-                        : indiceFin_y;
-
-        Tile[][] current_map = new Tile[indiceFin_x - indiceStart_x][indiceFin_y - indiceStart_y];
-
-        // On parcourt alors les lignes et les colonnes
-        for (int i = indiceStart_x, y = x_offset; i < indiceFin_x; i++, y++) {
-            for (int j = indiceStart_y, z = y_offset; j < indiceFin_y; j++, z++) {
-                int shift = i % 2 + (indiceStart_x + x_offset) % 2;
-                shift *= Base.Tile_y / 2;
-
-                // On determine la "vraie" position de la tile par rapport aux coordonnees
-                MapManager.instance
-                        .getEntire_map()
-                        .getGrille()[i][j]
-                        .setPos_screen(
-                                new Vector2f(
-                                        y * Base.Tile_x + decalage_x,
-                                        z * Base.Tile_y + shift + decalage_y));
-                current_map[y - x_offset][z - y_offset] =
-                        MapManager.instance.getEntire_map().getGrille()[i][j];
+        MapManager manager = MapManager.instance;
+        Tile[][] grid = manager.getEntire_map().getGrille();
+        if (manager.getMap_visible() != null) {
+            for (Tile[] column : manager.getMap_visible().getGrille()) {
+                for (Tile previous : column) previous.setDrawn(false);
             }
         }
-
+        // One world-to-screen translation, independent of which staggered column contains us.
+        Vector2f player = tile.getPos_real().copy().sub(decalage);
+        Vector2f offset =
+                new Vector2f(
+                        Base.sizeOfScreen_x / 2f - player.x,
+                        Base.sizeOfScreen_y / 2f + 40 - player.y);
+        int startX = Math.max(0, (int) Math.floor(-offset.x / 40) - 6);
+        int startY = Math.max(0, (int) Math.floor(-offset.y / 40) - 4);
+        int endX =
+                Math.min(grid.length, (int) Math.ceil((Base.sizeOfScreen_x - offset.x) / 40) + 6);
+        // Tall scenery anchored below the viewport still needs to be drawn.
+        int endY =
+                Math.min(
+                        grid[0].length,
+                        (int) Math.ceil((Base.sizeOfScreen_y - offset.y) / 40) + 10);
+        Tile[][] visible = new Tile[endX - startX][endY - startY];
+        for (int x = startX; x < endX; x++) {
+            for (int y = startY; y < endY; y++) {
+                Tile current = grid[x][y];
+                current.setPos_screen(current.getPos_real().copy().add(offset));
+                visible[x - startX][y - startY] = current;
+            }
+        }
         ArrayList<GroupTiles> groups = new ArrayList<>();
-        for (GroupTiles group : MapManager.instance.getEntire_map().getGroups()) {
-            if (group.getBase().getPos().x >= indiceStart_x
-                    && group.getBase().getPos().x <= indiceFin_x
-                    && group.getBase().getPos().y >= indiceStart_y
-                    && group.getBase().getPos().y <= indiceFin_y) groups.add(group);
+        for (GroupTiles group : manager.getEntire_map().getGroups()) {
+            Vector2f position = group.getBase().getPos();
+            if (position.x >= startX
+                    && position.x < endX
+                    && position.y >= startY
+                    && position.y < endY) groups.add(group);
         }
-
-        visible_entities.removeAll(visible_entities);
-        for (int i = 0; i < current_map.length; i++) {
-            for (int j = 0; j < current_map[i].length; j++) {
-                for (int k = 0; k < EntitiesManager.instance.getEntities().size(); k++) {
-                    if (EntitiesManager.instance.getEntities().get(k) != null) {
-                        if (EntitiesManager.instance.getEntities().get(k).getTile() != null) {
-                            if (EntitiesManager.instance
-                                    .getEntities()
-                                    .get(k)
-                                    .getTile()
-                                    .equals(current_map[i][j])) {
-                                visible_entities.add(EntitiesManager.instance.getEntities().get(k));
-                            }
-                        }
-                    }
-                }
+        visible_entities.clear();
+        if (EntitiesManager.instance != null) {
+            for (Entity entity : EntitiesManager.instance.getEntities()) {
+                if (entity == null || entity.getTile() == null) continue;
+                Vector2f position = entity.getTile().getPos();
+                if (position.x >= startX
+                        && position.x < endX
+                        && position.y >= startY
+                        && position.y < endY) visible_entities.add(entity);
             }
         }
-
-        MapManager.instance.setAbsolute(
-                current_map[0][0].getPos_screen().copy().sub(current_map[0][0].getPos_real()));
-        MapManager.instance.setMap_visible(new Map(current_map, groups));
+        manager.setAbsolute(offset);
+        manager.setMap_visible(new Map(visible, groups));
     }
 
     public void zoom(float scale) {

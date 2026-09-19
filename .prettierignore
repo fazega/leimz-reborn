@@ -1,6 +1,7 @@
 **/build/**
 **/logs/**
 .tools/**
+Website/dist/**
 Client/data/**
 MapEditor/data/**
 Server/database/**

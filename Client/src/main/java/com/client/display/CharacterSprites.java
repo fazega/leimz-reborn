@@ -21,21 +21,8 @@ public final class CharacterSprites {
                     int width = (column + 1) * atlas.getWidth() / 4 - originX;
                     int height = (row + 1) * atlas.getHeight() / 8 - originY;
                     Image cell = atlas.getSubImage(originX, originY, width, height);
-                    // Trim transparent margins per frame and anchor all poses at their feet.
-                    int left = width, right = 0, top = height, bottom = 0;
-                    for (int y = 0; y < height; y++) {
-                        for (int x = 0; x < width; x++) {
-                            if (cell.getColor(x, y).a > 0.5f) {
-                                left = Math.min(left, x);
-                                right = Math.max(right, x);
-                                top = Math.min(top, y);
-                                bottom = Math.max(bottom, y);
-                            }
-                        }
-                    }
-                    if (left > right) throw new SlickException("Empty character atlas cell");
-                    Image sprite = cell.getSubImage(left, top, right - left + 1, bottom - top + 1);
-                    frames[row][column] = sprite.getScaledCopy(80f / sprite.getHeight());
+                    // Keep the common canvas, scale and anchor across every pose.
+                    frames[row][column] = cell.getScaledCopy(88, 88);
                 }
             }
         }

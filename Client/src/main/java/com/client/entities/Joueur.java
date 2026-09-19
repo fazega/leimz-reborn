@@ -86,7 +86,8 @@ public class Joueur extends Entity {
                 (pos_real.x + MapManager.instance.getAbsolute().x)
                         - (current_img_repos.getWidth() / 2);
         pos_real_on_screen.y =
-                (pos_real.y + MapManager.instance.getAbsolute().y) - (animated ? 80 : 65);
+                (pos_real.y + MapManager.instance.getAbsolute().y)
+                        - (animated ? current_img_repos.getHeight() : 65);
 
         int[] numbers = new int[4];
         String[] str = (racine.getChild("shapes").getChild("pieds").getText().split(","));
@@ -106,7 +107,8 @@ public class Joueur extends Entity {
                         (pos_real.x + MapManager.instance.getAbsolute().x)
                                 - (current_img_repos.getWidth() / 2);
                 pos_real_on_screen.y =
-                        (pos_real.y + MapManager.instance.getAbsolute().y) - (animated ? 80 : 65);
+                        (pos_real.y + MapManager.instance.getAbsolute().y)
+                                - (animated ? current_img_repos.getHeight() : 65);
             }
         }
     }
@@ -134,7 +136,7 @@ public class Joueur extends Entity {
     private void updateAnimatedImage() {
         long now = System.nanoTime();
         motion.update(pos_real.x, pos_real.y, (int) ((now - lastAnimationTime) / 1000000));
-        lastAnimationTime = now;
+        lastAnimationTime = now - (now - lastAnimationTime) % 1000000;
         try {
             current_img_repos = CharacterSprites.get(orientation, motion.getFrame());
         } catch (SlickException exception) {

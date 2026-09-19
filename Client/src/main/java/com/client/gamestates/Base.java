@@ -75,6 +75,8 @@ public class Base extends StateBasedGame {
 
         // app.setSmoothDeltas(true);
         app.setShowFPS(false);
+        app.setTargetFrameRate(60);
+        app.setVSync(true);
 
         // Ajout de la taille de la fenetre
         app.setDisplayMode(sizeOfScreen_x, sizeOfScreen_y, false);

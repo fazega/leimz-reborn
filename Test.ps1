@@ -7,7 +7,7 @@ $node = Get-Setting 'node' 'node'
 & $node --test "$RepoRoot\Test-Content.cjs"
 if ($LASTEXITCODE -ne 0) { throw 'Content preservation tests failed.' }
 & "$RepoRoot\MapEditor\Test-Content.ps1"
-& $node --test "$RepoRoot\Website\tests\website.test.cjs"
+& $node --test "$RepoRoot\Website\tests\website.test.cjs" "$RepoRoot\Website\tests\deployment.test.cjs"
 if ($LASTEXITCODE -ne 0) { throw 'Website tests failed.' }
 if ($Integration) {
     & "$RepoRoot\Client\Test-Recovery.ps1"

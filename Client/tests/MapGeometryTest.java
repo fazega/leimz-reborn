@@ -18,7 +18,8 @@ public final class MapGeometryTest {
                 grid[x][y] = new Tile(new Vector2f(x, y), null);
             }
         }
-        MapManager manager = new MapManager(new Map(grid, null));
+        MapManager manager =
+                new MapManager(new Map(grid, new java.util.ArrayList<com.client.map.GroupTiles>()));
         for (int x = 0; x < grid.length; x++) {
             for (int y = 0; y < grid[x].length; y++) {
                 boolean edge = x == 0 || y == 0 || x == grid.length - 1 || y == grid[x].length - 1;
@@ -51,6 +52,32 @@ public final class MapGeometryTest {
         // The shared vertex must belong to some tile, never a hole between adjacent diamonds.
         require(manager.getTileReal(new Vector2f(80, 20)) != null, "Shared tile vertex has a gap");
 
+        com.client.display.Camera camera = new com.client.display.Camera();
+        Vector2f previousOffset = null;
+        for (int pixel = 0; pixel < 320; pixel++) {
+            Vector2f player = new Vector2f(3200 + pixel, 3200 + pixel / 3f);
+            Tile focus = manager.getTileReal(player);
+            camera.focusOn(focus, focus.getPos_real().copy().sub(player));
+            Vector2f offset = manager.getAbsolute();
+            if (previousOffset != null) {
+                require(
+                        Math.abs(offset.x - previousOffset.x + 1) < 0.001f,
+                        "Camera horizontal jump");
+                require(
+                        Math.abs(offset.y - previousOffset.y + 1f / 3) < 0.001f,
+                        "Camera parity jump");
+            }
+            for (Tile[] column : manager.getMap_visible().getGrille()) {
+                for (Tile visible : column) {
+                    require(
+                            visible.getPos_screen()
+                                            .distance(visible.getPos_real().copy().add(offset))
+                                    < 0.001f,
+                            "Tile uses a different camera transform");
+                }
+            }
+            previousOffset = offset.copy();
+        }
         Tile solid = new Tile(new Vector2f(0, 0), null);
         solid.addTypes(new TypeTile("ground", null, new Rectangle(0, 0, 80, 40), false, 1));
         require(!solid.isCollidable(), "Ground must remain walkable");
