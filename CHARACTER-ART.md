@@ -4,7 +4,7 @@
 
 The five recovered race definitions all use the same `perso2` artwork. They now use a cleaned, transparent eight-direction atlas at `Client/data/Images/Persos/reborn/adventurer.png`, generated with the built-in image-generation tool from the original front, back and right-profile sprites. The original files remain intact. Only the new atlas was added to the protected content baseline.
 
-The renderer slices four columns and eight rows, keeps a fixed 88×88 canvas and common anchor across all poses to avoid resizing and recentering between frames. Column zero is idle; walking plays columns 1, 2, 3, 2 over 480 ms. A subtle breathing effect runs while idle. Walking follows confirmed world-position changes, stops after movement ceases, and ignores teleport jumps. Gameplay coordinates, collision rules, dialogue and map data are unchanged. NPC artwork remains the recovered artwork.
+The renderer slices four columns and eight rows, keeps a fixed 88×88 canvas and common anchor across all poses to avoid resizing and recentering between frames. Column zero is idle; walking plays columns 1, 2, 3, 2 over 1440 ms (360 ms per pose). A subtle breathing effect runs while idle. Walking follows confirmed world-position changes, stops after movement ceases, and ignores teleport jumps. Gameplay coordinates, collision rules, dialogue and map data are unchanged. NPC artwork remains the recovered artwork.
 
 The atlas is derived from the existing character, not an independently licensed replacement for the historical artwork. The external packs below remain alternatives.
 

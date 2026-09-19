@@ -29,6 +29,14 @@ public final class CharacterMotionTest {
             }
         }
         CharacterMotion motion = new CharacterMotion();
+        CharacterMotion slowWalk = new CharacterMotion();
+        slowWalk.update(0, 0, 0);
+        for (int millisecond = 1; millisecond < 360; millisecond++) {
+            slowWalk.update(millisecond, 0, 1);
+            require(slowWalk.getFrame() == 1, "Walking pose must remain visible for 360 ms");
+        }
+        slowWalk.update(360, 0, 1);
+        require(slowWalk.getFrame() == 2, "Walk advances after the full pose duration");
         motion.update(0, 0, 0);
         require(motion.getFrame() == 0, "Initially idle");
         boolean[] seen = new boolean[4];
