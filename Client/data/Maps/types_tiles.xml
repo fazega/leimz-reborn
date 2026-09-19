@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8'?>
+<types>
+  <calque1>
+    <type>
+      <nom>none</nom>
+      <img>data/Images/tiles/croix.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>herbe</nom>
+      <img>data/Images/tiles/herbe/herbe simple.png</img>
+      <collidable>false</collidable>
+      <base>2,4</base>
+    </type>
+
+    <type>
+      <nom>herbe haute</nom>
+      <img>data/Images/tiles/herbe/herbe haute.png</img>
+      <collidable>false</collidable>
+      <base>0,17</base>
+    </type>
+    <type>
+      <nom>herbe moyenne</nom>
+      <img>data/Images/tiles/herbe/herbe moyenne.png</img>
+      <collidable>false</collidable>
+      <base>0,3</base>
+    </type>
+    <type>
+      <nom>grosses pierres</nom>
+      <img>data/Images/tiles/pierre/grosses pierres.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>grosses pierres desafectees</nom>
+      <img>data/Images/tiles/pierre/grosses pierres desafectees.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>paves</nom>
+      <img>data/Images/tiles/pierre/paves.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>grille 3</nom>
+      <img>data/Images/tiles/Tiles photoshop/grille 3.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>grosses pierres desafectees 2</nom>
+      <img>data/Images/tiles/Tiles photoshop/grosses pierres désafectées 2.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>boue</nom>
+      <img>data/Images/tiles/Tiles photoshop/boue.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>paves ordonnes 2</nom>
+      <img>data/Images/tiles/Tiles photoshop/paves ordonnes 2.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>grille 1</nom>
+      <img>data/Images/tiles/Tiles photoshop/grille 1.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>paves ordonnes roses</nom>
+      <img>data/Images/tiles/Tiles photoshop/paves ordonnes roses.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>paves ordonnes desafectes 1</nom>
+      <img>data/Images/tiles/Tiles photoshop/paves ordonnes desafectes 1.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>maison simple 1</nom>
+      <img>data/Images/tiles/maisons/maison simple 1.png</img>
+      <collidable>true</collidable>
+      <base>0,130</base>
+    </type>
+    <type>
+      <nom>poteau 1</nom>
+      <img>data/Images/tiles/poteau 1.png</img>
+      <collidable>true</collidable>
+      <base>-10,120</base>
+    </type>
+
+    <type>
+      <nom>caisse 1</nom>
+      <img>data/Images/tiles/Tiles photoshop/caisse 1.png</img>
+      <collidable>true</collidable>
+      <base>-10,25</base>
+    </type>
+
+    <type>
+      <nom>caisse 2</nom>
+      <img>data/Images/tiles/Tiles photoshop/caisse 2.png</img>
+      <collidable>true</collidable>
+      <base>-10,35</base>
+    </type>
+
+    <type>
+      <nom>tonneau 1</nom>
+      <img>data/Images/tiles/Tiles photoshop/tonneau 1.png</img>
+      <collidable>true</collidable>
+      <base>-10,35</base>
+    </type>
+  <type><nom>arbre</nom><img>data/Images/tiles/arbre.png</img><collidable>true</collidable><base>67,256</base></type></calque1>
+</types>

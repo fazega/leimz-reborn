@@ -1,0 +1,14 @@
+/local.settings.json
+**/build/
+**/logs/
+**/.local/
+**/node_modules/
+*.log
+*.pid
+hs_err_pid*
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.class
+*.exe

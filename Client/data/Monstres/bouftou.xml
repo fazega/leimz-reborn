@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<monstre>
+<sorts>
+    <sort>
+        <nom>Morsure</nom>
+        <values>10-15</values>
+        <description>Morsure qui peut entrainer l'infection, la paralysie des membres puis, la mort (:p) ...</description>
+    </sort>
+</sorts>
+
+<caracs>
+        <!--Ces caractéristiques sont propres à la race-->
+        <vie>90</vie>
+        <energie>600</energie>
+        <deplacement>4</deplacement>
+        <endurance>1</endurance> <!--En seconde, temps au bout duquel le perso perd 1 point d'energie-->
+        <precision>60</precision><!-- En % -->
+        <dommages>1</dommages>
+</caracs>
+
+<anims>
+    <anim nom="marche_haut_gauche"></anim>
+    <anim nom="marche_haut_droite"></anim>
+    <anim nom="marche_bas_gauche"></anim>
+    <anim nom="marche_bas_droite"></anim>
+</anims>
+
+<imgs_fixe>
+    <img nom="bas_gauche">data/Images/Persos/bouftou_bas_gauche.png</img>
+    <img nom="bas_droite">data/Images/Persos/bouftou_bas_droite.png</img>
+    <img nom="haut_droite">data/Images/Persos/bouftou_haut_droite.png</img>
+    <img nom="haut_gauche">data/Images/Persos/bouftou_haut_gauche.png</img>
+</imgs_fixe>
+
+<shapes>
+    <pieds>0,39,64,20</pieds>
+</shapes>
+
+</monstre>

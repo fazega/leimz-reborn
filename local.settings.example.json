@@ -1,0 +1,8 @@
+{
+  "javaHome": "C:\\Tools\\jdk8",
+  "node": "node",
+  "dbUrl": "jdbc:mysql://127.0.0.1:3306/leimz_reborn?useUnicode=true&characterEncoding=UTF-8",
+  "dbUser": "leimz_reborn",
+  "dbPassword": "replace-with-local-password",
+  "gamePort": 1500
+}

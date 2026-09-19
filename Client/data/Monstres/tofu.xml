@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<monstre>
+<sorts>
+    <sort>
+        <nom>Coup de bec</nom>
+        <values>3-4</values>
+        <description>Un petit picottemtn est ressenti :D</description>
+    </sort>
+</sorts>
+
+<caracs>
+        <!--Ces caractéristiques sont propres à la race-->
+        <vie>10</vie>
+        <energie>50</energie>
+        <deplacement>30</deplacement>
+        <endurance>10</endurance> <!--En seconde, temps au bout duquel le perso perd 1 point d'energie-->
+        <precision>50</precision><!-- En % -->
+        <dommages>1</dommages>
+</caracs>
+
+<anims>
+    <anim nom="marche_haut_gauche"></anim>
+    <anim nom="marche_haut_droite"></anim>
+    <anim nom="marche_bas_gauche"></anim>
+    <anim nom="marche_bas_droite"></anim>
+</anims>
+
+<imgs_fixe>
+    <img nom="bas_droite">data/Images/Persos/tofu_bas_droite.png</img>
+    <img nom="bas_gauche">data/Images/Persos/tofu_bas_droite.png</img>
+    <img nom="haut_droite">data/Images/Persos/tofu_bas_droite.png</img>
+    <img nom="haut_gauche">data/Images/Persos/tofu_bas_droite.png</img>
+</imgs_fixe>
+
+<shapes>
+    <pieds>0,35,50,15</pieds>
+</shapes>
+
+</monstre>

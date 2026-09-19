@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<types>
+  <calque1>
+    <type>
+      <nom>none</nom>
+      <img>data/tiles/croix.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>herbe</nom>
+      <img>data/tiles/herbe/herbe simple.png</img>
+      <collidable>false</collidable>
+      <base>2,4</base>
+    </type>
+    <type>
+      <nom>herbe haute</nom>
+      <img>data/tiles/herbe/herbe haute.png</img>
+      <collidable>false</collidable>
+      <base>0,17</base>
+    </type>
+    <type>
+      <nom>herbe moyenne</nom>
+      <img>data/tiles/herbe/herbe moyenne.png</img>
+      <collidable>false</collidable>
+      <base>0,3</base>
+    </type>
+    <type>
+      <nom>grosses pierres</nom>
+      <img>data/tiles/pierre/grosses pierres.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>grosses pierres desafectees</nom>
+      <img>data/tiles/pierre/grosses pierres désafectées.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>paves</nom>
+      <img>data/tiles/pierre/pavés.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>grille 3</nom>
+      <img>C:/Users/Greg/Programmation/workspace/Leimz-CLIENT/data/Images/tiles/Tiles photoshop/grille 3.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>grosses pierres desafectees 2</nom>
+      <img>C:/Users/Greg/Programmation/workspace/Leimz-CLIENT/data/Images/tiles/Tiles photoshop/grosses pierres désafectées 2.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>boue</nom>
+      <img>C:\Users\Greg\Programmation\workspace\Leimz-CLIENT\data\Images\tiles\Tiles photoshop\boue.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>paves ordonnes 2</nom>
+      <img>C:\Users\Greg\Programmation\workspace\Leimz-CLIENT\data\Images\tiles\Tiles photoshop\paves ordonnes 2.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>grille 1</nom>
+      <img>C:\Users\Greg\Programmation\workspace\Leimz-CLIENT\data\Images\tiles\Tiles photoshop\grille 1.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>paves ordonnes roses</nom>
+      <img>C:\Users\Greg\Programmation\workspace\Leimz-CLIENT\data\Images\tiles\Tiles photoshop\paves ordonnes roses.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+    <type>
+      <nom>paves ordonnes desafectes 1</nom>
+      <img>C:\Users\Greg\Programmation\workspace\Leimz-CLIENT\data\Images\tiles\Tiles photoshop\paves ordonnes desafectes 1.png</img>
+      <collidable>false</collidable>
+      <base>0,0</base>
+    </type>
+
+  </calque1>
+
+<calque2>
+
+    <type>
+      <nom>poteau 1</nom>
+      <img>C:\Users\Greg\Programmation\workspace\Leimz-CLIENT\data\Images\tiles\poteau 1.png</img>
+      <collidable>true</collidable>
+      <base>-10,120</base>
+    </type>
+
+    <type>
+      <nom>caisse 1</nom>
+      <img>C:\Users\Greg\Programmation\workspace\Leimz-CLIENT\data\Images\tiles\Tiles photoshop\caisse 1.png</img>
+      <collidable>true</collidable>
+      <base>-10,25</base>
+    </type>
+
+    <type>
+      <nom>caisse 2</nom>
+      <img>C:\Users\Greg\Programmation\workspace\Leimz-CLIENT\data\Images\tiles\Tiles photoshop\caisse 2.png</img>
+      <collidable>true</collidable>
+      <base>-10,35</base>
+    </type>
+
+    <type>
+      <nom>tonneau 1</nom>
+      <img>C:\Users\Greg\Programmation\workspace\Leimz-CLIENT\data\Images\tiles\Tiles photoshop\tonneau 1.png</img>
+      <collidable>true</collidable>
+      <base>-10,35</base>
+    </type>
+</calque2>
+</types>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<pnj>
+
+        <imgs_repos>
+            <img nom="bas">data/Images/Persos/pnj_1.png</img>
+            <img nom="droite">data/Images/Persos/pnj_1.png</img>
+            <img nom="haut">data/Images/Persos/pnj_1.png</img>
+            <img nom="gauche">data/Images/Persos/pnj_1.png</img>
+            <img nom="bas_gauche">data/Images/Persos/pnj_1.png</img>
+            <img nom="bas_droite">data/Images/Persos/pnj_1.png</img>
+            <img nom="haut_droite">data/Images/Persos/pnj_1.png</img>
+            <img nom="haut_gauche">data/Images/Persos/pnj_1.png</img>
+        </imgs_repos>
+
+        <shapes>
+            <pieds>0,60,45,23</pieds>
+        </shapes>
+
+
+</pnj>

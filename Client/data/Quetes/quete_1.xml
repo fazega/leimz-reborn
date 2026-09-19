@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<quete>
+    <nom>Bienvenue !</nom>
+    <objectifs>
+        <objectif>
+            <description>Allez au plus vite sur la tile d'herbe indiquée</description>
+            <but>tile(24,26)</but>
+        </objectif>
+    </objectifs>
+
+</quete>
