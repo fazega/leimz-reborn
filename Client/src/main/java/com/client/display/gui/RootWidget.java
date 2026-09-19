@@ -52,6 +52,25 @@ public class RootWidget extends DesktopArea {
         in_wait = new ArrayList<>();
     }
 
+    public void resizeLayout(int oldWidth, int oldHeight, int width, int height) {
+        for (int i = 0; i < getNumChildren(); i++) {
+            Widget child = getChild(i);
+            int x =
+                    Math.round((child.getX() + child.getWidth() / 2f) * width / oldWidth)
+                            - child.getWidth() / 2;
+            int y =
+                    Math.round((child.getY() + child.getHeight() / 2f) * height / oldHeight)
+                            - child.getHeight() / 2;
+            if (child instanceof com.client.utils.gui.ChatFrame) {
+                x = child.getX();
+                y = child.getY() + height - oldHeight;
+            }
+            child.setPosition(
+                    Math.max(0, Math.min(x, width - child.getWidth())),
+                    Math.max(0, Math.min(y, height - child.getHeight())));
+        }
+    }
+
     public void addToInWaitOfLayout(Widget w, Vector2f pos, Vector2f size) {
         in_wait.add(new InWaitWidget(w, pos, size));
     }

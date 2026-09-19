@@ -112,7 +112,7 @@ public class ChoixPerso extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        fond.draw();
+        fond.draw(0, 0, Base.sizeOfScreen_x, Base.sizeOfScreen_y);
         for (int i = 0; i < persos.size(); i++) {
             label.drawString(
                     200,

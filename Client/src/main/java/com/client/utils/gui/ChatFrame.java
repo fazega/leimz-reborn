@@ -74,6 +74,12 @@ public class ChatFrame extends ResizableFrame implements NetworkListener {
         this.add(l);
     }
 
+    public void releaseKeyboardFocusOutside(int x, int y) {
+        if (editField.hasKeyboardFocus() && !editField.isInside(x, y)) {
+            editField.giveupKeyboardFocus();
+        }
+    }
+
     public void appendRow(String font, String text) {
         sb.append("<div style=\"word-wrap: break-word; font-family: ").append(font).append("; \">");
         for (int i = 0, l = text.length(); i < l; i++) {

@@ -1,6 +1,7 @@
 package com.client.display.gui;
 
 import de.matthiasmann.twl.GUI;
+import com.client.utils.gui.PrincipalGui;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.util.InputAdapter;
@@ -54,6 +55,9 @@ public class TWLInputAdapter extends InputAdapter {
 
     @Override
     public void mousePressed(int button, int x, int y) {
+        if (PrincipalGui.instance != null && PrincipalGui.instance.getChat_frame() != null) {
+            PrincipalGui.instance.getChat_frame().releaseKeyboardFocusOutside(x, y);
+        }
         // mouseDown |= 1 << button;
         if (gui.handleMouse(x, y, button, true)) {
             consume();

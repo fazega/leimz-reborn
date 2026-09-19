@@ -12,6 +12,10 @@ The optional `Test-Recovery.ps1` integration check logs into the demo database, 
 
 # Loading and world perimeter
 
+The window opens at 1280×800, reduced to fit smaller desktops, and can be resized or maximized. The map camera, GUI viewport and mouse coordinates follow the new dimensions without reconnecting. Chat stays near the bottom-left. Clicking outside its input releases keyboard focus and preserves any unfinished message.
+
+Playable characters use a cleaned transparent atlas with eight-direction walking and subtle idle breathing. Original images remain available; see [character art and generation provenance](../CHARACTER-ART.md).
+
 World loading consumes queued network packets immediately and enters gameplay as soon as map and player loading finish. The illustrated screen remains during actual work; there is no minimum display duration. `WORLD_LOAD_MS` in the client log measures this phase.
 
 The outermost map tiles are solid on both client and server. A procedural mossy rock field continues beyond the map to cover the camera view at every edge. This is a runtime border; the historical map XML, database seed, NPCs and interior scenery remain unchanged. The MapEditor still edits the original map data.

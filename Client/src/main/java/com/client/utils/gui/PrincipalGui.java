@@ -77,7 +77,7 @@ public class PrincipalGui implements NetworkListener {
         chat_frame = new ChatFrame(null);
         chat_frame.setTheme("/resizableframe");
         chat_frame.setTitle("Leimzochat");
-        chat_frame.setPosition(25, 450);
+        chat_frame.setPosition(25, Base.sizeOfScreen_y - 230);
         chat_frame.appendRow(
                 "default",
                 "Bienvenue sur Leimz !! /n/nTapez votre message sur la barre en dessous de ce message :)/n/n");

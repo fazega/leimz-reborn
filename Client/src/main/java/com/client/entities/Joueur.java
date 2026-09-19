@@ -16,6 +16,8 @@ import com.client.gameplay.entities.Personnage;
 import com.client.map.Tile;
 import com.client.map.managers.MapManager;
 import com.client.utils.gui.TextBubble;
+import com.client.display.CharacterMotion;
+import com.client.display.CharacterSprites;
 
 public class Joueur extends Entity {
     protected Personnage perso;
@@ -26,6 +28,9 @@ public class Joueur extends Entity {
     private String str_file;
     private Element racine;
     private Document doc = null;
+    private boolean animated;
+    private final CharacterMotion motion = new CharacterMotion();
+    private long lastAnimationTime = System.nanoTime();
 
     public Joueur(Personnage perso, Tile tile, Orientation orientation) {
         super(orientation, tile);
@@ -66,6 +71,13 @@ public class Joueur extends Entity {
         }
 
         current_img_repos = returnImgOrientation(orientation);
+        animated =
+                racine.getChild("imgs_repos")
+                        .getChild("img")
+                        .getText()
+                        .toLowerCase()
+                        .contains("perso2_");
+        if (animated) updateAnimatedImage();
 
         this.size = new Vector2f(imgs_repos[0].getWidth(), imgs_repos[0].getHeight());
 
@@ -73,7 +85,8 @@ public class Joueur extends Entity {
         pos_real_on_screen.x =
                 (pos_real.x + MapManager.instance.getAbsolute().x)
                         - (current_img_repos.getWidth() / 2);
-        pos_real_on_screen.y = (pos_real.y + MapManager.instance.getAbsolute().y) - 65;
+        pos_real_on_screen.y =
+                (pos_real.y + MapManager.instance.getAbsolute().y) - (animated ? 80 : 65);
 
         int[] numbers = new int[4];
         String[] str = (racine.getChild("shapes").getChild("pieds").getText().split(","));
@@ -87,25 +100,56 @@ public class Joueur extends Entity {
     public void refresh() {
         if (imgs_repos != null) {
             current_img_repos = returnImgOrientation(getOrientation());
+            if (animated) updateAnimatedImage();
             if (current_img_repos != null) {
                 pos_real_on_screen.x =
                         (pos_real.x + MapManager.instance.getAbsolute().x)
                                 - (current_img_repos.getWidth() / 2);
-                pos_real_on_screen.y = (pos_real.y + MapManager.instance.getAbsolute().y) - 65;
+                pos_real_on_screen.y =
+                        (pos_real.y + MapManager.instance.getAbsolute().y) - (animated ? 80 : 65);
             }
         }
     }
 
     public void draw() {
+        if (animated) {
+            drawAnimated(1);
+            return;
+        }
         current_img_repos.draw(pos_real_on_screen.x, pos_real_on_screen.y);
     }
 
     public void draw(float scale) {
+        if (animated) {
+            drawAnimated(scale);
+            return;
+        }
         current_img_repos.draw(
                 (pos_real.x + MapManager.instance.getAbsolute().x)
                         - ((current_img_repos.getWidth() * scale) / 2),
                 (pos_real.y + MapManager.instance.getAbsolute().y) - (65 * scale),
                 scale);
+    }
+
+    private void updateAnimatedImage() {
+        long now = System.nanoTime();
+        motion.update(pos_real.x, pos_real.y, (int) ((now - lastAnimationTime) / 1000000));
+        lastAnimationTime = now;
+        try {
+            current_img_repos = CharacterSprites.get(orientation, motion.getFrame());
+        } catch (SlickException exception) {
+            throw new IllegalStateException("Cannot load character animation", exception);
+        }
+    }
+
+    private void drawAnimated(float scale) {
+        float height = current_img_repos.getHeight() * scale * motion.getBreathingScale();
+        float width = current_img_repos.getWidth() * scale;
+        current_img_repos.draw(
+                pos_real.x + MapManager.instance.getAbsolute().x - width / 2,
+                pos_real.y + MapManager.instance.getAbsolute().y - height,
+                width,
+                height);
     }
 
     public String stringOrientation() {

@@ -28,6 +28,8 @@ public class Camera {
     }
 
     public void focusOn(Tile tile, Vector2f decalage) {
+        NB_TILES_X = (Base.sizeOfScreen_x / Base.Tile_x) + 1;
+        NB_TILES_Y = (Base.sizeOfScreen_y / Base.Tile_y) + 1;
         if (lastFocus == null && lastDecalage == null) {
             lastFocus = tile;
             lastDecalage = decalage;

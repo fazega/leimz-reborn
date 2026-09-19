@@ -534,6 +534,7 @@
     "MapEditor/data/tiles/Tiles photoshop/pavés ordonnés.png": "8b421fa2b3e9c5417a630c738ea573a994899c18a12aa26b844e6177b84c72a8",
     "MapEditor/data/tiles/Tiles photoshop/pavés.png": "439a2e4a44372f9fbe7ae3383c3cc684f891423e21dbe87ee720c5194ff0a7df",
     "MapEditor/data/tiles/tileSimple.png": "29d340e87f040bf3e08c7800c5f04f7e8a1a2c4e6fa05ea2a0f34b6eda74c17a",
-    "MapEditor/data/tiles/tree.png": "94d3ac0f1da2687f21ff86000b7972d9dbb8407eb2fb5b732f38ec6934a92eff"
+    "MapEditor/data/tiles/tree.png": "94d3ac0f1da2687f21ff86000b7972d9dbb8407eb2fb5b732f38ec6934a92eff",
+    "Client/data/Images/Persos/reborn/adventurer.png": "a6afbd8b4c9325b0ee26c1e6fb14db02acf2f30d109131a362be53349f20f990"
   }
 }

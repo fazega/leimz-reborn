@@ -14,4 +14,5 @@ if (-not $process.WaitForExit(60000)) { $process.Kill(); throw 'Integration test
 $log = Get-Content "$testDir\smoke.log" -Raw
 if ($log -notmatch 'BARREL_BLOCKED' -or $log -notmatch 'VERIFIED_NPC_LOADED_AFTER_POSITION_SYNC') { throw 'Recovery integration test failed. See Client/build/tests logs.' }
 Write-Host 'PASS: demo login, map rendering, barrel collision and NPC discovery.'
+if ($log -notmatch 'VERIFIED_CHAT_FOCUS_AND_SHORTCUT_RELEASE' -or $log -notmatch 'VERIFIED_RESIZE=1280x800') { throw 'Chat focus or resizing regression failed.' }
 if ($Borders -and $log -notmatch 'VERIFIED_ALL_EIGHT_BORDER_VIEWS') { throw 'Border visual test failed.' }

@@ -1,5 +1,21 @@
 # Animated character candidates
 
+## Current playable character
+
+The five recovered race definitions all use the same `perso2` artwork. They now use a cleaned, transparent eight-direction atlas at `Client/data/Images/Persos/reborn/adventurer.png`, generated with the built-in image-generation tool from the original front, back and right-profile sprites. The original files remain intact. Only the new atlas was added to the protected content baseline.
+
+The renderer slices four columns and eight rows, trims transparent cell margins and anchors poses at the feet. Column zero is idle; walking plays columns 1, 2, 3, 2 over 480 ms. A subtle breathing effect runs while idle. Walking follows confirmed world-position changes, stops after movement ceases, and ignores teleport jumps. Gameplay coordinates, collision rules, dialogue and map data are unchanged. NPC artwork remains the recovered artwork.
+
+The atlas is derived from the existing character, not an independently licensed replacement for the historical artwork. The external packs below remain alternatives.
+
+### Generation prompt
+
+Create a production sprite atlas cleaning up and animating the SAME existing game character in references: slim young male fantasy adventurer, tousled brown hair, yellow sleeveless tunic, yellow forearm wraps, dark teal trousers, brown boots. Preserve recognizable costume, hair, proportions and warm hand-painted Dofus-era isometric aesthetic. Remove ALL original grey/beige background; genuinely transparent alpha background, no checkerboard, no labels or grid lines, no ground shadow. EXACT atlas layout: 4 columns by 8 rows of equally sized square cells, total image 1024 pixels wide by 2048 pixels high, each cell 256x256. Each cell holds exactly one full body character, feet centered at x=128 y=224 relative to cell, top of head approximately y=32. No weapons or additional accessories. Rows directions in exact order: row1 faces south/front, row2 southeast/front-right, row3 east/right profile, row4 northeast/back-right, row5 north/back, row6 northwest/back-left, row7 west/left profile, row8 southwest/front-left. Every row: column1 relaxed neutral idle, column2 walking left foot forward/right arm forward, column3 passing mid-stride neutral, column4 walking right foot forward/left arm forward. Both feet whole and fully visible in every cell; same consistent body size and identity throughout. Crisp clean small-game-sprite readable silhouettes, smooth transparent edges, no background scenery, no text. Correct back views especially rows4-6. This atlas will be sliced automatically into 32 equal cells; meticulous alignment is essential.
+
+The tool's returned dimensions determine cell size; the renderer does not assume the requested pixel dimensions.
+
+## External alternatives
+
 Research: 19 September 2026. These are candidates, not imported assets or replacement character art.
 
 | Pack                                                                                                                                  | Visual direction and animations                                                                    | License stated by creator                                     | Fit for Leimz                                                                                                                          |
@@ -10,7 +26,7 @@ Research: 19 September 2026. These are candidates, not imported assets or replac
 
 ## Integration requirements
 
-The recovered `Joueur` renderer selects a still image for each orientation; it does not currently advance a walk cycle. Supporting an animated pack needs a small animation controller with idle/walk state, frame durations, direction mapping, and a consistent foot anchor. Keep visual frame dimensions separate from gameplay collision coordinates. Add attack/death states when those gameplay transitions are implemented.
+`Joueur` now uses `CharacterMotion` and `CharacterSprites` for the cleaned playable character. Other packs would need their own frame definitions, timing, direction mapping and foot anchors. Keep visual frame dimensions separate from gameplay collision coordinates. Add attack/death states when those gameplay transitions are implemented.
 
 Check actual files for complete direction coverage and consistent foot placement before choosing a pack. Preserve the creator's license alongside imported assets and update only the newly approved content-baseline entries.
 

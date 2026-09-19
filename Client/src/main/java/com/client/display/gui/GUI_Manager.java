@@ -50,6 +50,11 @@ public class GUI_Manager {
         gc.getInput().addPrimaryListener(twlInputAdapter);
     }
 
+    public void resize(int width, int height) {
+        lwjglRenderer.setViewport(0, 0, width, height);
+        gui.setSize();
+    }
+
     public ThemeManager getTheme() {
         return theme;
     }

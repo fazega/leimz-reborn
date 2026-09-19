@@ -73,7 +73,7 @@ public class Identification extends BasicGameState {
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         // Affichage des images de fond
-        fond.draw();
+        fond.draw(0, 0, Base.sizeOfScreen_x, Base.sizeOfScreen_y);
         logo.draw(
                 Base.sizeOfScreen_x / 2 - (logo.getWidth() * 0.4f / 2),
                 Base.sizeOfScreen_y / 2 - (logo.getHeight() * 0.4f / 2) - 200,

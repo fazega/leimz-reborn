@@ -125,7 +125,7 @@ public class CreationPerso extends BasicGameState {
     public void render(GameContainer arg0, StateBasedGame arg1, Graphics arg2)
             throws SlickException {
 
-        fond.draw();
+        fond.draw(0, 0, Base.sizeOfScreen_x, Base.sizeOfScreen_y);
 
         String titre = "Creation de personnage";
         labeltitre.drawString(Base.sizeOfScreen_x / 2 - labeltitre.getWidth(titre) / 2, 100, titre);

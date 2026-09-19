@@ -19,6 +19,13 @@ import com.client.gamestates.Base;
 import com.client.map.Tile;
 import com.client.map.managers.MapManager;
 import com.client.network.NetworkManager;
+import com.client.display.gui.GUI_Manager;
+import com.client.utils.gui.ChatFrame;
+import com.client.utils.gui.PrincipalGui;
+import com.client.display.ResizableGameContainer;
+import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.DisplayMode;
+import de.matthiasmann.twl.Event;
 
 import de.matthiasmann.twl.EditField;
 
@@ -53,6 +60,11 @@ public class RecoverySmokeTest extends Base {
         }
         ++framesInState;
         try {
+            if (state == IDENTIFICATION && framesInState == 5) {
+                Display.setDisplayMode(new DisplayMode(1100, 720));
+            }
+            if (state == IDENTIFICATION && framesInState == 10)
+                verifyWindowSize(container, 1100, 720);
             if (state == IDENTIFICATION && framesInState == LOGIN_ACTION_FRAME) {
                 submitLogin();
             }
@@ -64,6 +76,11 @@ public class RecoverySmokeTest extends Base {
                 saveScreenshot(container, graphics, state);
             }
             if (state == PRINCIPAL) {
+                if (framesInState == 35) Display.setDisplayMode(new DisplayMode(900, 640));
+                if (framesInState == 40) verifyWindowSize(container, 900, 640);
+                if (framesInState == 45) Display.setDisplayMode(new DisplayMode(1280, 800));
+                if (framesInState == 50) verifyWindowSize(container, 1280, 800);
+                if (framesInState == 180) checkChatFocus();
                 checkWorldRecovery(container);
                 if (Boolean.getBoolean("test.borders")) checkBorders(container, graphics);
             }
@@ -71,6 +88,62 @@ public class RecoverySmokeTest extends Base {
             exception.printStackTrace();
             System.exit(2);
         }
+    }
+
+    private void verifyWindowSize(GameContainer container, int width, int height) {
+        if (!Display.isResizable()
+                || container.getWidth() != width
+                || container.getHeight() != height
+                || Base.sizeOfScreen_x != width
+                || Base.sizeOfScreen_y != height) {
+            throw new AssertionError("Viewport did not track native window size");
+        }
+        System.out.println("VERIFIED_RESIZE=" + width + "x" + height);
+        if (GUI_Manager.instance.getGui().getWidth() != width
+                || GUI_Manager.instance.getGui().getHeight() != height) {
+            throw new AssertionError("GUI viewport did not resize");
+        }
+        if (getCurrentStateID() == PRINCIPAL) {
+            ChatFrame chat = PrincipalGui.instance.getChat_frame();
+            if (chat.getY() + chat.getHeight() > height || chat.getX() + chat.getWidth() > width) {
+                throw new AssertionError("Chat clipped after resize");
+            }
+        }
+    }
+
+    private void checkChatFocus() throws Exception {
+        ChatFrame chat = PrincipalGui.instance.getChat_frame();
+        Field field = ChatFrame.class.getDeclaredField("editField");
+        field.setAccessible(true);
+        EditField input = (EditField) field.get(chat);
+        GUI_Manager ui = GUI_Manager.instance;
+        input.setText("draft");
+        input.requestKeyboardFocus();
+        if (!ui.getGui().handleKey(Event.KEY_I, 'i', true)) {
+            throw new AssertionError("Chat must consume typing while focused");
+        }
+        ui.getGui().handleKey(Event.KEY_I, 'i', false);
+        String draft = input.getText();
+        int x = input.getX() + input.getWidth() / 2;
+        int y = input.getY() + input.getHeight() / 2;
+        ui.getTwlInputAdapter().mousePressed(0, x, y);
+        ui.getTwlInputAdapter().mouseReleased(0, x, y);
+        if (!input.hasKeyboardFocus()) throw new AssertionError("Click inside chat lost focus");
+        ui.getTwlInputAdapter().mousePressed(0, chat.getX() + 20, chat.getY() + 50);
+        ui.getTwlInputAdapter().mouseReleased(0, chat.getX() + 20, chat.getY() + 50);
+        if (input.hasKeyboardFocus())
+            throw new AssertionError("Chat history click retained input focus");
+        input.requestKeyboardFocus();
+        ui.getTwlInputAdapter().mousePressed(0, 700, 300);
+        ui.getTwlInputAdapter().mouseReleased(0, 700, 300);
+        if (input.hasKeyboardFocus()) throw new AssertionError("Outside click retained chat focus");
+        if (ui.getGui().handleKey(Event.KEY_I, 'i', true)) {
+            throw new AssertionError("GUI still consumes game shortcut after outside click");
+        }
+        ui.getGui().handleKey(Event.KEY_I, 'i', false);
+        if (!draft.equals(input.getText())) throw new AssertionError("Outside click changed draft");
+        input.setText("");
+        System.out.println("VERIFIED_CHAT_FOCUS_AND_SHORTCUT_RELEASE");
     }
 
     private void submitLogin() throws Exception {
@@ -207,7 +280,7 @@ public class RecoverySmokeTest extends Base {
     }
 
     public static void main(String[] args) throws SlickException {
-        AppGameContainer app = new AppGameContainer(new RecoverySmokeTest());
+        AppGameContainer app = new ResizableGameContainer(new RecoverySmokeTest());
         app.setDisplayMode(1000, 680, false);
         app.setTargetFrameRate(30);
         app.setAlwaysRender(true);

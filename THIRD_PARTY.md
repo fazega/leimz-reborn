@@ -1,10 +1,10 @@
 # Bundled historical dependencies
 
-These binaries were recovered from the original Leïmz archive. They are retained at their exact recovered versions for compatibility; they are not newly selected recommendations.
+Most binaries were recovered from the original Leïmz archive. The Client's LWJGL core, utilities and Windows/Linux native libraries were updated to 2.9.3 to support native window resizing; MapEditor retains its recovered versions.
 
 | Component | Recovered dependency                                                                          |
 | --------- | --------------------------------------------------------------------------------------------- |
-| Client    | Slick build 274, LWJGL 2.8.0 and native libraries                                             |
+| Client    | Slick build 274, LWJGL 2.9.3 core/utilities and matching Windows/Linux native libraries       |
 | Client    | TWL, JInput, JDOM, XPP3 1.1.4c                                                                |
 | Client    | Log4j 1.2.16, MySQL Connector/J 5.1.18                                                        |
 | Server    | MySQL Connector/J 5.1.18                                                                      |
