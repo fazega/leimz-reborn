@@ -23,7 +23,12 @@ public class MainJoueur extends Joueur
     private ArrayList<Tile> list_tiles_done;
     private Tile next_tile;
 
-    private Vector2f poscopie;
+    private volatile Vector2f poscopie;
+    private volatile boolean awaitingMovementApproval;
+
+    public void finishMovementApproval() {
+        awaitingMovementApproval = false;
+    }
 
 
     public Vector2f getPoscopie() {
@@ -300,6 +305,8 @@ public class MainJoueur extends Joueur
 
     public void moveKey()
     {
+        // Replies have no request ID: retain this candidate until its reply arrives.
+        if (awaitingMovementApproval) return;
         poscopie = pos_real.copy();
         current_chemin = null;
         if(perso.getCurrent_combat() != null)
@@ -399,6 +406,7 @@ public class MainJoueur extends Joueur
 
             Tile candidate = MapManager.instance.getTileReal(poscopie);
             if (candidate == null || candidate.isCollidable()) return;
+            awaitingMovementApproval = true;
             NetworkManager.instance.sendToServer("afm;key;"+poscopie.x+";"+poscopie.y+";"+size.x+";"+size.y);
 
 

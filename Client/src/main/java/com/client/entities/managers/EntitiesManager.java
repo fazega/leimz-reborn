@@ -52,6 +52,7 @@ public class EntitiesManager implements NetworkListener
                 MainJoueur.instance.setPos_real(MainJoueur.instance.getPoscopie());
                 com.client.network.NetworkManager.instance.sendToServer("s;pos;"+MainJoueur.instance.getPos_real().x+";"+MainJoueur.instance.getPos_real().y+";"+MainJoueur.instance.stringOrientation());
             }
+            MainJoueur.instance.finishMovementApproval();
         }
         if(temp[0].equals("lo"))
         {
