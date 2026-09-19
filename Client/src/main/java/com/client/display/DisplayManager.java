@@ -277,6 +277,8 @@ public class DisplayManager {
 
         float scale = camera.getZoomScale();
 
+        WorldBorder.drawGround(g);
+
         if (CombatManager.instance.getCurrent_combat() != null) {
             CombatManager.instance.getCurrent_combat().draw(g, mousePos, scale);
             MapManager.instance.drawMap(
@@ -284,6 +286,7 @@ public class DisplayManager {
         } else {
             MapManager.instance.drawMap(MapManager.instance.getMap_visible(), null, scale);
         }
+        WorldBorder.drawRocks(g);
         drawEntities(scale);
 
         if (MainJoueur.instance.getPerso().getCurrent_sort() != null) {

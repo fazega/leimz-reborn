@@ -28,6 +28,7 @@ public class Loading extends BasicGameState {
     private float purcent = 0;
 
     private boolean loadMapFinished = false, loadJoueurFinished = false;
+    private long startedAt;
 
     @Override
     public int getID() {
@@ -37,6 +38,10 @@ public class Loading extends BasicGameState {
     @SuppressWarnings("unchecked")
     @Override
     public void enter(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        startedAt = System.nanoTime();
+        loadMapFinished = false;
+        loadJoueurFinished = false;
+        purcent = 0;
         Font f = new Font("Trebuchet MS", 25, Font.BOLD);
 
         logo = new Image("data/Images/Logo/Leimz_Logo_Final_HD_Transparent.png");
@@ -106,6 +111,7 @@ public class Loading extends BasicGameState {
             e_m.setPlayers_manager(
                     new PlayersManager(MainJoueur.instance, load_joueur.getPlayers()));
 
+            System.out.println("WORLD_LOAD_MS=" + (System.nanoTime() - startedAt) / 1000000);
             sbg.enterState(Base.PRINCIPAL);
         }
     }

@@ -19,6 +19,12 @@ public final class MapGeometryTest {
             }
         }
         MapManager manager = new MapManager(new Map(grid, null));
+        for (int x = 0; x < grid.length; x++) {
+            for (int y = 0; y < grid[x].length; y++) {
+                boolean edge = x == 0 || y == 0 || x == grid.length - 1 || y == grid[x].length - 1;
+                require(grid[x][y].isCollidable() == edge, "Perimeter collision at " + x + "," + y);
+            }
+        }
         require(
                 grid[0][0].getPos_real_barycentre().equals(new Vector2f(40, 20)),
                 "Even column centre");

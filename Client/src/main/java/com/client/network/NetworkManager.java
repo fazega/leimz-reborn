@@ -54,14 +54,14 @@ public class NetworkManager {
 
     public void waitForNewMessage(String name) {
         long start = System.currentTimeMillis();
-        do {
+        while (!message_recu_serveur.containsKey(name)) {
             receiveFromServerPossible();
             if ((System.currentTimeMillis() - start) > timeout) {
                 System.err.println("Message " + name + " du serveur non reÃ§u");
                 System.err.println("Message en stock : " + message_recu_serveur.toString());
                 System.exit(1);
             }
-        } while (!message_recu_serveur.containsKey(name));
+        }
     }
 
     public String receiveFromServer(String name) {

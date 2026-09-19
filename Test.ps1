@@ -2,6 +2,7 @@ param([switch]$Integration)
 . "$PSScriptRoot\common.ps1"
 & "$RepoRoot\Build.ps1"
 & "$RepoRoot\Client\Test-Fast.ps1"
+& "$RepoRoot\Server\Test-Fast.ps1"
 $node = Get-Setting 'node' 'node'
 & $node --test "$RepoRoot\Test-Content.cjs"
 if ($LASTEXITCODE -ne 0) { throw 'Content preservation tests failed.' }

@@ -24,6 +24,12 @@ public class MapManager {
         // On parcourt alors les lignes et les colonnes
         for (int i = 0; i < entire_map.getGrille().length; i++) {
             for (int j = 0; j < entire_map.getGrille()[i].length; j++) {
+                if (i == 0
+                        || j == 0
+                        || i == entire_map.getGrille().length - 1
+                        || j == entire_map.getGrille()[i].length - 1) {
+                    entire_map.getGrille()[i][j].setCollidable(true);
+                }
                 if (i % 2 == 0) // Si la colonne est paire
                 {
                     // On dï¿½termine la "vraie" position de la tile par rapport aux coordonnï¿½es

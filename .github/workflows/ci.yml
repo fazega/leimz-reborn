@@ -53,7 +53,9 @@ jobs:
 
       - name: Test geometry and collision rules
         id: geometry
-        run: ./Client/Test-Fast.ps1
+        run: |
+          ./Client/Test-Fast.ps1
+          ./Server/Test-Fast.ps1
 
       - name: Verify protected game and website content
         id: content

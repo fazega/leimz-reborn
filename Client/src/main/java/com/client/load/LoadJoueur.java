@@ -21,7 +21,7 @@ import com.client.network.NetworkManager;
 /** @author fazega */
 public class LoadJoueur implements Runnable {
     private Thread t;
-    private int purcent;
+    private volatile int purcent;
     private Joueur joueur;
     private ArrayList<Joueur> list_joueur;
 

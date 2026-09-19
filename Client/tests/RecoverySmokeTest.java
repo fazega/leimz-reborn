@@ -65,6 +65,7 @@ public class RecoverySmokeTest extends Base {
             }
             if (state == PRINCIPAL) {
                 checkWorldRecovery(container);
+                if (Boolean.getBoolean("test.borders")) checkBorders(container, graphics);
             }
         } catch (Exception exception) {
             exception.printStackTrace();
@@ -123,7 +124,40 @@ public class RecoverySmokeTest extends Base {
         }
         if (framesInState == NPC_CHECK_FRAME) {
             checkNpcLoaded();
+            if (!Boolean.getBoolean("test.borders")) container.exit();
+        }
+    }
+
+    private void checkBorders(GameContainer container, Graphics graphics) throws Exception {
+        int[][] positions = {
+            {1, 1}, {100, 1}, {198, 1}, {198, 100}, {198, 198}, {100, 198}, {1, 198}, {1, 100}
+        };
+        int elapsed = framesInState - NPC_CHECK_FRAME;
+        if (elapsed < 0) return;
+        int index = elapsed / 15;
+        if (index >= positions.length) {
+            MainJoueur.instance.setPos_real(
+                    MapManager.instance
+                            .getEntire_map()
+                            .getGrille()[9][13]
+                            .getPos_real_barycentre());
+            System.out.println("VERIFIED_ALL_EIGHT_BORDER_VIEWS");
             container.exit();
+        } else if (elapsed % 15 == 0) {
+            Tile tile =
+                    MapManager.instance.getEntire_map()
+                            .getGrille()[positions[index][0]][positions[index][1]];
+            MainJoueur.instance.setTile(tile);
+            MainJoueur.instance.setPos_real(tile.getPos_real_barycentre());
+        } else if (elapsed % 15 == 10) {
+            Image screenshot = new Image(container.getWidth(), container.getHeight());
+            graphics.copyArea(screenshot, 0, 0);
+            ImageOut.write(
+                    screenshot,
+                    "png",
+                    System.getProperty("test.output") + "/border-" + index + ".png",
+                    false);
+            screenshot.destroy();
         }
     }
 

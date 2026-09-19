@@ -9,3 +9,11 @@ Demo login: **player / leimz-local** → **FaZeGa**. NPC **Well Caume** is at (5
 The launcher preserves the legacy 1000×680 game surface. Font/DPI initialization now happens before window creation. Collisions use solid map tiles, rather than pixel-perfect sprite shapes.
 
 The optional `Test-Recovery.ps1` integration check logs into the demo database, tests a barrel collision and verifies NPC discovery after synchronizing position. Run only against the demo seed: it temporarily changes FaZeGa's saved position. It does not test all quest, combat or click-pathfinding behavior.
+
+# Loading and world perimeter
+
+World loading consumes queued network packets immediately and enters gameplay as soon as map and player loading finish. The illustrated screen remains during actual work; there is no minimum display duration. `WORLD_LOAD_MS` in the client log measures this phase.
+
+The outermost map tiles are solid on both client and server. A procedural mossy rock field continues beyond the map to cover the camera view at every edge. This is a runtime border; the historical map XML, database seed, NPCs and interior scenery remain unchanged. The MapEditor still edits the original map data.
+
+Run `./Client/Test-Recovery.ps1 -Borders` from the repository root with the demo server running to capture all four corners and four edge midpoints under `Client/build/tests/border-*.png`. This includes the normal gameplay smoke checks. Animated character candidates and renderer requirements are documented in [CHARACTER-ART.md](../CHARACTER-ART.md).

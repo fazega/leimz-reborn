@@ -596,6 +596,7 @@ public class LoadFunction implements Functionable {
                     // System.out.println(toSend);
                 }
             }
+            if (h % packetSize != 0) client.sendMessage(toSend);
             rs.close();
             stmt.close();
         } catch (SQLException e) {

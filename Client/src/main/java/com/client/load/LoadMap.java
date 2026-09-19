@@ -14,7 +14,7 @@ public class LoadMap implements Runnable {
     private Tile[][] grille;
     private ArrayList<GroupTiles> groups;
     private Thread t;
-    private int purcent;
+    private volatile int purcent;
 
     public LoadMap() {
         this.purcent = 0;
@@ -79,7 +79,6 @@ public class LoadMap implements Runnable {
         int n = 0;
         int zero = purcent;
         do {
-            NetworkManager.instance.receiveFromServerPossible();
             NetworkManager.instance.waitForNewMessage("map");
             String[] args_tile = NetworkManager.instance.receiveFromServer("map").split(";");
             for (int u = 1; u < args_tile.length; u += 5) {
@@ -101,7 +100,7 @@ public class LoadMap implements Runnable {
                 }
                 n++;
             }
-            purcent = (int) ((zero + (int) ((n / 5) / (((max_x + 1) * (max_y + 1)) / 500))) * 0.7f);
+            purcent = zero + (int) (67L * n / ((max_x + 1L) * (max_y + 1L)));
 
         } while (n < ((max_x + 1) * (max_y + 1)));
 
@@ -121,12 +120,6 @@ public class LoadMap implements Runnable {
         LoadingList.setDeferredLoading(false);
 
         purcent += 7;
-
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     public Tile[][] getGrille() {
