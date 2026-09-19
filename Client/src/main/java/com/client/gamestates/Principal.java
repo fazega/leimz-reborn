@@ -21,53 +21,47 @@ import com.client.utils.pathfinder.PathFinder;
 
 import de.matthiasmann.twl.ResizableFrame;
 
-public class Principal extends BasicGameState
-{
+public class Principal extends BasicGameState {
 
-    //----------------------------Map-----------------------------------
+    // ----------------------------Map-----------------------------------
     private DisplayManager disp;
 
-    //------------------GUI----------------
+    // ------------------GUI----------------
     @SuppressWarnings("unused")
     private PrincipalGui maingui;
 
-    //EVENTS
+    // EVENTS
     private MainEventListener event_listener;
 
-    //Entites du jeu
+    // Entites du jeu
     private EntitiesManager entities_manager;
 
-    //Gestionnaire de recherche de chemin
+    // Gestionnaire de recherche de chemin
     private PathFinder pathfinder;
 
-    //Camera
+    // Camera
     private Camera camera;
 
     private float current_scale = 1;
 
-    //------------COMBAT-------------
+    // ------------COMBAT-------------
     private CombatManager combatManager;
 
-
     @Override
-    public int getID()
-    {
+    public int getID() {
         return 4;
     }
 
     @Override
-    public void enter(GameContainer gc, StateBasedGame sbg)
-            throws SlickException
-    {
+    public void enter(GameContainer gc, StateBasedGame sbg) throws SlickException {
 
-        entities_manager =  EntitiesManager.instance;
+        entities_manager = EntitiesManager.instance;
 
         GUI_Manager.instance.getRoot().removeAllChildren();
 
         MainJoueur.instance.initImgs();
 
-        for(int i = 0; i < entities_manager.getPnjs_manager().getPnjs().size(); i++)
-        {
+        for (int i = 0; i < entities_manager.getPnjs_manager().getPnjs().size(); i++) {
             entities_manager.getPnjs_manager().getPnjs().get(i).initImgs();
         }
 
@@ -89,72 +83,106 @@ public class Principal extends BasicGameState
     }
 
     @Override
-    public void init(GameContainer gc, StateBasedGame sbg)
-            throws SlickException
-    {
-
-    }
+    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {}
 
     @Override
-    public void render(GameContainer gc, StateBasedGame sbg, Graphics gr)
-            throws SlickException
-    {
+    public void render(GameContainer gc, StateBasedGame sbg, Graphics gr) throws SlickException {
         disp.drawAll(gr, new Vector2f(gc.getInput().getMouseX(), gc.getInput().getMouseY()));
-
 
         GUI_Manager.instance.getTwlInputAdapter().render();
     }
 
     @Override
-    public void update(GameContainer gc, StateBasedGame sbg, int delta)
-            throws SlickException
-    {
+    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         gc.setMinimumLogicUpdateInterval(10);
         gc.setMaximumLogicUpdateInterval(10);
 
-        for(int i = 0; i < entities_manager.getPlayers_manager().getJoueurs().size(); i++)
-        {
-            if(entities_manager.getPlayers_manager().getJoueurs().get(i).getPos_real() != null)
-            {
-                entities_manager.getPlayers_manager().getJoueurs().get(i).setTile(MapManager.instance.getTileReal(
-                        entities_manager.getPlayers_manager().getJoueurs().get(i).getPos_real()));
+        for (int i = 0; i < entities_manager.getPlayers_manager().getJoueurs().size(); i++) {
+            if (entities_manager.getPlayers_manager().getJoueurs().get(i).getPos_real() != null) {
+                entities_manager
+                        .getPlayers_manager()
+                        .getJoueurs()
+                        .get(i)
+                        .setTile(
+                                MapManager.instance.getTileReal(
+                                        entities_manager
+                                                .getPlayers_manager()
+                                                .getJoueurs()
+                                                .get(i)
+                                                .getPos_real()));
             }
         }
-        for(int i = 0; i < entities_manager.getPnjs_manager().getPnjs().size(); i++)
-        {
-            if(entities_manager.getPnjs_manager().getPnjs().get(i).getImgs_repos()==null)
+        for (int i = 0; i < entities_manager.getPnjs_manager().getPnjs().size(); i++) {
+            if (entities_manager.getPnjs_manager().getPnjs().get(i).getImgs_repos() == null)
                 entities_manager.getPnjs_manager().getPnjs().get(i).initImgs();
         }
 
         MainJoueur.instance.setTile(
-                MapManager.instance.getTileReal(MainJoueur.instance.getPos_real())
-                );
+                MapManager.instance.getTileReal(MainJoueur.instance.getPos_real()));
         MainJoueur.instance.move();
 
-        if(NetworkManager.instance.getS().isClosed())
-        {
-            ResizableFrame frame = PrincipalGui.getPopup("Le serveur vous a dÃ©connectÃ©. Motif : Serveur dÃ©connectÃ©");
+        if (NetworkManager.instance.getS().isClosed()) {
+            ResizableFrame frame =
+                    PrincipalGui.getPopup(
+                            "Le serveur vous a dÃ©connectÃ©. Motif : Serveur dÃ©connectÃ©");
             GUI_Manager.instance.getRoot().add(frame);
         }
 
-        camera.focusOn(MainJoueur.instance.getTile(), MainJoueur.instance.getTile().getPos_real().copy().sub(MainJoueur.instance.getPos_real()));
+        camera.focusOn(
+                MainJoueur.instance.getTile(),
+                MainJoueur.instance
+                        .getTile()
+                        .getPos_real()
+                        .copy()
+                        .sub(MainJoueur.instance.getPos_real()));
         camera.zoom(current_scale);
 
         MainJoueur.instance.refresh();
-        for(int i = 0; i < entities_manager.getPlayers_manager().getJoueurs().size(); i++)
-        {
+        for (int i = 0; i < entities_manager.getPlayers_manager().getJoueurs().size(); i++) {
             entities_manager.getPlayers_manager().getJoueurs().get(i).refresh();
-            if(entities_manager.getPlayers_manager().getJoueurs().get(i).getCurrent_textbubble()!=null)
-            {
-                entities_manager.getPlayers_manager().getJoueurs().get(i).getCurrent_textbubble().setPosition((int)(entities_manager.getPlayers_manager().getJoueurs().get(i).getPos_real_on_screen().x-
-                        entities_manager.getPlayers_manager().getJoueurs().get(i).getCurrent_textbubble().getWidth())+40, (int)(entities_manager.getPlayers_manager().getJoueurs().get(i).getPos_real_on_screen().y-
-                                entities_manager.getPlayers_manager().getJoueurs().get(i).getCurrent_textbubble().getHeight()+7));
+            if (entities_manager.getPlayers_manager().getJoueurs().get(i).getCurrent_textbubble()
+                    != null) {
+                entities_manager
+                        .getPlayers_manager()
+                        .getJoueurs()
+                        .get(i)
+                        .getCurrent_textbubble()
+                        .setPosition(
+                                (int)
+                                                (entities_manager
+                                                                .getPlayers_manager()
+                                                                .getJoueurs()
+                                                                .get(i)
+                                                                .getPos_real_on_screen()
+                                                                .x
+                                                        - entities_manager
+                                                                .getPlayers_manager()
+                                                                .getJoueurs()
+                                                                .get(i)
+                                                                .getCurrent_textbubble()
+                                                                .getWidth())
+                                        + 40,
+                                (int)
+                                        (entities_manager
+                                                        .getPlayers_manager()
+                                                        .getJoueurs()
+                                                        .get(i)
+                                                        .getPos_real_on_screen()
+                                                        .y
+                                                - entities_manager
+                                                        .getPlayers_manager()
+                                                        .getJoueurs()
+                                                        .get(i)
+                                                        .getCurrent_textbubble()
+                                                        .getHeight()
+                                                + 7));
             }
 
-            //System.out.println("Joueur "+entities_manager.getPlayers_manager().getJoueurs().get(i).getPerso().getNom()+" : "+entities_manager.getPlayers_manager().getJoueurs().get(i).getPos_real_on_screen().x+" -- "+entities_manager.getPlayers_manager().getJoueurs().get(i).getPos_real_on_screen().y);
+            // System.out.println("Joueur
+            // "+entities_manager.getPlayers_manager().getJoueurs().get(i).getPerso().getNom()+" :
+            // "+entities_manager.getPlayers_manager().getJoueurs().get(i).getPos_real_on_screen().x+" -- "+entities_manager.getPlayers_manager().getJoueurs().get(i).getPos_real_on_screen().y);
         }
-        for(int i = 0; i < entities_manager.getPnjs_manager().getPnjs().size(); i++)
-        {
+        for (int i = 0; i < entities_manager.getPnjs_manager().getPnjs().size(); i++) {
             entities_manager.getPnjs_manager().getPnjs().get(i).refresh();
         }
 
@@ -162,14 +190,11 @@ public class Principal extends BasicGameState
 
         PrincipalGui.instance.refresh();
 
-
         GUI_Manager.instance.getTwlInputAdapter().update();
-        if(!GUI_Manager.instance.getTwlInputAdapter().isOn_gui_event())
-        {
+        if (!GUI_Manager.instance.getTwlInputAdapter().isOn_gui_event()) {
             event_listener.pollEvents();
             MainJoueur.instance.getEvent_listener().pollEvents();
-            for(int i = 0; i < entities_manager.getPnjs_manager().getPnjs().size(); i++)
-            {
+            for (int i = 0; i < entities_manager.getPnjs_manager().getPnjs().size(); i++) {
                 entities_manager.getPnjs_manager().getPnjs().get(i).pollEvents(gc.getInput());
             }
         }

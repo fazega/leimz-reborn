@@ -5,27 +5,24 @@ import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.util.InputAdapter;
 
-
 /**
  * A Slick InputListener which delegates to TWL.
- * <p>
- * It should be added to Slick's Input class as primary listener:<br>
+ *
+ * <p>It should be added to Slick's Input class as primary listener:<br>
  * {@code input.addPrimaryListener(new TWLInputAdapter(gui, input));}
- * <p>
- * Note: if you get an error with one of the @Override annotations then DO NOT
- * comment them out - upgrade to the latest Slick version. These methods must be
- * called by Slick for correct operation.
+ *
+ * <p>Note: if you get an error with one of the @Override annotations then DO NOT comment them out -
+ * upgrade to the latest Slick version. These methods must be called by Slick for correct operation.
  *
  * @author Matthias Mann
  */
 
 /**
- * En gros cette classe permet de vÃ©rifier si les Ã©vÃ©nements de slick sont en fait dÃ©jÃ  gÃ©rer par twl ou non, pour Ã©viter les conflits
- * On teste donc grave Ã  gui.handle si l'Ã©vÃ©nement est dÃ©jÃ  gÃ©rer par TWL, sinon on passe par slick.
- *
+ * En gros cette classe permet de vÃ©rifier si les Ã©vÃ©nements de slick sont en fait dÃ©jÃ  gÃ©rer
+ * par twl ou non, pour Ã©viter les conflits On teste donc grave Ã  gui.handle si l'Ã©vÃ©nement est
+ * dÃ©jÃ  gÃ©rer par TWL, sinon on passe par slick.
  *
  * @author Greg
- *
  */
 public class TWLInputAdapter extends InputAdapter {
 
@@ -48,31 +45,26 @@ public class TWLInputAdapter extends InputAdapter {
 
     @Override
     public void mouseWheelMoved(int change) {
-            if (gui.handleMouseWheel(change)) {
-                consume();
-            }
-            else if(on_gui_event)
-            {
-                on_gui_event = false;
-            }
+        if (gui.handleMouseWheel(change)) {
+            consume();
+        } else if (on_gui_event) {
+            on_gui_event = false;
+        }
     }
 
     @Override
-    public void mousePressed(int button, int x, int y)
-    {
-        //mouseDown |= 1 << button;
+    public void mousePressed(int button, int x, int y) {
+        // mouseDown |= 1 << button;
         if (gui.handleMouse(x, y, button, true)) {
             consume();
-        }
-        else if(on_gui_event)
-        {
+        } else if (on_gui_event) {
             on_gui_event = false;
         }
     }
 
     @Override
     public void mouseReleased(int button, int x, int y) {
-        //mouseDown &= ~(1 << button);
+        // mouseDown &= ~(1 << button);
 
         if (gui.handleMouse(x, y, button, false)) {
             consume();
@@ -85,7 +77,6 @@ public class TWLInputAdapter extends InputAdapter {
         if (gui.handleMouse(newX, newY, -1, false)) {
             consume();
         }
-
     }
 
     @Override
@@ -100,7 +91,6 @@ public class TWLInputAdapter extends InputAdapter {
         if (gui.handleKey(key, c, true)) {
             consume();
         }
-
     }
 
     @Override
@@ -108,8 +98,7 @@ public class TWLInputAdapter extends InputAdapter {
         if (gui.handleKey(key, c, false)) {
             consume();
             on_gui_event = false;
-        }
-        else {
+        } else {
             on_gui_event = false;
         }
     }
@@ -121,8 +110,7 @@ public class TWLInputAdapter extends InputAdapter {
         }*/
     }
 
-    private void consume()
-    {
+    private void consume() {
         on_gui_event = true;
         input.consumeEvent();
     }
@@ -154,8 +142,7 @@ public class TWLInputAdapter extends InputAdapter {
     /**
      * Call this method from {@code BasicGame.render}
      *
-     * @see BasicGame#render(org.newdawn.slick.GameContainer,
-     *      org.newdawn.slick.Graphics)
+     * @see BasicGame#render(org.newdawn.slick.GameContainer, org.newdawn.slick.Graphics)
      */
     public void render() {
         gui.draw();
@@ -168,6 +155,4 @@ public class TWLInputAdapter extends InputAdapter {
     public void setOn_gui_event(boolean onGuiEvent) {
         on_gui_event = onGuiEvent;
     }
-
-
 }

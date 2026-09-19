@@ -1,13 +1,11 @@
 package com.loop;
 
-
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class Base extends StateBasedGame
-{
+public class Base extends StateBasedGame {
 
     public static int PRINCIPAL = 1;
     public static int sizeOfScreen_x = 1353;
@@ -17,14 +15,11 @@ public class Base extends StateBasedGame
         super("Leïmz Map Editor");
     }
 
-    public void initStatesList(GameContainer gc) throws SlickException
-    {
+    public void initStatesList(GameContainer gc) throws SlickException {
         this.addState(new Principal());
-
     }
 
-    public static void main(String[] args) throws SlickException
-    {
+    public static void main(String[] args) throws SlickException {
 
         Base b = new Base();
         AppGameContainer app = new AppGameContainer(b);
@@ -34,7 +29,5 @@ public class Base extends StateBasedGame
         app.setUpdateOnlyWhenVisible(false);
 
         app.start();
-
-
     }
 }

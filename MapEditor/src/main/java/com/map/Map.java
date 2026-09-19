@@ -2,17 +2,11 @@ package com.map;
 
 import java.util.ArrayList;
 
-
-
-
-
-public class Map
-{
+public class Map {
     private Grille grille;
     private ArrayList<String> data_monstres;
 
-    public Map(Grille grille, ArrayList<String> data_monstres)
-    {
+    public Map(Grille grille, ArrayList<String> data_monstres) {
         this.grille = grille;
         this.data_monstres = data_monstres;
     }
@@ -32,5 +26,4 @@ public class Map
     public void setGrille(Grille grille) {
         this.grille = grille;
     }
-
 }

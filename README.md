@@ -4,12 +4,12 @@
 
 Recovered Leïmz game and rebuilt player website, maintained in one repository.
 
-| Folder | Purpose | Runtime |
-| --- | --- | --- |
-| `Server` | Game server, database seed and server dependencies | Java 8, MariaDB |
-| `Client` | Desktop game, assets and native libraries | Java 8, Windows |
-| `Website` | Static French player portal and preview server | Node.js |
-| `MapEditor` | Recovered standalone map editor and XML maps | Java 8, Windows |
+| Folder      | Purpose                                            | Runtime         |
+| ----------- | -------------------------------------------------- | --------------- |
+| `Server`    | Game server, database seed and server dependencies | Java 8, MariaDB |
+| `Client`    | Desktop game, assets and native libraries          | Java 8, Windows |
+| `Website`   | Static French player portal and preview server     | Node.js         |
+| `MapEditor` | Recovered standalone map editor and XML maps       | Java 8, Windows |
 
 ## Quick start on Windows
 
@@ -64,6 +64,19 @@ Graphical integration tests remain local because they require a working OpenGL d
 The test runner builds all Java components, checks protected content hashes and editor archive provenance, and runs website tests. Integration additionally checks demo login, barrel collision, NPC discovery, and an editor map load/save round trip. The editor writes only a temporary map under its ignored build folder. Run integration only against the development database; it changes the demo character's saved position.
 
 `content-baseline.json` protects the game assets, map XML, database seed, website artwork and editor data. Existing content is pinned to the initial recovery commit; editor content is pinned to its import. Line-ending differences are ignored for declared text formats. Tests reject missing, added or changed protected files. When content work is explicitly approved later, review and update the baseline alongside that change; do not regenerate it just to make a failing test pass.
+
+## Code formatting
+
+Use PowerShell 7 with the existing Java 8 and Node.js prerequisites:
+
+```powershell
+npm ci --ignore-scripts
+./Format.ps1
+# Check without rewriting files (also runs in GitHub Actions):
+./Format.ps1 -Check
+```
+
+Formatting uses pinned versions of google-java-format (1.7, Java 8 compatible, four-space indentation), PSScriptAnalyzer (1.25.0) and Prettier (3.6.2). The first run downloads the Java and PowerShell formatters into the ignored `.tools` folder. Java imports are preserved. Protected game data, artwork, SQL, provenance manifests and website test fixtures are excluded from formatting. Formatting does not fix logic or change game content.
 
 ## Dependencies and assets
 

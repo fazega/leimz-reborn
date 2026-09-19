@@ -3,21 +3,20 @@ package com.client.map;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Rectangle;
 
-
-public class TypeTile
-{
+public class TypeTile {
     private Image img;
     private Rectangle base;
     private String nom;
     private int calque;
- private boolean collidable;
- public boolean isCollidable() { return collidable; }
+    private boolean collidable;
 
+    public boolean isCollidable() {
+        return collidable;
+    }
 
-    public TypeTile(String nom, Image img, Rectangle base, boolean collidable, int calque)
-    {
+    public TypeTile(String nom, Image img, Rectangle base, boolean collidable, int calque) {
         this.nom = nom;
- this.collidable = collidable;
+        this.collidable = collidable;
         this.calque = calque;
         this.img = img;
         this.base = base;
@@ -45,7 +44,7 @@ public class TypeTile
 
     public void setNom(String nom) {
         this.nom = nom;
- this.collidable = collidable;
+        this.collidable = collidable;
     }
 
     public int getCalque() {
@@ -55,6 +54,4 @@ public class TypeTile
     public void setCalque(int calque) {
         this.calque = calque;
     }
-
-
 }

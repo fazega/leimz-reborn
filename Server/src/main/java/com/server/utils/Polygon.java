@@ -2,22 +2,18 @@ package com.server.utils;
 
 import java.util.ArrayList;
 
-public class Polygon
-{
+public class Polygon {
     public ArrayList<Vector> points;
 
-    public Polygon(ArrayList<Vector> points)
-    {
+    public Polygon(ArrayList<Vector> points) {
         this.points = points;
     }
 
-    public Polygon()
-    {
+    public Polygon() {
         this.points = new ArrayList<>();
     }
 
-    public void addPoint(Vector point)
-    {
+    public void addPoint(Vector point) {
         points.add(point);
     }
 

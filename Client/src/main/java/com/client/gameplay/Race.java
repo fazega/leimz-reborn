@@ -3,21 +3,18 @@ package com.client.gameplay;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Race
-{
+public class Race {
     private String nom;
     private ArrayList<Sort> sorts;
-    private HashMap<Caracteristique,Integer> carac;
+    private HashMap<Caracteristique, Integer> carac;
 
-    public Race(String nom, ArrayList<Sort> sorts, HashMap<Caracteristique,Integer> carac)
-    {
+    public Race(String nom, ArrayList<Sort> sorts, HashMap<Caracteristique, Integer> carac) {
         this.nom = nom;
         this.sorts = sorts;
         this.carac = carac;
     }
 
-    public Race(String race)
-    {
+    public Race(String race) {
         this.nom = race;
         this.sorts = new ArrayList<>();
         this.carac = new HashMap<>();
@@ -27,7 +24,7 @@ public class Race
         return nom;
     }
 
-    public HashMap<Caracteristique,Integer> getCarac() {
+    public HashMap<Caracteristique, Integer> getCarac() {
         return carac;
     }
 
@@ -35,7 +32,7 @@ public class Race
         this.nom = nom;
     }
 
-    public void setCarac(HashMap<Caracteristique,Integer> carac) {
+    public void setCarac(HashMap<Caracteristique, Integer> carac) {
         this.carac = carac;
     }
 

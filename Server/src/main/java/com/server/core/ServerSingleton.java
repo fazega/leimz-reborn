@@ -4,27 +4,20 @@
  */
 package com.server.core;
 
-/**
- *
- * @author Utilisateur
- */
+/** @author Utilisateur */
 public class ServerSingleton {
     private static Server instance;
 
-    private static void createAnInstance()
-    {
-          if(null == instance)
-          {
-                    instance = new Server();
-          }
+    private static void createAnInstance() {
+        if (null == instance) {
+            instance = new Server();
+        }
     }
 
-    public static Server getInstance()
-    {
-          if(null == instance)
-          {
-                    createAnInstance();
-          }
-          return instance;
+    public static Server getInstance() {
+        if (null == instance) {
+            createAnInstance();
+        }
+        return instance;
     }
 }

@@ -2,14 +2,12 @@ package com.client.utils.pathfinder;
 
 import java.util.ArrayList;
 
-public class Chemin
-{
+public class Chemin {
     ArrayList<Noeud> noeuds;
     Noeud encours;
     Noeud objectif, depart;
 
-    public Chemin(Noeud depart, Noeud objectif)
-    {
+    public Chemin(Noeud depart, Noeud objectif) {
         this.noeuds = new ArrayList<Noeud>();
         this.noeuds.add(depart);
         this.depart = depart;

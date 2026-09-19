@@ -1,6 +1,3 @@
 package com.client.gameplay;
 
-public class Profession
-{
-
-}
+public class Profession {}

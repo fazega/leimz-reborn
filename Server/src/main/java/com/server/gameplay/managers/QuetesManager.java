@@ -3,28 +3,23 @@ package com.server.gameplay.managers;
 import java.util.ArrayList;
 import com.server.gameplay.Quete;
 
-public class QuetesManager
-{
+public class QuetesManager {
     private ArrayList<Quete> quetes;
 
-    public QuetesManager(ArrayList<Quete> quetes)
-    {
+    public QuetesManager(ArrayList<Quete> quetes) {
         this.quetes = quetes;
     }
 
-    public QuetesManager(Quete quete)
-    {
+    public QuetesManager(Quete quete) {
         this.quetes = new ArrayList<Quete>();
         quetes.add(quete);
     }
 
-    public QuetesManager()
-    {
+    public QuetesManager() {
         this.quetes = new ArrayList<Quete>();
     }
 
-    public void addQuete(Quete quete)
-    {
+    public void addQuete(Quete quete) {
         quetes.add(quete);
     }
 

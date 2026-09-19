@@ -6,15 +6,19 @@ import org.newdawn.slick.Image;
 
 import com.client.gameplay.Caracteristique;
 
-public class SimpleItem
-{
+public class SimpleItem {
     private String nom, description;
     private Image icon, apercu;
     private int poids;
-    private HashMap<Caracteristique,Integer> effets;
+    private HashMap<Caracteristique, Integer> effets;
 
-    public SimpleItem(String nom, String description, Image icon, Image desc, HashMap<Caracteristique,Integer> effets, int poids)
-    {
+    public SimpleItem(
+            String nom,
+            String description,
+            Image icon,
+            Image desc,
+            HashMap<Caracteristique, Integer> effets,
+            int poids) {
         this.nom = nom;
         this.description = description;
         this.icon = icon;
@@ -38,7 +42,6 @@ public class SimpleItem
     public void setDescription(String description) {
         this.description = description;
     }
-
 
     public Image getIcon() {
         return icon;

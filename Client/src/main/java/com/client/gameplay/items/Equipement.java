@@ -6,13 +6,17 @@ import org.newdawn.slick.Image;
 
 import com.client.gameplay.Caracteristique;
 
-public class Equipement extends Item
-{
+public class Equipement extends Item {
     private String type;
 
-    public Equipement(String nom, String type, String description, Image icon, Image desc,
-            HashMap<Caracteristique, Integer> effets, int poids)
-    {
+    public Equipement(
+            String nom,
+            String type,
+            String description,
+            Image icon,
+            Image desc,
+            HashMap<Caracteristique, Integer> effets,
+            int poids) {
         super(nom, description, icon, desc, effets, poids);
     }
 

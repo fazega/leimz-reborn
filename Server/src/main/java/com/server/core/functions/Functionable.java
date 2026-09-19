@@ -8,7 +8,6 @@ import com.server.core.Client;
  * @author (your name)
  * @version (a version number or a date)
  */
-public interface Functionable
-{
-   public void doSomething(String[] args, Client c);
+public interface Functionable {
+    public void doSomething(String[] args, Client c);
 }

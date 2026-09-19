@@ -2,14 +2,12 @@ package com.client.map;
 
 import java.util.ArrayList;
 
-public class Map
-{
+public class Map {
     private Tile[][] grille;
     private ArrayList<GroupTiles> groups;
     private ArrayList<String> data_monstres;
 
-    public Map(Tile[][] grille, ArrayList<GroupTiles> groups)
-    {
+    public Map(Tile[][] grille, ArrayList<GroupTiles> groups) {
         this.grille = grille;
         this.groups = groups;
     }
@@ -37,6 +35,4 @@ public class Map
     public void setGroups(ArrayList<GroupTiles> groups) {
         this.groups = groups;
     }
-
-
 }

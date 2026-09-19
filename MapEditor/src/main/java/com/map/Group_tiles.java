@@ -2,14 +2,11 @@ package com.map;
 
 import java.util.ArrayList;
 
-
-public class Group_tiles
-{
+public class Group_tiles {
     private ArrayList<Tile> tiles;
     private Type_tile type;
 
-    public Group_tiles(ArrayList<Tile> tiles, Type_tile type)
-    {
+    public Group_tiles(ArrayList<Tile> tiles, Type_tile type) {
         this.tiles = tiles;
         this.type = type;
     }
@@ -29,6 +26,4 @@ public class Group_tiles
     public void setType(Type_tile type) {
         this.type = type;
     }
-
-
 }

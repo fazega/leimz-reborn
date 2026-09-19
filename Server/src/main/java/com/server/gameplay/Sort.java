@@ -1,12 +1,10 @@
 package com.server.gameplay;
 
-public class Sort
-{
+public class Sort {
     private String nom, description;
     private int valeur_min, valeur_max;
 
-    public Sort(String nom, String description, int valeur_min, int valeur_max)
-    {
+    public Sort(String nom, String description, int valeur_min, int valeur_max) {
         this.nom = nom;
         this.valeur_min = valeur_min;
         this.valeur_max = valeur_max;

@@ -3,23 +3,18 @@ package com.server.gameplay;
 import java.util.ArrayList;
 import com.gameplay.items.SimpleItem;
 
-
-public class Inventaire
-{
+public class Inventaire {
     private ArrayList<SimpleItem> items;
 
-    public Inventaire(ArrayList<SimpleItem> items)
-    {
+    public Inventaire(ArrayList<SimpleItem> items) {
         this.items = items;
     }
 
-    public Inventaire()
-    {
+    public Inventaire() {
         this.items = new ArrayList<SimpleItem>();
     }
 
-    public void addItem(SimpleItem obj)
-    {
+    public void addItem(SimpleItem obj) {
         this.items.add(obj);
     }
 

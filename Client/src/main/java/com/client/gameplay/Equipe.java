@@ -4,19 +4,16 @@ import java.util.ArrayList;
 
 import com.client.entities.Joueur;
 
-public class Equipe
-{
+public class Equipe {
     private String nom;
     private ArrayList<Joueur> membres;
 
-    public Equipe(String nom, ArrayList<Joueur> membres)
-    {
+    public Equipe(String nom, ArrayList<Joueur> membres) {
         this.nom = nom;
         this.membres = membres;
     }
 
-    public Equipe(String nom, Joueur membre)
-    {
+    public Equipe(String nom, Joueur membre) {
         this.nom = nom;
         this.membres = new ArrayList<Joueur>();
         membres.add(membre);
@@ -37,6 +34,4 @@ public class Equipe
     public void setNom(String nom) {
         this.nom = nom;
     }
-
-
 }

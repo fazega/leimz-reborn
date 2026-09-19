@@ -8,49 +8,42 @@ import com.server.core.GlobalConstant;
 import com.server.entities.Entity;
 import com.server.entities.Joueur;
 
-public class EntitiesManager
-{
+public class EntitiesManager {
     private PNJsManager pnjs_manager;
     private PlayersManager players_manager;
-
 
     private ArrayList<Entity> entities;
     public static EntitiesManager instance;
 
-    public EntitiesManager()
-    {
+    public EntitiesManager() {
         instance = this;
         entities = new ArrayList<Entity>();
         players_manager = new PlayersManager();
     }
 
-    private void refreshEntities()
-    {
+    private void refreshEntities() {
         this.entities.removeAll(entities);
-        for(int i = 0; i < players_manager.getJoueurs().size(); i++)
-        {
+        for (int i = 0; i < players_manager.getJoueurs().size(); i++) {
             this.entities.add(players_manager.getJoueurs().get(i));
         }
-        for(int i = 0; i < pnjs_manager.getPnjs().size(); i++)
-        {
+        for (int i = 0; i < pnjs_manager.getPnjs().size(); i++) {
             this.entities.add(pnjs_manager.getPnjs().get(i));
         }
     }
 
-    public ArrayList<Entity> getEntitiesAround(Entity entity)
-    {
+    public ArrayList<Entity> getEntitiesAround(Entity entity) {
         refreshEntities();
         ArrayList<Entity> list_around = new ArrayList<Entity>();
 
-        Tile[][] grille = MapManager.instance.getTilesAutour(entity.getTile().getPos_x(), entity.getTile().getPos_y(), GlobalConstant.nbCaseNear);
-        for(int i = 0; i < grille.length; i++)
-        {
-            for(int j = 0; j < grille[i].length; j++)
-            {
-                for(int u = 0; u < entities.size(); u++)
-                {
-                    if(entities.get(u).getTile().equals(grille[i][j]))
-                    {
+        Tile[][] grille =
+                MapManager.instance.getTilesAutour(
+                        entity.getTile().getPos_x(),
+                        entity.getTile().getPos_y(),
+                        GlobalConstant.nbCaseNear);
+        for (int i = 0; i < grille.length; i++) {
+            for (int j = 0; j < grille[i].length; j++) {
+                for (int u = 0; u < entities.size(); u++) {
+                    if (entities.get(u).getTile().equals(grille[i][j])) {
                         list_around.add(entities.get(u));
                     }
                 }
@@ -60,14 +53,11 @@ public class EntitiesManager
         return list_around;
     }
 
-    public ArrayList<Joueur> getPlayersAround(Entity entity)
-    {
+    public ArrayList<Joueur> getPlayersAround(Entity entity) {
         ArrayList<Joueur> list_around = new ArrayList<Joueur>();
         ArrayList<Entity> entities_around = getEntitiesAround(entity);
-        for(int i = 0; i < entities_around.size(); i++)
-        {
-            if(entities_around.get(i) instanceof Joueur)
-            {
+        for (int i = 0; i < entities_around.size(); i++) {
+            if (entities_around.get(i) instanceof Joueur) {
                 list_around.add((Joueur) entities_around.get(i));
             }
         }
@@ -96,9 +86,7 @@ public class EntitiesManager
         return entities;
     }
 
-
     public void setEntities(ArrayList<Entity> entities) {
         this.entities = entities;
     }
-
 }

@@ -1,4 +1,4 @@
-package com.server.core ;
+package com.server.core;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,57 +16,44 @@ public class Client {
     private Socket s;
     private BufferedReader br;
     private PrintWriter pw;
-    private int noresponse=0, liste=0;
+    private int noresponse = 0, liste = 0;
     private Account compte;
 
-    public Client(Socket player, int liste) throws IOException
-    {
-        this.liste=liste;
+    public Client(Socket player, int liste) throws IOException {
+        this.liste = liste;
         s = player;
         br = new BufferedReader(new InputStreamReader(s.getInputStream(), "UTF-8"));
         pw = new PrintWriter(s.getOutputStream());
         compte = new Account();
     }
 
-    public String receiveFromClient() throws IOException
-    {
+    public String receiveFromClient() throws IOException {
         String tmp = null;
-        try
-        {
+        try {
             this.getS().setSoTimeout(1);
             tmp = this.br.readLine();
             noresponse = 0;
-        }
-
-        catch (SocketTimeoutException ex)
-        {
+        } catch (SocketTimeoutException ex) {
             // Si on chope l'erreur comme quoi le socket n'a pas repondu
-            if(noresponse<10000)
-            {
-                //On incremente un compteur
+            if (noresponse < 10000) {
+                // On incremente un compteur
                 noresponse++;
-            }
-            else
-            {
-                System.out.println("Le client "+compte.getName()+" ne repond plus !");
+            } else {
+                System.out.println("Le client " + compte.getName() + " ne repond plus !");
                 this.disconnect();
             }
-        }
-        catch (IOException ex)
-        {
+        } catch (IOException ex) {
             this.disconnect();
         }
         return tmp;
     }
 
-    public void sendMessage(String message)
-    {
+    public void sendMessage(String message) {
         pw.println(message);
         pw.flush();
     }
 
-    public void disconnect()
-    {
+    public void disconnect() {
         try {
             ServerSingleton.getInstance().deconnexion(this);
             this.br.close();
@@ -76,7 +63,6 @@ public class Client {
             ex.printStackTrace();
         }
     }
-
 
     public Socket getS() {
         return s;

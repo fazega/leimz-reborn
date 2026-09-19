@@ -3,27 +3,33 @@ package com.gameplay.items;
 import java.util.HashMap;
 import com.server.gameplay.Caracteristique;
 
-public class SimpleItem
-{
+public class SimpleItem {
     private String nom, description;
     private int poids;
     private int id;
-    private HashMap<Caracteristique,Integer> effets;
+    private HashMap<Caracteristique, Integer> effets;
 
-    public SimpleItem(String nom, String description, HashMap<Caracteristique,Integer> effets, int poids, int id)
-    {
+    public SimpleItem(
+            String nom,
+            String description,
+            HashMap<Caracteristique, Integer> effets,
+            int poids,
+            int id) {
         this.nom = nom;
         this.description = description;
         this.effets = effets;
         this.poids = poids;
         this.id = id;
     }
+
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public String getNom() {
         return nom;
     }

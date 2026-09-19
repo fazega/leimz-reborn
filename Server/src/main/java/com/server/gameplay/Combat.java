@@ -5,20 +5,21 @@ import java.util.ArrayList;
 import com.server.map.Tile;
 import com.server.utils.Chrono;
 
-public class Combat
-{
+public class Combat {
     private ArrayList<Equipe> equipes;
     private ArrayList<Tile> zone;
-    public enum EtatCombat
-    {
-        INIT, EN_COURS, FINI
+
+    public enum EtatCombat {
+        INIT,
+        EN_COURS,
+        FINI
     };
+
     private EtatCombat etat;
     private Chrono timer_start;
     private static long time_start = 3000;
 
-    public Combat(ArrayList<Equipe> equipes, ArrayList<Tile> zone)
-    {
+    public Combat(ArrayList<Equipe> equipes, ArrayList<Tile> zone) {
         this.equipes = equipes;
         this.zone = zone;
 
@@ -27,8 +28,7 @@ public class Combat
         timer_start = new Chrono(time_start);
     }
 
-    public void stop()
-    {
+    public void stop() {
         this.etat = EtatCombat.FINI;
     }
 
@@ -63,6 +63,4 @@ public class Combat
     public void setTimer_start(Chrono timer_start) {
         this.timer_start = timer_start;
     }
-
-
 }

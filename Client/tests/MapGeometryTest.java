@@ -19,19 +19,28 @@ public final class MapGeometryTest {
             }
         }
         MapManager manager = new MapManager(new Map(grid, null));
-        require(grid[0][0].getPos_real_barycentre().equals(new Vector2f(40, 20)), "Even column centre");
-        require(grid[1][0].getPos_real_barycentre().equals(new Vector2f(80, 40)), "Odd column centre");
+        require(
+                grid[0][0].getPos_real_barycentre().equals(new Vector2f(40, 20)),
+                "Even column centre");
+        require(
+                grid[1][0].getPos_real_barycentre().equals(new Vector2f(80, 40)),
+                "Odd column centre");
 
         // World lookup must not depend on the camera's visible subset.
         manager.setMap_visible(new Map(new Tile[][] {{grid[0][0]}}, null));
         for (int x = 0; x < grid.length; x++) {
             for (int y = 0; y < grid[x].length; y++) {
-                require(manager.getTileReal(grid[x][y].getPos_real_barycentre()) == grid[x][y],
-                    "Centre lookup mismatch at " + x + "," + y);
+                require(
+                        manager.getTileReal(grid[x][y].getPos_real_barycentre()) == grid[x][y],
+                        "Centre lookup mismatch at " + x + "," + y);
             }
         }
-        require(manager.getTileReal(new Vector2f(-100, -100)) == null, "Outside map must be rejected");
-        require(manager.getTileReal(new Vector2f(10000, 10000)) == null, "Far edge must be rejected");
+        require(
+                manager.getTileReal(new Vector2f(-100, -100)) == null,
+                "Outside map must be rejected");
+        require(
+                manager.getTileReal(new Vector2f(10000, 10000)) == null,
+                "Far edge must be rejected");
         require(manager.getTileReal(null) == null, "Missing position must be rejected");
         // The shared vertex must belong to some tile, never a hole between adjacent diamonds.
         require(manager.getTileReal(new Vector2f(80, 20)) != null, "Shared tile vertex has a gap");
@@ -43,6 +52,7 @@ public final class MapGeometryTest {
         require(solid.isCollidable(), "Solid overlay must block the tile");
         solid.addTypes(new TypeTile("decoration", null, new Rectangle(0, 0, 80, 40), false, 1));
         require(solid.isCollidable(), "A later layer must not erase collision");
-        System.out.println("PASS: 40000 world lookups, camera independence, boundaries and layered collisions.");
+        System.out.println(
+                "PASS: 40000 world lookups, camera independence, boundaries and layered collisions.");
     }
 }

@@ -8,13 +8,12 @@ import org.newdawn.slick.util.InputAdapter;
 
 /**
  * A Slick InputListener which delegates to TWL.
- * <p>
- * It should be added to Slick's Input class as primary listener:<br>
+ *
+ * <p>It should be added to Slick's Input class as primary listener:<br>
  * {@code input.addPrimaryListener(new TWLInputAdapter(gui, input));}
- * <p>
- * Note: if you get an error with one of the @Override annotations then DO NOT
- * comment them out - upgrade to the latest Slick version. These methods must be
- * called by Slick for correct operation.
+ *
+ * <p>Note: if you get an error with one of the @Override annotations then DO NOT comment them out -
+ * upgrade to the latest Slick version. These methods must be called by Slick for correct operation.
  *
  * @author Matthias Mann
  */
@@ -147,8 +146,7 @@ public class TWLInputAdapter extends InputAdapter {
     /**
      * Call this method from {@code BasicGame.render}
      *
-     * @see BasicGame#render(org.newdawn.slick.GameContainer,
-     *      org.newdawn.slick.Graphics)
+     * @see BasicGame#render(org.newdawn.slick.GameContainer, org.newdawn.slick.Graphics)
      */
     public void render() {
         gui.draw();

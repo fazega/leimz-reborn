@@ -31,27 +31,21 @@ public class GUI_Manager {
         on_gui_event = onGuiEvent;
     }
 
-    public GUI_Manager(URL url, GameContainer gc)
-    {
+    public GUI_Manager(URL url, GameContainer gc) {
 
-        root = new Widget()
-        {
-            @Override
-            public boolean handleEvent(Event evt) {
-                if(super.handleEvent(evt))
-                {
-                    setOn_gui_event(true);
-                    return true;
-                }
-                else
-                {
-                    setOn_gui_event(false);
-                    return false;
-                }
-
-            }
-
-        };
+        root =
+                new Widget() {
+                    @Override
+                    public boolean handleEvent(Event evt) {
+                        if (super.handleEvent(evt)) {
+                            setOn_gui_event(true);
+                            return true;
+                        } else {
+                            setOn_gui_event(false);
+                            return false;
+                        }
+                    }
+                };
         root.setTheme("");
 
         // save Slick's GL state while loading the theme
@@ -72,7 +66,6 @@ public class GUI_Manager {
 
         twlInputAdapter = new TWLInputAdapter(gui, gc.getInput());
         gc.getInput().addPrimaryListener(twlInputAdapter);
-
     }
 
     public ThemeManager getTheme() {
@@ -106,5 +99,4 @@ public class GUI_Manager {
     public void setTwlInputAdapter(TWLInputAdapter twlInputAdapter) {
         this.twlInputAdapter = twlInputAdapter;
     }
-
 }

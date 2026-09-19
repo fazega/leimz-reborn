@@ -2,18 +2,21 @@ package com.server.gameplay;
 
 import java.util.ArrayList;
 
-public class PNJ_discours
-{
+public class PNJ_discours {
     private String discours;
     private PNJ_discours parent;
     private ArrayList<PNJ_discours> reponses;
     private int id;
-    //Cette quete est celle qui suit le discours
+    // Cette quete est celle qui suit le discours
     private Quete quete;
     private int id_obj;
 
-    public PNJ_discours(String discours, PNJ_discours parent,
-            ArrayList<PNJ_discours> reponses, int id, int id_obj) {
+    public PNJ_discours(
+            String discours,
+            PNJ_discours parent,
+            ArrayList<PNJ_discours> reponses,
+            int id,
+            int id_obj) {
         super();
         this.discours = discours;
         this.parent = parent;
@@ -22,8 +25,13 @@ public class PNJ_discours
         this.id_obj = id_obj;
     }
 
-    public PNJ_discours(String discours, PNJ_discours parent,
-            ArrayList<PNJ_discours> reponses, int id, Quete quete, int id_obj) {
+    public PNJ_discours(
+            String discours,
+            PNJ_discours parent,
+            ArrayList<PNJ_discours> reponses,
+            int id,
+            Quete quete,
+            int id_obj) {
         super();
         this.discours = discours;
         this.parent = parent;
@@ -31,8 +39,6 @@ public class PNJ_discours
         this.id = id;
         this.quete = quete;
     }
-
-
 
     public int getId() {
         return id;
@@ -66,16 +72,15 @@ public class PNJ_discours
         this.reponses = reponses;
     }
 
-    public PNJ_discours parent(int p){
+    public PNJ_discours parent(int p) {
         PNJ_discours ret = this;
 
-        for(int i=0;i<p;i++)
-            ret = ret.parent;
+        for (int i = 0; i < p; i++) ret = ret.parent;
 
         return ret;
     }
 
-    public void addReponses(PNJ_discours reponse){
+    public void addReponses(PNJ_discours reponse) {
         this.reponses.add(reponse);
     }
 
@@ -87,11 +92,9 @@ public class PNJ_discours
         this.quete = quete;
     }
 
-    public ArrayList<String> getReponsesString()
-    {
+    public ArrayList<String> getReponsesString() {
         ArrayList<String> rep = new ArrayList<String>();
-        for(PNJ_discours p: reponses)
-            rep.add(p.getDiscours());
+        for (PNJ_discours p : reponses) rep.add(p.getDiscours());
         return rep;
     }
 

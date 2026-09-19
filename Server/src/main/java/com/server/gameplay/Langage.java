@@ -1,6 +1,3 @@
 package com.server.gameplay;
 
-public class Langage
-{
-
-}
+public class Langage {}

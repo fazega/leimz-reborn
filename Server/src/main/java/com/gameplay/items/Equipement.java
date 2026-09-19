@@ -3,12 +3,16 @@ package com.gameplay.items;
 import java.util.HashMap;
 import com.server.gameplay.Caracteristique;
 
-public class Equipement extends SimpleItem
-{
+public class Equipement extends SimpleItem {
     private String type;
 
-    public Equipement(String nom, String type,String description, HashMap<Caracteristique, Integer> effets, int poids, int id)
-    {
+    public Equipement(
+            String nom,
+            String type,
+            String description,
+            HashMap<Caracteristique, Integer> effets,
+            int poids,
+            int id) {
         super(nom, description, effets, poids, id);
     }
 

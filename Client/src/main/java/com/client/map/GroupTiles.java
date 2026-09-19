@@ -9,14 +9,12 @@ public class GroupTiles {
     private Tile base;
     private TypeTile type;
 
-    public GroupTiles(int id)
-    {
+    public GroupTiles(int id) {
         this.id = id;
         this.tiles = new ArrayList<>();
     }
 
-    public GroupTiles(Tile base, ArrayList<Tile> tiles, TypeTile type, int id)
-    {
+    public GroupTiles(Tile base, ArrayList<Tile> tiles, TypeTile type, int id) {
         this.tiles = tiles;
         this.id = id;
         this.type = type;
@@ -54,7 +52,4 @@ public class GroupTiles {
     public void setBase(Tile base) {
         this.base = base;
     }
-
-
-
 }

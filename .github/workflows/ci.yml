@@ -32,13 +32,20 @@ jobs:
         uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6
         with:
           distribution: temurin
-          java-version: '8'
+          java-version: "8"
 
       - name: Set up Node.js 24
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
-          node-version: '24'
+          node-version: "24"
           package-manager-cache: false
+
+      - name: Check formatting across the repository
+        id: format
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          if ($LASTEXITCODE -ne 0) { throw 'Formatting dependency installation failed.' }
+          ./Format.ps1 -Check
 
       - name: Compile Client, Server and MapEditor
         id: build
@@ -75,6 +82,7 @@ jobs:
           ## Leimz Reborn verification
           | Check | Result |
           | --- | --- |
+          | Repository formatting | ${{ steps.format.outcome }} |
           | Three Java builds | ${{ steps.build.outcome }} |
           | Geometry and collisions | ${{ steps.geometry.outcome }} |
           | Content preservation | ${{ steps.content.outcome }} |
@@ -90,6 +98,6 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: test-reports
-          path: '*-tests.tap'
+          path: "*-tests.tap"
           if-no-files-found: ignore
           retention-days: 14

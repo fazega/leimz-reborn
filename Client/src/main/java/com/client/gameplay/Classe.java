@@ -3,23 +3,20 @@ package com.client.gameplay;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Classe
-{
+public class Classe {
     private String nom;
     private ArrayList<Sort> sorts;
-    private HashMap<Caracteristique,Integer> caracs;
+    private HashMap<Caracteristique, Integer> caracs;
 
-    public Classe(String nom, ArrayList<Sort> sorts, HashMap<Caracteristique,Integer> caracs)
-    {
+    public Classe(String nom, ArrayList<Sort> sorts, HashMap<Caracteristique, Integer> caracs) {
         this.nom = nom;
         this.sorts = sorts;
         this.caracs = caracs;
     }
 
-    public Classe(String classe)
-    {
+    public Classe(String classe) {
         this.nom = classe;
-        //TODO : Carac et sort;
+        // TODO : Carac et sort;
     }
 
     public ArrayList<Sort> getSorts() {
@@ -38,11 +35,11 @@ public class Classe
         this.nom = nom;
     }
 
-    public HashMap<Caracteristique,Integer> getCaracs() {
+    public HashMap<Caracteristique, Integer> getCaracs() {
         return caracs;
     }
 
-    public void setCaracs(HashMap<Caracteristique,Integer> caracs) {
+    public void setCaracs(HashMap<Caracteristique, Integer> caracs) {
         this.caracs = caracs;
     }
 }

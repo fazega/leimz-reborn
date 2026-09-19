@@ -2,12 +2,12 @@
 
 ## Components
 
-| Component | Entry point | Responsibilities |
-| --- | --- | --- |
-| Client | `com.client.gamestates.Base` | Input, rendering, local gameplay state, server connection |
-| Server | `com.server.core.Main` | Sessions, world data, movement approval, NPCs, quests, database access |
-| MapEditor | `com.loop.Base` | Standalone editing of map XML and tile artwork |
-| Website | `server.cjs`, `app.js` | Local static preview and browser navigation; no game/database integration |
+| Component | Entry point                  | Responsibilities                                                          |
+| --------- | ---------------------------- | ------------------------------------------------------------------------- |
+| Client    | `com.client.gamestates.Base` | Input, rendering, local gameplay state, server connection                 |
+| Server    | `com.server.core.Main`       | Sessions, world data, movement approval, NPCs, quests, database access    |
+| MapEditor | `com.loop.Base`              | Standalone editing of map XML and tile artwork                            |
+| Website   | `server.cjs`, `app.js`       | Local static preview and browser navigation; no game/database integration |
 
 Root `Build.ps1` builds the three Java components independently. `common.ps1` resolves machine-local settings. Java dependencies are currently bundled per component; there is no shared Java module yet.
 
@@ -35,18 +35,18 @@ The intended next boundary is **command handler → gameplay service → databas
 
 ## Terms and coordinates
 
-| Existing term | Meaning |
-| --- | --- |
-| `Joueur` | Player entity in the world |
-| `MainJoueur` | Locally controlled player |
-| `Personnage` | Character gameplay data: statistics, inventory, spells, quests |
-| `PNJ` | Non-player character (NPC) |
-| `Quete`, `Objectif` | Quest and objective |
-| `grille`, `calque` | Tile grid and layer |
-| `pos` | Usually tile/grid indices; confirm per class |
-| `pos_real` | World-space pixel coordinates |
-| `pos_screen` | Screen-space coordinates after camera positioning |
-| `barycentre` | Tile centre |
+| Existing term       | Meaning                                                        |
+| ------------------- | -------------------------------------------------------------- |
+| `Joueur`            | Player entity in the world                                     |
+| `MainJoueur`        | Locally controlled player                                      |
+| `Personnage`        | Character gameplay data: statistics, inventory, spells, quests |
+| `PNJ`               | Non-player character (NPC)                                     |
+| `Quete`, `Objectif` | Quest and objective                                            |
+| `grille`, `calque`  | Tile grid and layer                                            |
+| `pos`               | Usually tile/grid indices; confirm per class                   |
+| `pos_real`          | World-space pixel coordinates                                  |
+| `pos_screen`        | Screen-space coordinates after camera positioning              |
+| `barycentre`        | Tile centre                                                    |
 
 Tiles use 80×40 artwork with staggered columns spaced 40 pixels apart; odd columns have a 20-pixel vertical offset. Coordinate implementations are duplicated across components and differ at boundaries. Define edge behavior with tests before replacing them with shared code. Mutable vectors must not be shared between entity positions and map geometry.
 
@@ -56,19 +56,19 @@ Messages are newline-delimited, semicolon-separated text, currently ISO-8859-15 
 
 Selected commands, not a complete protocol specification:
 
-| Code | Existing purpose |
-| --- | --- |
-| `c` | Login |
-| `ci` | Character list/information |
-| `cp` | Character creation |
-| `lo` | Map, player and entity loading |
-| `afm;key` | Keyboard movement approval request |
-| `s;pos` | Player position/orientation synchronization |
-| `cea` | Nearby entity discovery |
-| `res` | State refresh |
-| `pd` | NPC dialogue |
-| `que` | Quest updates |
-| `sa` | Chat |
-| `fi`, `a` | Combat and attacks |
+| Code      | Existing purpose                            |
+| --------- | ------------------------------------------- |
+| `c`       | Login                                       |
+| `ci`      | Character list/information                  |
+| `cp`      | Character creation                          |
+| `lo`      | Map, player and entity loading              |
+| `afm;key` | Keyboard movement approval request          |
+| `s;pos`   | Player position/orientation synchronization |
+| `cea`     | Nearby entity discovery                     |
+| `res`     | State refresh                               |
+| `pd`      | NPC dialogue                                |
+| `que`     | Quest updates                               |
+| `sa`      | Chat                                        |
+| `fi`, `a` | Combat and attacks                          |
 
 There is no consistent escaping or strongly typed schema. Do not rename these strings as part of code formatting. Typed internal messages and validation can be introduced while preserving their serialized representation.

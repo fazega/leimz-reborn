@@ -2,55 +2,53 @@ package com.server.entities;
 
 import com.server.map.Tile;
 
-public abstract class Entity
-{
+public abstract class Entity {
 
-
-    //Position de l'entite sur la carte
-    //En repere (0;80;40)
+    // Position de l'entite sur la carte
+    // En repere (0;80;40)
     protected Tile tile;
-    //En repere (0;1;1)
+    // En repere (0;1;1)
     protected float pos_real_x, pos_real_y;
     protected float pos_old_x, pos_old_y;
 
-    //Position correspondant au barycentre de la tile sur laquelle l'entite est
+    // Position correspondant au barycentre de la tile sur laquelle l'entite est
     protected float pos_real_on_screen_x, pos_real_on_screen_y;
 
-    //Taille de l'entite
+    // Taille de l'entite
     protected float size_x, size_y;
 
-    //Orientation de l'entite
+    // Orientation de l'entite
     protected Orientation orientation;
 
-    //Etat
-    public enum Etat
-    {
-        NORMAL, OVER, CLICKED
+    // Etat
+    public enum Etat {
+        NORMAL,
+        OVER,
+        CLICKED
     };
+
     protected Etat etat;
 
-    //Booleen indiquant si l'entite est en collision ou non
+    // Booleen indiquant si l'entite est en collision ou non
     protected boolean on_collision = false;
 
-    //PAS DE GRAPHIQUE POUR LE SERVEUR
+    // PAS DE GRAPHIQUE POUR LE SERVEUR
 
-    //*******************************ANNEXES********************************
+    // *******************************ANNEXES********************************
 
-    //La taille relative de l'entite
+    // La taille relative de l'entite
     protected float scaleSize = 1;
 
-    //La vitesse de l'entite
+    // La vitesse de l'entite
     protected float speed = 1.0f;
 
-    public Entity(Orientation orientation, Tile tile)
-    {
+    public Entity(Orientation orientation, Tile tile) {
         this.orientation = orientation;
         this.tile = tile;
 
-        this.pos_real_x=0;
-        this.pos_real_y=0;
-        if(tile != null)
-        {
+        this.pos_real_x = 0;
+        this.pos_real_y = 0;
+        if (tile != null) {
             this.pos_real_x = tile.getPos_real_x();
             this.pos_real_y = tile.getPos_real_y();
         }
@@ -58,27 +56,19 @@ public abstract class Entity
         this.etat = Etat.NORMAL;
     }
 
-    //Methode permettant de dessiner l'entite
-    public void draw()
-    {
-        /**
-         * A voir en fonction de l'entite
-         */
+    // Methode permettant de dessiner l'entite
+    public void draw() {
+        /** A voir en fonction de l'entite */
     }
 
-    //Methode permettant de rafraichir des elements de l'entite (formes par exemple)
-    public void refresh()
-    {
-        /**
-         * A voir en fonction de l'entite
-         */
+    // Methode permettant de rafraichir des elements de l'entite (formes par exemple)
+    public void refresh() {
+        /** A voir en fonction de l'entite */
     }
 
-    public String stringOrientation()
-    {
+    public String stringOrientation() {
         String o_m = null;
-        switch(orientation)
-        {
+        switch (orientation) {
             case DROITE:
                 o_m = "d";
                 break;
@@ -107,26 +97,17 @@ public abstract class Entity
         return o_m;
     }
 
-    public static Orientation parseStringOrientation(String o_m)
-    {
+    public static Orientation parseStringOrientation(String o_m) {
         Orientation o = null;
 
-        if(o_m.equals("d"))
-            o = Orientation.DROITE;
-        else if(o_m.equals("g"))
-            o = Orientation.GAUCHE;
-        else if(o_m.equals("h"))
-            o = Orientation.HAUT;
-        else if(o_m.equals("b"))
-            o = Orientation.BAS;
-        else if(o_m.equals("hd"))
-            o = Orientation.HAUT_DROITE;
-        else if(o_m.equals("hg"))
-            o = Orientation.HAUT_GAUCHE;
-        else if(o_m.equals("bd"))
-            o = Orientation.BAS_DROITE;
-        else if(o_m.equals("bg"))
-            o = Orientation.BAS_GAUCHE;
+        if (o_m.equals("d")) o = Orientation.DROITE;
+        else if (o_m.equals("g")) o = Orientation.GAUCHE;
+        else if (o_m.equals("h")) o = Orientation.HAUT;
+        else if (o_m.equals("b")) o = Orientation.BAS;
+        else if (o_m.equals("hd")) o = Orientation.HAUT_DROITE;
+        else if (o_m.equals("hg")) o = Orientation.HAUT_GAUCHE;
+        else if (o_m.equals("bd")) o = Orientation.BAS_DROITE;
+        else if (o_m.equals("bg")) o = Orientation.BAS_GAUCHE;
 
         return o;
     }
@@ -242,7 +223,4 @@ public abstract class Entity
     public void setPos_old_y(float pos_old_y) {
         this.pos_old_y = pos_old_y;
     }
-
-
-
 }

@@ -1,0 +1,11 @@
+{
+  "name": "leimz-reborn-tooling",
+  "private": true,
+  "scripts": {
+    "format:web": "prettier --write .",
+    "format:web:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "3.6.2"
+  }
+}

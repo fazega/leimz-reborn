@@ -15,53 +15,71 @@ public class EditorRecoveryTest extends Base {
     private static boolean completed;
 
     public void initStatesList(GameContainer container) throws SlickException {
-        addState(new Principal() {
-            private int frames;
+        addState(
+                new Principal() {
+                    private int frames;
 
-            public void init(GameContainer container, StateBasedGame game) throws SlickException {
-                super.init(container, game);
-                try {
-                    List<Element> original = readTiles("data/Maps/map2.xml");
-                    for (Element tile : original) {
-                        for (Object entry : tile.getChild("types").getChildren()) {
-                            String name = ((Element) entry).getText();
-                            check(Type_tile.types.containsKey(name), "Missing tile definition: " + name);
+                    public void init(GameContainer container, StateBasedGame game)
+                            throws SlickException {
+                        super.init(container, game);
+                        try {
+                            List<Element> original = readTiles("data/Maps/map2.xml");
+                            for (Element tile : original) {
+                                for (Object entry : tile.getChild("types").getChildren()) {
+                                    String name = ((Element) entry).getText();
+                                    check(
+                                            Type_tile.types.containsKey(name),
+                                            "Missing tile definition: " + name);
+                                }
+                            }
+                            openCarte("data/Maps/map2.xml");
+                            Field field = Principal.class.getDeclaredField("mapManager");
+                            field.setAccessible(true);
+                            MapManager manager = (MapManager) field.get(this);
+                            manager.saveMapToXML("build/map-roundtrip.xml");
+                            List<Element> saved = readTiles("build/map-roundtrip.xml");
+                            check(original.size() == saved.size(), "Tile count changed");
+                            for (int i = 0; i < original.size(); i++) {
+                                Element before = original.get(i), after = saved.get(i);
+                                check(
+                                        before.getChildText("id_x")
+                                                .equals(after.getChildText("id_x")),
+                                        "X changed at " + i);
+                                check(
+                                        before.getChildText("id_y")
+                                                .equals(after.getChildText("id_y")),
+                                        "Y changed at " + i);
+                                List<Element> a = before.getChild("types").getChildren();
+                                List<Element> b = after.getChild("types").getChildren();
+                                check(a.size() == b.size(), "Layer count changed at " + i);
+                                for (int j = 0; j < a.size(); j++) {
+                                    check(
+                                            a.get(j).getText().equals(b.get(j).getText()),
+                                            "Tile type changed at " + i);
+                                }
+                            }
+                            openCarte("build/map-roundtrip.xml");
+                            System.out.println("EDITOR_ROUNDTRIP_OK tiles=" + saved.size());
+                        } catch (Exception e) {
+                            throw new SlickException("Editor recovery verification failed", e);
                         }
                     }
-                    openCarte("data/Maps/map2.xml");
-                    Field field = Principal.class.getDeclaredField("mapManager");
-                    field.setAccessible(true);
-                    MapManager manager = (MapManager) field.get(this);
-                    manager.saveMapToXML("build/map-roundtrip.xml");
-                    List<Element> saved = readTiles("build/map-roundtrip.xml");
-                    check(original.size() == saved.size(), "Tile count changed");
-                    for (int i = 0; i < original.size(); i++) {
-                        Element before = original.get(i), after = saved.get(i);
-                        check(before.getChildText("id_x").equals(after.getChildText("id_x")), "X changed at " + i);
-                        check(before.getChildText("id_y").equals(after.getChildText("id_y")), "Y changed at " + i);
-                        List<Element> a = before.getChild("types").getChildren();
-                        List<Element> b = after.getChild("types").getChildren();
-                        check(a.size() == b.size(), "Layer count changed at " + i);
-                        for (int j = 0; j < a.size(); j++) {
-                            check(a.get(j).getText().equals(b.get(j).getText()), "Tile type changed at " + i);
+
+                    public void render(
+                            GameContainer container, StateBasedGame game, Graphics graphics)
+                            throws SlickException {
+                        super.render(container, game, graphics);
+                        if (++frames == 120) {
+                            completed = true;
+                            System.out.println(
+                                    "EDITOR_RENDER_OK frames="
+                                            + frames
+                                            + " tileTypes="
+                                            + Type_tile.types.size());
+                            container.exit();
                         }
                     }
-                    openCarte("build/map-roundtrip.xml");
-                    System.out.println("EDITOR_ROUNDTRIP_OK tiles=" + saved.size());
-                } catch (Exception e) {
-                    throw new SlickException("Editor recovery verification failed", e);
-                }
-            }
-
-            public void render(GameContainer container, StateBasedGame game, Graphics graphics) throws SlickException {
-                super.render(container, game, graphics);
-                if (++frames == 120) {
-                    completed = true;
-                    System.out.println("EDITOR_RENDER_OK frames=" + frames + " tileTypes=" + Type_tile.types.size());
-                    container.exit();
-                }
-            }
-        });
+                });
     }
 
     private static List<Element> readTiles(String path) throws Exception {
@@ -79,6 +97,7 @@ public class EditorRecoveryTest extends Base {
         app.setAlwaysRender(true);
         app.setTargetFrameRate(60);
         app.start();
-        if (!completed) throw new IllegalStateException("Editor closed before verification completed");
+        if (!completed)
+            throw new IllegalStateException("Editor closed before verification completed");
     }
 }

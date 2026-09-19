@@ -1,4 +1,5 @@
 /local.settings.json
+/.tools/
 **/build/
 **/logs/
 **/.local/

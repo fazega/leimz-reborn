@@ -43,7 +43,8 @@ public class RecoverySmokeTest extends Base {
     private int framesInState = 0;
 
     @Override
-    protected void postRenderState(GameContainer container, Graphics graphics) throws SlickException {
+    protected void postRenderState(GameContainer container, Graphics graphics)
+            throws SlickException {
         int state = getCurrentStateID();
         if (state != previousState) {
             previousState = state;
@@ -96,11 +97,13 @@ public class RecoverySmokeTest extends Base {
         enterState(LOADING);
     }
 
-    private void saveScreenshot(GameContainer container, Graphics graphics, int state) throws Exception {
+    private void saveScreenshot(GameContainer container, Graphics graphics, int state)
+            throws Exception {
         Image screenshot = new Image(container.getWidth(), container.getHeight());
         graphics.copyArea(screenshot, 0, 0);
         String name = state == LOADING ? "latest-loading" : "latest-gameplay";
-        ImageOut.write(screenshot, "png", System.getProperty("test.output") + "/" + name + ".png", false);
+        ImageOut.write(
+                screenshot, "png", System.getProperty("test.output") + "/" + name + ".png", false);
     }
 
     private void checkWorldRecovery(GameContainer container) {
@@ -128,7 +131,8 @@ public class RecoverySmokeTest extends Base {
         if (!grid[BARREL_TILE_X][BARREL_TILE_Y].isCollidable()) {
             throw new RuntimeException("Barrel not solid");
         }
-        MainJoueur.instance.setPos_real(grid[BARREL_TILE_X][APPROACH_TILE_Y].getPos_real_barycentre());
+        MainJoueur.instance.setPos_real(
+                grid[BARREL_TILE_X][APPROACH_TILE_Y].getPos_real_barycentre());
         System.out.println("BARREL_TEST_START " + MainJoueur.instance.getPos_real());
     }
 
@@ -145,9 +149,14 @@ public class RecoverySmokeTest extends Base {
             throw new RuntimeException("No movement toward barrel");
         }
         System.out.println("BARREL_BLOCKED position=" + MainJoueur.instance.getPos_real());
-        MainJoueur.instance.setPos_real(grid[NPC_APPROACH_TILE_X][NPC_APPROACH_TILE_Y].getPos_real_barycentre());
-        NetworkManager.instance.sendToServer("s;pos;" + MainJoueur.instance.getPos_real().x
-                + ";" + MainJoueur.instance.getPos_real().y + ";h");
+        MainJoueur.instance.setPos_real(
+                grid[NPC_APPROACH_TILE_X][NPC_APPROACH_TILE_Y].getPos_real_barycentre());
+        NetworkManager.instance.sendToServer(
+                "s;pos;"
+                        + MainJoueur.instance.getPos_real().x
+                        + ";"
+                        + MainJoueur.instance.getPos_real().y
+                        + ";h");
     }
 
     private void checkNpcLoaded() {

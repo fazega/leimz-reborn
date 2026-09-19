@@ -2,15 +2,13 @@ package com.client.utils.pathfinder;
 
 import com.client.map.Tile;
 
-public class Noeud
-{
+public class Noeud {
     private Noeud parent;
     private float cout_g, cout_h, cout_f;
 
     private Tile tile;
 
-    public Noeud(Tile tile)
-    {
+    public Noeud(Tile tile) {
         this.tile = tile;
     }
 
@@ -18,25 +16,17 @@ public class Noeud
         return tile;
     }
 
-
-
     public void setTile(Tile tile) {
         this.tile = tile;
     }
-
-
 
     public Noeud getParent() {
         return parent;
     }
 
-
-
     public void setParent(Noeud parent) {
         this.parent = parent;
     }
-
-
 
     public float getCout_g() {
         return cout_g;

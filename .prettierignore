@@ -1,0 +1,13 @@
+**/build/**
+**/logs/**
+.tools/**
+Client/data/**
+MapEditor/data/**
+Server/database/**
+Website/assets/**
+Website/tests/fixtures/**
+content-baseline.json
+MapEditor/data-provenance.json
+dependency-manifest.json
+local.settings.json
+package-lock.json

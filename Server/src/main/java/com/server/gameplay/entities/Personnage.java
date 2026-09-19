@@ -2,7 +2,6 @@ package com.server.gameplay.entities;
 
 import java.util.ArrayList;
 
-
 import java.util.HashMap;
 import java.util.Map.Entry;
 import com.server.gameplay.Caracteristique;
@@ -13,20 +12,28 @@ import com.server.gameplay.Race;
 import com.server.gameplay.Sort;
 import com.server.gameplay.managers.QuetesManager;
 
-public class Personnage
-{
+public class Personnage {
     private String nom;
     private Race race;
     private Classe classe;
-    private HashMap<Caracteristique,Integer> caracs_values;
-    private HashMap<Caracteristique,Integer> caracs;
+    private HashMap<Caracteristique, Integer> caracs_values;
+    private HashMap<Caracteristique, Integer> caracs;
+
     @SuppressWarnings("unused")
     private ArrayList<Sort> sorts;
 
     private Sort current_sort;
 
-    //------------------STATIC CARACS--------------------
-    public enum caracteristique { VIE, ENERGIE, DEPLACEMENT, ENDURANCE, PRECISION, DOMMAGE_CAC, DOMMAGE_MAGIE };
+    // ------------------STATIC CARACS--------------------
+    public enum caracteristique {
+        VIE,
+        ENERGIE,
+        DEPLACEMENT,
+        ENDURANCE,
+        PRECISION,
+        DOMMAGE_CAC,
+        DOMMAGE_MAGIE
+    };
 
     private QuetesManager quetes_manager;
     private Inventaire inventaire;
@@ -35,12 +42,22 @@ public class Personnage
     private ArrayList<Combat> combats;
     private Combat current_combat;
 
-    public Personnage(String nom, Race race, Classe classe, HashMap<Caracteristique,Integer> carac_val, HashMap<Caracteristique,Integer> carac)
-    {
-        this.race = race ;
+    public Personnage(
+            String nom,
+            Race race,
+            Classe classe,
+            HashMap<Caracteristique, Integer> carac_val,
+            HashMap<Caracteristique, Integer> carac) {
+        this.race = race;
         this.classe = classe;
         this.nom = nom;
-        this.setEntity_file("data/Gameplay/Races/"+race.getNom()+"/Classes/"+"entity_"+classe.getNom().toLowerCase()+".xml");
+        this.setEntity_file(
+                "data/Gameplay/Races/"
+                        + race.getNom()
+                        + "/Classes/"
+                        + "entity_"
+                        + classe.getNom().toLowerCase()
+                        + ".xml");
         this.caracs = carac;
         this.caracs_values = carac_val;
         this.quetes_manager = new QuetesManager();
@@ -48,10 +65,15 @@ public class Personnage
         this.combats = new ArrayList<>();
     }
 
-    public Personnage(String nom, String race, String classe)
-    {
+    public Personnage(String nom, String race, String classe) {
         this.nom = nom;
-        this.setEntity_file("data/Gameplay/Races/"+race+"/Classes/"+"entity_"+classe.toLowerCase()+".xml");
+        this.setEntity_file(
+                "data/Gameplay/Races/"
+                        + race
+                        + "/Classes/"
+                        + "entity_"
+                        + classe.toLowerCase()
+                        + ".xml");
 
         this.race = new Race(race);
         this.classe = new Classe(classe);
@@ -62,8 +84,7 @@ public class Personnage
         this.combats = new ArrayList<>();
     }
 
-    public Personnage()
-    {
+    public Personnage() {
         this.race = new Race("");
         this.classe = new Classe("");
 
@@ -113,23 +134,23 @@ public class Personnage
         return tmp;
     }
 
-    public HashMap<Caracteristique,Integer> getCaracsBase() {
+    public HashMap<Caracteristique, Integer> getCaracsBase() {
 
-        HashMap<Caracteristique,Integer> caracs_base = new HashMap<Caracteristique,Integer>(classe.getCaracs());
-        for(Entry<Caracteristique, Integer> entry : race.getCarac().entrySet()) {
-            if(caracs_base.containsKey(entry.getKey()))
-                caracs_base.put(entry.getKey(),caracs_base.get(entry.getKey()) + entry.getValue());
-            else
-                caracs_base.put(entry.getKey(), entry.getValue());
+        HashMap<Caracteristique, Integer> caracs_base =
+                new HashMap<Caracteristique, Integer>(classe.getCaracs());
+        for (Entry<Caracteristique, Integer> entry : race.getCarac().entrySet()) {
+            if (caracs_base.containsKey(entry.getKey()))
+                caracs_base.put(entry.getKey(), caracs_base.get(entry.getKey()) + entry.getValue());
+            else caracs_base.put(entry.getKey(), entry.getValue());
         }
         return caracs_base;
     }
 
-    public HashMap<Caracteristique,Integer> getCaracs() {
+    public HashMap<Caracteristique, Integer> getCaracs() {
         return caracs;
     }
 
-    public void setCaracs(HashMap<Caracteristique,Integer> caracs) {
+    public void setCaracs(HashMap<Caracteristique, Integer> caracs) {
         this.caracs = caracs;
     }
 
@@ -141,11 +162,11 @@ public class Personnage
         quetes_manager = quetesManager;
     }
 
-    public HashMap<Caracteristique,Integer> getCaracs_values() {
+    public HashMap<Caracteristique, Integer> getCaracs_values() {
         return caracs_values;
     }
 
-    public void setCaracs_values(HashMap<Caracteristique,Integer> caracs_values) {
+    public void setCaracs_values(HashMap<Caracteristique, Integer> caracs_values) {
         this.caracs_values = caracs_values;
     }
 
@@ -166,7 +187,7 @@ public class Personnage
     }
 
     public boolean isDead() {
-        return this.getCaracs().get(Caracteristique.VIE)<=0;
+        return this.getCaracs().get(Caracteristique.VIE) <= 0;
     }
 
     public void setSorts(ArrayList<Sort> sorts) {

@@ -8,18 +8,18 @@ import de.matthiasmann.twl.GUI;
 import de.matthiasmann.twl.ResizableFrame;
 import de.matthiasmann.twl.Widget;
 
-public class Toolbox extends ResizableFrame
-{
-    private ArrayList<ArrayList<PointeurGUI>> pointeurs ;
+public class Toolbox extends ResizableFrame {
+    private ArrayList<ArrayList<PointeurGUI>> pointeurs;
     private PointeurGUI selected;
 
-    public enum Pointeur
-    {
-        MAIN, PLUS, SELEC, SUPPR
+    public enum Pointeur {
+        MAIN,
+        PLUS,
+        SELEC,
+        SUPPR
     };
 
-    public Toolbox()
-    {
+    public Toolbox() {
         this.setTheme("/resizableframe");
         this.setTitle("Toolbox");
 
@@ -31,13 +31,11 @@ public class Toolbox extends ResizableFrame
         }
     }
 
-    public Pointeur getSelectedPointeur()
-    {
+    public Pointeur getSelectedPointeur() {
         return selected.getPointeur();
     }
 
-    private void init() throws SlickException
-    {
+    private void init() throws SlickException {
 
         pointeurs = new ArrayList<ArrayList<PointeurGUI>>();
         pointeurs.add(new ArrayList<PointeurGUI>());
@@ -48,10 +46,8 @@ public class Toolbox extends ResizableFrame
         selected = pointeurs.get(0).get(2);
 
         Widget pointeursLayout = new Widget();
-        for(int i =0; i < pointeurs.size(); i++)
-        {
-            for(int j = 0; j < pointeurs.get(i).size(); j++)
-            {
+        for (int i = 0; i < pointeurs.size(); i++) {
+            for (int j = 0; j < pointeurs.get(i).size(); j++) {
                 pointeursLayout.add(pointeurs.get(i).get(j));
             }
         }
@@ -59,52 +55,43 @@ public class Toolbox extends ResizableFrame
         this.add(pointeursLayout);
 
         int x = 0, y = 0;
-        for(int i =0; i < pointeurs.size(); i++)
-        {
+        for (int i = 0; i < pointeurs.size(); i++) {
             x = 0;
-            for(int j = 0; j < pointeurs.get(i).size(); j++)
-            {
+            for (int j = 0; j < pointeurs.get(i).size(); j++) {
                 pointeurs.get(i).get(j).setPosition(x, y);
-                x+=pointeurs.get(i).get(j).getImg().getWidth()+15;
+                x += pointeurs.get(i).get(j).getImg().getWidth() + 15;
             }
             y += 30;
         }
     }
 
-    public void refresh()
-    {
-        for(int i =0; i < pointeurs.size(); i++)
-        {
-             for(int j = 0; j < pointeurs.get(i).size(); j++)
-             {
-                    if(pointeurs.get(i).get(j).isSelected() && !pointeurs.get(i).get(j).equals(selected))
-                    {
-                        selected = pointeurs.get(i).get(j);
-                        i=pointeurs.size()-1;
-                        j=pointeurs.get(i).size();
-                    }
-             }
+    public void refresh() {
+        for (int i = 0; i < pointeurs.size(); i++) {
+            for (int j = 0; j < pointeurs.get(i).size(); j++) {
+                if (pointeurs.get(i).get(j).isSelected()
+                        && !pointeurs.get(i).get(j).equals(selected)) {
+                    selected = pointeurs.get(i).get(j);
+                    i = pointeurs.size() - 1;
+                    j = pointeurs.get(i).size();
+                }
+            }
         }
 
-        for(int i =0; i < pointeurs.size(); i++)
-        {
-             for(int j = 0; j < pointeurs.get(i).size(); j++)
-             {
-                 if(!pointeurs.get(i).get(j).equals(selected))
-                 {
-                     pointeurs.get(i).get(j).setSelected(false);
-                 }
-             }
+        for (int i = 0; i < pointeurs.size(); i++) {
+            for (int j = 0; j < pointeurs.get(i).size(); j++) {
+                if (!pointeurs.get(i).get(j).equals(selected)) {
+                    pointeurs.get(i).get(j).setSelected(false);
+                }
+            }
         }
     }
 
-    class PointeurGUI extends Widget
-    {
+    class PointeurGUI extends Widget {
         Image img, selec;
         Pointeur pointeur;
         boolean selected;
-        public PointeurGUI(Image img, Pointeur pointeur)
-        {
+
+        public PointeurGUI(Image img, Pointeur pointeur) {
             this.img = img;
             try {
                 this.selec = new Image("data/GUI/Images/selected.png");
@@ -113,51 +100,49 @@ public class Toolbox extends ResizableFrame
                 e.printStackTrace();
             }
             this.pointeur = pointeur;
-            this.setSize(img.getWidth(),img.getHeight());
+            this.setSize(img.getWidth(), img.getHeight());
         }
+
         @Override
-        public void paintWidget(GUI gui)
-        {
+        public void paintWidget(GUI gui) {
             img.draw(this.getX(), this.getY());
-            if(selected)
-            {
-
-            }
+            if (selected) {}
         }
 
         @Override
-        protected boolean handleEvent(Event evt)
-        {
-            if(evt.isMouseEventNoWheel())
-            {
-                if(evt.getType() == Event.Type.MOUSE_CLICKED)
-                {
-                    System.out.println(pointeur.toString()+" clicked !");
+        protected boolean handleEvent(Event evt) {
+            if (evt.isMouseEventNoWheel()) {
+                if (evt.getType() == Event.Type.MOUSE_CLICKED) {
+                    System.out.println(pointeur.toString() + " clicked !");
                     selected = true;
                 }
                 return true;
             }
             return super.handleEvent(evt);
         }
+
         public Image getImg() {
             return img;
         }
+
         public void setImg(Image img) {
             this.img = img;
         }
+
         public Pointeur getPointeur() {
             return pointeur;
         }
+
         public void setPointeur(Pointeur pointeur) {
             this.pointeur = pointeur;
         }
+
         public boolean isSelected() {
             return selected;
         }
+
         public void setSelected(boolean selected) {
             this.selected = selected;
         }
-
-
     };
 }

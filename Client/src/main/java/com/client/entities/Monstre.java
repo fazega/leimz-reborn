@@ -2,7 +2,6 @@ package com.client.entities;
 
 import java.io.File;
 
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -18,14 +17,12 @@ import org.newdawn.slick.geom.Vector2f;
 import com.client.gameplay.Caracteristique;
 import com.client.gameplay.Sort;
 
-public class Monstre
-{
+public class Monstre {
     private String nom;
     private ArrayList<Sort> sorts;
     private ArrayList<Caracteristique> caracs;
 
     private Vector2f pos_real, size, trans_for_move, posOnMap;
-
 
     private Polygon zone;
     private Rectangle pieds_screen;
@@ -43,8 +40,7 @@ public class Monstre
     private Element racine;
     private Document doc = null;
 
-    public Monstre(String nom, Vector2f pos_reap, Vector2f posOnMap)
-    {
+    public Monstre(String nom, Vector2f pos_reap, Vector2f posOnMap) {
         this.nom = nom;
 
         this.posOnMap = posOnMap;
@@ -54,44 +50,45 @@ public class Monstre
         sorts = new ArrayList<Sort>();
 
         SAXBuilder sxb = new SAXBuilder();
-        try
-        {
-           doc = sxb.build(new File("data/Monstres/"+nom+".xml"));
+        try {
+            doc = sxb.build(new File("data/Monstres/" + nom + ".xml"));
+        } catch (Exception e) {
         }
-        catch(Exception e){}
         racine = doc.getRootElement();
 
         states_img = new Image[racine.getChild("imgs_fixe").getChildren().size()];
 
         try {
-            for(int i = 0; i < racine.getChild("imgs_fixe").getChildren().size(); i++)
-            {
-                states_img[i] = new Image(((Element) racine.getChild("imgs_fixe").getChildren().get(i)).getText());
+            for (int i = 0; i < racine.getChild("imgs_fixe").getChildren().size(); i++) {
+                states_img[i] =
+                        new Image(
+                                ((Element) racine.getChild("imgs_fixe").getChildren().get(i))
+                                        .getText());
             }
         } catch (SlickException e) {
             e.printStackTrace();
         }
 
         zone = new Polygon();
-        zone.addPoint(pos_reap.x-160, pos_reap.y);
-        zone.addPoint(pos_reap.x, pos_reap.y-80);
-        zone.addPoint(pos_reap.x+160, pos_reap.y);
-        zone.addPoint(pos_reap.x, pos_reap.y+80);
+        zone.addPoint(pos_reap.x - 160, pos_reap.y);
+        zone.addPoint(pos_reap.x, pos_reap.y - 80);
+        zone.addPoint(pos_reap.x + 160, pos_reap.y);
+        zone.addPoint(pos_reap.x, pos_reap.y + 80);
 
         this.size = new Vector2f(states_img[0].getWidth(), states_img[0].getHeight());
         this.pos_real = new Vector2f();
-        pos_real.x = pos_reap.x-((states_img[0].getWidth()-80)/2);
-        pos_real.y = pos_reap.y+35-(states_img[0].getHeight());
+        pos_real.x = pos_reap.x - ((states_img[0].getWidth() - 80) / 2);
+        pos_real.y = pos_reap.y + 35 - (states_img[0].getHeight());
 
         int[] numbers = new int[4];
         String[] str = (racine.getChild("shapes").getChild("pieds").getText().split(","));
-        for(int i = 0; i < 4; i++)
-        {
+        for (int i = 0; i < 4; i++) {
             numbers[i] = Integer.parseInt(str[i]);
         }
 
-        this.pieds_screen = new Rectangle(pos_real.x+numbers[0], pos_real.y+numbers[1], numbers[2], numbers[3]);
-
+        this.pieds_screen =
+                new Rectangle(
+                        pos_real.x + numbers[0], pos_real.y + numbers[1], numbers[2], numbers[3]);
 
         this.orientation = Orientation.BAS_GAUCHE;
         current_img = returnImgOrientation(orientation);
@@ -105,10 +102,8 @@ public class Monstre
         this.posOnMap = posOnMap;
     }
 
-    private Image returnImgOrientation(Orientation orientation)
-    {
-        switch(orientation)
-        {
+    private Image returnImgOrientation(Orientation orientation) {
+        switch (orientation) {
             case HAUT_DROITE:
                 return states_img[2];
             case HAUT_GAUCHE:
@@ -122,13 +117,11 @@ public class Monstre
         }
     }
 
-    public Orientation returnRandomOrientation()
-    {
+    public Orientation returnRandomOrientation() {
         Random r = new Random();
         int nb = r.nextInt(7);
 
-        switch(nb)
-        {
+        switch (nb) {
             case 0:
                 return Orientation.DROITE;
             case 1:
@@ -150,37 +143,31 @@ public class Monstre
         }
     }
 
-    public void refresh()
-    {
+    public void refresh() {
         int[] numbers = new int[4];
         String[] str = (racine.getChild("shapes").getChild("pieds").getText().split(","));
-        for(int i = 0; i < 4; i++)
-        {
+        for (int i = 0; i < 4; i++) {
             numbers[i] = Integer.parseInt(str[i]);
         }
-        this.pieds_screen = new Rectangle(pos_real.x+numbers[0], pos_real.y+numbers[1], numbers[2], numbers[3]);
+        this.pieds_screen =
+                new Rectangle(
+                        pos_real.x + numbers[0], pos_real.y + numbers[1], numbers[2], numbers[3]);
 
-        if(returnImgOrientation(orientation) != null)
+        if (returnImgOrientation(orientation) != null)
             current_img = returnImgOrientation(orientation);
 
-        if(moved)
-        {
+        if (moved) {
             Vector2f off = new Vector2f();
-            off.x = Math.abs(posOld.x-pos_real.x);
-            off.y = Math.abs(posOld.y-pos_real.y);
+            off.x = Math.abs(posOld.x - pos_real.x);
+            off.y = Math.abs(posOld.y - pos_real.y);
 
-            if(off.x <= 80 && off.y <= 40)
-            {
+            if (off.x <= 80 && off.y <= 40) {
                 move();
-            }
-            else
-            {
+            } else {
                 moved = false;
             }
 
-        }
-        else
-        {
+        } else {
             posOld = new Vector2f(pos_real);
         }
     }
@@ -193,47 +180,41 @@ public class Monstre
         pieds_screen = piedsScreen;
     }
 
-    public void draw()
-    {
+    public void draw() {
         this.current_img.draw(pos_real.x, pos_real.y);
     }
 
-    public void manageMove()
-    {
+    public void manageMove() {
         ArrayList<Orientation> o_possibles = new ArrayList<Orientation>();
-        float
-        d1x = pos_real.x-zone.getX(),
-        d2x = (zone.getX()+zone.getWidth())-pos_real.x,
-        d1y = pos_real.y-zone.getY(),
-        d2y = (zone.getY()+zone.getHeight())-pos_real.y;
+        float d1x = pos_real.x - zone.getX(),
+                d2x = (zone.getX() + zone.getWidth()) - pos_real.x,
+                d1y = pos_real.y - zone.getY(),
+                d2y = (zone.getY() + zone.getHeight()) - pos_real.y;
 
-        if(d2x >= zone.getWidth()/2)
-            o_possibles.add(Orientation.DROITE);
-        if(d1x >= zone.getWidth()/2)
-            o_possibles.add(Orientation.GAUCHE);
-        if(d1y >= zone.getHeight()/2)
-            o_possibles.add(Orientation.HAUT);
-        if(d2y >= zone.getHeight()/2)
-            o_possibles.add(Orientation.BAS);
+        if (d2x >= zone.getWidth() / 2) o_possibles.add(Orientation.DROITE);
+        if (d1x >= zone.getWidth() / 2) o_possibles.add(Orientation.GAUCHE);
+        if (d1y >= zone.getHeight() / 2) o_possibles.add(Orientation.HAUT);
+        if (d2y >= zone.getHeight() / 2) o_possibles.add(Orientation.BAS);
 
-        if(d2x >= Math.cos(Math.toRadians(26.6))*zone.getWidth()/2 && d1y >= Math.sin(Math.toRadians(26.6))*zone.getHeight()/2)
+        if (d2x >= Math.cos(Math.toRadians(26.6)) * zone.getWidth() / 2
+                && d1y >= Math.sin(Math.toRadians(26.6)) * zone.getHeight() / 2)
             o_possibles.add(Orientation.HAUT_DROITE);
-        if(d1x >= Math.cos(Math.toRadians(26.6))*zone.getWidth()/2 && d1y >= Math.sin(Math.toRadians(26.6))*zone.getHeight()/2)
+        if (d1x >= Math.cos(Math.toRadians(26.6)) * zone.getWidth() / 2
+                && d1y >= Math.sin(Math.toRadians(26.6)) * zone.getHeight() / 2)
             o_possibles.add(Orientation.HAUT_GAUCHE);
-        if(d1x >= Math.cos(Math.toRadians(26.6))*zone.getWidth()/2 && d2y >= Math.sin(Math.toRadians(26.6))*zone.getHeight()/2)
+        if (d1x >= Math.cos(Math.toRadians(26.6)) * zone.getWidth() / 2
+                && d2y >= Math.sin(Math.toRadians(26.6)) * zone.getHeight() / 2)
             o_possibles.add(Orientation.BAS_GAUCHE);
-        if(d2x >= Math.cos(Math.toRadians(26.6))*zone.getWidth()/2 && d2y >= Math.sin(Math.toRadians(26.6))*zone.getHeight()/2)
+        if (d2x >= Math.cos(Math.toRadians(26.6)) * zone.getWidth() / 2
+                && d2y >= Math.sin(Math.toRadians(26.6)) * zone.getHeight() / 2)
             o_possibles.add(Orientation.BAS_DROITE);
 
         Random r = new Random();
         this.setOrientation(o_possibles.get(r.nextInt(o_possibles.size())));
-
     }
 
-    public void move()
-    {
-        switch(orientation)
-        {
+    public void move() {
+        switch (orientation) {
             case HAUT:
                 pos_real.y -= 1 * speed;
                 break;
@@ -301,8 +282,7 @@ public class Monstre
         return pos_real;
     }
 
-    public void setPos_real(Vector2f posReal)
-    {
+    public void setPos_real(Vector2f posReal) {
         pos_real = posReal;
     }
 
@@ -313,6 +293,7 @@ public class Monstre
     public void setTrans_for_move(Vector2f transForMove) {
         trans_for_move = transForMove;
     }
+
     public float getSpeed() {
         return this.speed;
     }

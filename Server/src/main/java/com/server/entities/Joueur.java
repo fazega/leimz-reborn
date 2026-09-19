@@ -2,27 +2,22 @@ package com.server.entities;
 
 import java.util.ArrayList;
 
-
-
 import com.server.entities.Personnage;
 import com.server.map.Tile;
 
-public class Joueur extends Entity
-{
+public class Joueur extends Entity {
     protected Personnage perso;
 
     protected ArrayList<Entity> loaded_entities;
     protected ArrayList<Tile> before_loaded;
 
-    public Joueur(Personnage perso, Tile tile, Orientation orientation)
-    {
+    public Joueur(Personnage perso, Tile tile, Orientation orientation) {
         super(orientation, tile);
         this.perso = perso;
 
         loaded_entities = new ArrayList<Entity>();
         before_loaded = new ArrayList<Tile>();
     }
-
 
     public Personnage getPerso() {
         return perso;

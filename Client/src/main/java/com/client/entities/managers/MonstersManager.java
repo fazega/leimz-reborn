@@ -4,14 +4,12 @@ import java.util.ArrayList;
 
 import com.client.entities.Monstre;
 
-public class MonstersManager
-{
+public class MonstersManager {
     private ArrayList<Monstre> monsters;
     private long tpsReap;
     private int nbMax;
 
-    public MonstersManager(ArrayList<Monstre> monsters, long tpsReap, int nbMax)
-    {
+    public MonstersManager(ArrayList<Monstre> monsters, long tpsReap, int nbMax) {
         this.setTpsReap(tpsReap);
         this.setNbMax(nbMax);
 

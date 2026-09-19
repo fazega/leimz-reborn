@@ -35,15 +35,13 @@ import de.matthiasmann.twl.Menu;
 import de.matthiasmann.twl.ResizableFrame;
 import de.matthiasmann.twl.Widget;
 
-
-public class Principal extends BasicGameState implements MouseListener
-{
+public class Principal extends BasicGameState implements MouseListener {
 
     static Vector2f absolute;
 
-    //----------------------------Map-----------------------------------
+    // ----------------------------Map-----------------------------------
 
-    //-------------------------Selection--------------------------------
+    // -------------------------Selection--------------------------------
     static Image img;
     ArrayList<Tile> clicked;
     ArrayList<Image> img_clicked;
@@ -57,16 +55,17 @@ public class Principal extends BasicGameState implements MouseListener
     private Toolbox toolbox;
     private Menu mainmenu;
 
-    //Fonctionnalités
-    private enum Function
-    {
-        SELECTION, MOVE_MAP, PLUS, SUPPR
+    // Fonctionnalités
+    private enum Function {
+        SELECTION,
+        MOVE_MAP,
+        PLUS,
+        SUPPR
     };
+
     private Function current_function;
 
-
-    private class Selection extends Rectangle
-    {
+    private class Selection extends Rectangle {
         Vector2f mouseOld;
 
         public Vector2f getMouseOld() {
@@ -77,64 +76,57 @@ public class Principal extends BasicGameState implements MouseListener
             this.mouseOld = mouseOld;
         }
 
-        public Selection(float x, float y, float width, float height)
-        {
+        public Selection(float x, float y, float width, float height) {
             super(x, y, width, height);
-
         }
 
-        public void draw(Graphics g)
-        {
-            g.setColor(new Color(255,146,214,100));
+        public void draw(Graphics g) {
+            g.setColor(new Color(255, 146, 214, 100));
             g.fill(this);
-            g.setColor(new Color(183,255,0));
+            g.setColor(new Color(183, 255, 0));
             g.setLineWidth(3);
             g.draw(this);
         }
     }
+
     private Selection selection;
 
     GUI_Manager gui_manager;
 
-    //boolean clic = false, selec = false, moveScreen = false, gestion_monstres = false;
+    // boolean clic = false, selec = false, moveScreen = false, gestion_monstres = false;
 
     @Override
-    public int getID()
-    {
+    public int getID() {
         return 1;
     }
 
     @Override
-    public void init(GameContainer gc, StateBasedGame sbg)
-            throws SlickException
-    {
-
+    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 
         Type_tile.setOnTypes();
 
         img = new Image("data/tiles/tile_simple.png");
         clicked = new ArrayList<Tile>();
         img_clicked = new ArrayList<Image>();
-        absolute = new Vector2f(100,100);
+        absolute = new Vector2f(100, 100);
 
         list_img_M = new ArrayList<Image>();
         list_pos_img_M = new ArrayList<Vector2f>();
 
-
         nouvelleCarte();
 
-         try {
-                gui_manager = new GUI_Manager(new File("data/GUI/Theme/projet.xml").toURL(), gc);
-            } catch (MalformedURLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+        try {
+            gui_manager = new GUI_Manager(new File("data/GUI/Theme/projet.xml").toURL(), gc);
+        } catch (MalformedURLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
         final NewTypeFrame newTypeFrame = new NewTypeFrame();
         gui_manager.getRoot().add(newTypeFrame);
 
         typesstore = new TypesStore();
-        typesstore.setPosition(300,300);
+        typesstore.setPosition(300, 300);
         /*typesstore.getNewTypeButton().addCallback(new Runnable()
         {
 
@@ -162,21 +154,33 @@ public class Principal extends BasicGameState implements MouseListener
         openFileL.setLabelFor(openFileF);
         Button okButton = new Button("Ouvrir la map");
         okButton.setTheme("/button");
-        okButton.addCallback(new Runnable() {
+        okButton.addCallback(
+                new Runnable() {
 
-            @Override
-            public void run() {
-                openMapFrame.setVisible(false);
-                openCarte(openFileF.getText());
-            }
-        });
+                    @Override
+                    public void run() {
+                        openMapFrame.setVisible(false);
+                        openCarte(openFileF.getText());
+                    }
+                });
         DialogLayout openMapLayout = new DialogLayout();
         openMapLayout.setTheme("/dialoglayout");
-        openMapLayout.setHorizontalGroup(openMapLayout.createParallelGroup(openMapLayout.createSequentialGroup(openFileL, openFileF)).addWidget(okButton));
-        openMapLayout.setVerticalGroup(openMapLayout.createSequentialGroup().addGroup(openMapLayout.createParallelGroup(openFileL, openFileF)).addGap(40).addWidget(okButton));
+        openMapLayout.setHorizontalGroup(
+                openMapLayout
+                        .createParallelGroup(
+                                openMapLayout.createSequentialGroup(openFileL, openFileF))
+                        .addWidget(okButton));
+        openMapLayout.setVerticalGroup(
+                openMapLayout
+                        .createSequentialGroup()
+                        .addGroup(openMapLayout.createParallelGroup(openFileL, openFileF))
+                        .addGap(40)
+                        .addWidget(okButton));
         openMapFrame.add(openMapLayout);
         openMapFrame.setVisible(false);
-        openMapFrame.setPosition((Base.sizeOfScreen_x/2)-(openMapFrame.getWidth()/2), (Base.sizeOfScreen_y/2)-(openMapFrame.getHeight()/2));
+        openMapFrame.setPosition(
+                (Base.sizeOfScreen_x / 2) - (openMapFrame.getWidth() / 2),
+                (Base.sizeOfScreen_y / 2) - (openMapFrame.getHeight() / 2));
         gui_manager.getRoot().add(openMapFrame);
 
         insertMapFrame = new ResizableFrame();
@@ -187,21 +191,33 @@ public class Principal extends BasicGameState implements MouseListener
         insertFileL.setLabelFor(openFileF);
         Button okButtonI = new Button("Insérer la map");
         okButtonI.setTheme("/button");
-        okButtonI.addCallback(new Runnable() {
+        okButtonI.addCallback(
+                new Runnable() {
 
-            @Override
-            public void run() {
-                insertMapFrame.setVisible(false);
-                insertCarte(insertFileF.getText());
-            }
-        });
+                    @Override
+                    public void run() {
+                        insertMapFrame.setVisible(false);
+                        insertCarte(insertFileF.getText());
+                    }
+                });
         DialogLayout insertMapLayout = new DialogLayout();
         insertMapLayout.setTheme("/dialoglayout");
-        insertMapLayout.setHorizontalGroup(insertMapLayout.createParallelGroup(insertMapLayout.createSequentialGroup(insertFileL, insertFileF)).addWidget(okButtonI));
-        insertMapLayout.setVerticalGroup(insertMapLayout.createSequentialGroup().addGroup(insertMapLayout.createParallelGroup(insertFileL, insertFileF)).addGap(40).addWidget(okButtonI));
+        insertMapLayout.setHorizontalGroup(
+                insertMapLayout
+                        .createParallelGroup(
+                                insertMapLayout.createSequentialGroup(insertFileL, insertFileF))
+                        .addWidget(okButtonI));
+        insertMapLayout.setVerticalGroup(
+                insertMapLayout
+                        .createSequentialGroup()
+                        .addGroup(insertMapLayout.createParallelGroup(insertFileL, insertFileF))
+                        .addGap(40)
+                        .addWidget(okButtonI));
         insertMapFrame.add(insertMapLayout);
         insertMapFrame.setVisible(false);
-        insertMapFrame.setPosition((Base.sizeOfScreen_x/2)-(insertMapFrame.getWidth()/2), (Base.sizeOfScreen_y/2)-(insertMapFrame.getHeight()/2));
+        insertMapFrame.setPosition(
+                (Base.sizeOfScreen_x / 2) - (insertMapFrame.getWidth() / 2),
+                (Base.sizeOfScreen_y / 2) - (insertMapFrame.getHeight() / 2));
         gui_manager.getRoot().add(insertMapFrame);
 
         mainmenu = new Menu();
@@ -209,38 +225,41 @@ public class Principal extends BasicGameState implements MouseListener
 
         Menu menuFile = new Menu();
         menuFile.setName("Fichier");
-        menuFile.add("Nouvelle carte ...", new Runnable() {
+        menuFile.add(
+                "Nouvelle carte ...",
+                new Runnable() {
 
-            @Override
-            public void run()
-            {
-                nouvelleCarte();
-            }
-        });
-        menuFile.add("Ouvrir ...", new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                openMapFrame.setVisible(true);
-            }
-        });
-        menuFile.add("Insérer une map", new Runnable() {
+                    @Override
+                    public void run() {
+                        nouvelleCarte();
+                    }
+                });
+        menuFile.add(
+                "Ouvrir ...",
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        openMapFrame.setVisible(true);
+                    }
+                });
+        menuFile.add(
+                "Insérer une map",
+                new Runnable() {
 
-            @Override
-            public void run()
-            {
-                insertMapFrame.setVisible(true);
-            }
-        });
-        menuFile.add("Enregistrer", new Runnable() {
+                    @Override
+                    public void run() {
+                        insertMapFrame.setVisible(true);
+                    }
+                });
+        menuFile.add(
+                "Enregistrer",
+                new Runnable() {
 
-            @Override
-            public void run()
-            {
-                mapManager.saveMapToXML("data/Maps/map2.xml");
-            }
-        });
+                    @Override
+                    public void run() {
+                        mapManager.saveMapToXML("data/Maps/map2.xml");
+                    }
+                });
         mainmenu.add(menuFile);
 
         Widget menuBar = mainmenu.createMenuBar();
@@ -250,96 +269,96 @@ public class Principal extends BasicGameState implements MouseListener
         gui_manager.getRoot().add(menuBar);
     }
 
-    public void openCarte(String path)
-    {
+    public void openCarte(String path) {
         Document doc = null;
         Element root;
 
-        //On crée une instance de SAXBuilder
+        // On crée une instance de SAXBuilder
         SAXBuilder sxb = new SAXBuilder();
-        try
-        {
+        try {
             doc = sxb.build(new File(path));
+        } catch (Exception e) {
         }
-        catch(Exception e){}
 
         root = doc.getRootElement();
 
         System.out.println("Chargement du fichier OK");
         Grille grille = new Grille();
-        int max_x = Integer.parseInt(((Element)root.getChildren().get(root.getChildren().size()-1)).getChild("id_x").getText())+1;
-        int max_y = Integer.parseInt(((Element)root.getChildren().get(root.getChildren().size()-1)).getChild("id_x").getText())+1;
-        for(int i = 0; i < max_x; i++){ //Creation d'une map
+        int max_x =
+                Integer.parseInt(
+                                ((Element) root.getChildren().get(root.getChildren().size() - 1))
+                                        .getChild("id_x")
+                                        .getText())
+                        + 1;
+        int max_y =
+                Integer.parseInt(
+                                ((Element) root.getChildren().get(root.getChildren().size() - 1))
+                                        .getChild("id_x")
+                                        .getText())
+                        + 1;
+        for (int i = 0; i < max_x; i++) { // Creation d'une map
             grille.add(new ArrayList<Tile>());
-            for(int j = 0; j < max_y; j++)
-            {
+            for (int j = 0; j < max_y; j++) {
                 grille.get(i).add(new Tile(i, j, Type_tile.types.get("herbe")));
             }
         }
-        System.out.println("Grille OK, taille "+grille.size());
-        for(int i = 0; i < root.getChildren().size(); i++)
-        {
-            Element e = ((Element)root.getChildren().get(i));
+        System.out.println("Grille OK, taille " + grille.size());
+        for (int i = 0; i < root.getChildren().size(); i++) {
+            Element e = ((Element) root.getChildren().get(i));
             ArrayList<Type_tile> list = new ArrayList<>();
-            for(int u = 0; u < e.getChild("types").getChildren().size(); u++)
-            {
-                list.add(Type_tile.types.get(((Element) e.getChild("types").getChildren().get(u)).getText()));
+            for (int u = 0; u < e.getChild("types").getChildren().size(); u++) {
+                list.add(
+                        Type_tile.types.get(
+                                ((Element) e.getChild("types").getChildren().get(u)).getText()));
             }
 
             grille.get(Integer.parseInt(e.getChild("id_x").getText()))
-            .get(Integer.parseInt(e.getChild("id_y").getText())).setTypes(list);
+                    .get(Integer.parseInt(e.getChild("id_y").getText()))
+                    .setTypes(list);
         }
         this.mapManager.setGrille(grille);
     }
 
-    public void insertCarte(String path)
-    {
+    public void insertCarte(String path) {
         Document doc = null;
         Element root;
 
-        //On crée une instance de SAXBuilder
+        // On crée une instance de SAXBuilder
         SAXBuilder sxb = new SAXBuilder();
-        try
-        {
+        try {
             doc = sxb.build(new File(path));
+        } catch (Exception e) {
         }
-        catch(Exception e){}
 
         root = doc.getRootElement();
 
         System.out.println("Chargement du fichier OK");
         Grille grille = mapManager.getGrille();
-        System.out.println("Grille OK, taille "+grille.size());
-        for(int i = 0; i < root.getChildren().size(); i++)
-        {
-            Element e = ((Element)root.getChildren().get(i));
+        System.out.println("Grille OK, taille " + grille.size());
+        for (int i = 0; i < root.getChildren().size(); i++) {
+            Element e = ((Element) root.getChildren().get(i));
             ArrayList<Type_tile> list = new ArrayList<>();
-            for(int u = 0; u < e.getChildren("types").size(); u++)
-            {
+            for (int u = 0; u < e.getChildren("types").size(); u++) {
                 list.add(Type_tile.types.get(((Element) e.getChildren("types").get(u)).getText()));
             }
 
             grille.get(Integer.parseInt(e.getChild("id_x").getText()))
-            .get(Integer.parseInt(e.getChild("id_y").getText())).setTypes(list);
+                    .get(Integer.parseInt(e.getChild("id_y").getText()))
+                    .setTypes(list);
         }
         this.mapManager.setGrille(grille);
     }
 
-    public void nouvelleCarte()
-    {
-        /**
-         * Construction de notre grille de base
-         */
+    public void nouvelleCarte() {
+        /** Construction de notre grille de base */
         Grille grille = new Grille();
 
-        for(int i = 0; i < 200; i++){ //Creation d'une map 50*50
+        for (int i = 0; i < 200; i++) { // Creation d'une map 50*50
             grille.add(new ArrayList<Tile>());
-            for(int j = 0; j < 200; j++)
-            {
+            for (int j = 0; j < 200; j++) {
                 grille.get(i).add(new Tile(i, j, Type_tile.types.get("herbe")));
             }
         }
-
 
         /**
          * Création de notre MapManger en passant en paramètre la liste de Map créé précédemment.
@@ -350,218 +369,226 @@ public class Principal extends BasicGameState implements MouseListener
     }
 
     @Override
-    public void render(GameContainer gc, StateBasedGame sbg, Graphics gr)
-            throws SlickException
-    {
+    public void render(GameContainer gc, StateBasedGame sbg, Graphics gr) throws SlickException {
         gr.setColor(new Color(210, 195, 107));
         gr.fillRect(0, 0, 1353, 700);
 
         this.mapManager.drawAndRefreshAll();
 
-        for(int i = 0; i < clicked.size(); i++)
-        {
+        for (int i = 0; i < clicked.size(); i++) {
             img.draw(clicked.get(i).getPos_x_real(), clicked.get(i).getPos_y_real());
         }
 
-
-
-        if(selection != null)
-        {
+        if (selection != null) {
             selection.draw(gr);
         }
 
-
-
         gui_manager.getTwlInputAdapter().render();
-
     }
 
     @Override
-    public void update(GameContainer gc, StateBasedGame arg1, int arg2)
-            throws SlickException
-    {
+    public void update(GameContainer gc, StateBasedGame arg1, int arg2) throws SlickException {
         gc.setMinimumLogicUpdateInterval(5);
         Input input = gc.getInput();
 
-        if(!gui_manager.isOn_gui_event())
-        {
+        if (!gui_manager.isOn_gui_event()) {
 
-        if(input.isKeyDown(Input.KEY_SPACE))
-        {
-            selection = null;
-            clicked.removeAll(clicked);
-        }/*
+            if (input.isKeyDown(Input.KEY_SPACE)) {
+                selection = null;
+                clicked.removeAll(clicked);
+            } /*
 
-        if(input.isKeyPressed(Input.KEY_M))
-        {
-            gestion_monstres = !gestion_monstres;
-            selec = false;
-            moveScreen = false;
+              if(input.isKeyPressed(Input.KEY_M))
+              {
+                  gestion_monstres = !gestion_monstres;
+                  selec = false;
+                  moveScreen = false;
 
+              }
+
+              if(input.isKeyPressed(Input.KEY_D))
+              {
+                  moveScreen = !moveScreen;
+                  selec = false;
+                  gestion_monstres = false;
+              }
+
+              if(input.isKeyPressed(Input.KEY_S))
+              {
+                  selec = !selec;
+                  moveScreen = false;
+                  gestion_monstres = false;
+              }*/
         }
 
-        if(input.isKeyPressed(Input.KEY_D))
-        {
-            moveScreen = !moveScreen;
-            selec = false;
-            gestion_monstres = false;
-        }
-
-        if(input.isKeyPressed(Input.KEY_S))
-        {
-            selec = !selec;
-            moveScreen = false;
-            gestion_monstres = false;
-        }*/
-
-        }
-
-        if(typesstore.getDroppedTile() != null)
-        {
-            //Récupération de la tile sur la grille on notre fleche est.
+        if (typesstore.getDroppedTile() != null) {
+            // Récupération de la tile sur la grille on notre fleche est.
             Tile tileGrille = this.mapManager.getTilePointed(input.getMouseX(), input.getMouseY());
 
-            if(tileGrille != null){ //On remplace la tyle ciblé par le curseur par le type tile selectionné
-                if(clicked.contains(tileGrille))
-                {
-                    for(Tile tile : clicked)
-                    {
-                        if(typesstore.getDroppedTile().getTile().getTypes().size()==1)
-                        {
-                            if(tile.getTypes().size()==0)
-                                tile.getTypes().add(typesstore.getDroppedTile().getTile().getTypes().get(0));
-
+            if (tileGrille != null) { // On remplace la tyle ciblé par le curseur par le type tile
+                // selectionné
+                if (clicked.contains(tileGrille)) {
+                    for (Tile tile : clicked) {
+                        if (typesstore.getDroppedTile().getTile().getTypes().size() == 1) {
+                            if (tile.getTypes().size() == 0)
+                                tile.getTypes()
+                                        .add(
+                                                typesstore
+                                                        .getDroppedTile()
+                                                        .getTile()
+                                                        .getTypes()
+                                                        .get(0));
                             else
-                                tile.getTypes().set(0, typesstore.getDroppedTile().getTile().getTypes().get(0));
+                                tile.getTypes()
+                                        .set(
+                                                0,
+                                                typesstore
+                                                        .getDroppedTile()
+                                                        .getTile()
+                                                        .getTypes()
+                                                        .get(0));
                             tile.getTypes().get(0).getImg().draw();
-                        }
-                        else
-                        {
-                            tile.getTypes().add(typesstore.getDroppedTile().getTile().getTypes().get(typesstore.getDroppedTile().getTile().getTypes().size()-1));
+                        } else {
+                            tile.getTypes()
+                                    .add(
+                                            typesstore
+                                                    .getDroppedTile()
+                                                    .getTile()
+                                                    .getTypes()
+                                                    .get(
+                                                            typesstore
+                                                                            .getDroppedTile()
+                                                                            .getTile()
+                                                                            .getTypes()
+                                                                            .size()
+                                                                    - 1));
                             System.out.println("type ajouté");
                         }
                     }
-                }
-                else
-                {
-                    if(typesstore.getDroppedTile().getTile().getTypes().size()==1)
-                    {
-                        if(tileGrille.getTypes().size()==0)
-                            tileGrille.getTypes().add(typesstore.getDroppedTile().getTile().getTypes().get(0));
-
+                } else {
+                    if (typesstore.getDroppedTile().getTile().getTypes().size() == 1) {
+                        if (tileGrille.getTypes().size() == 0)
+                            tileGrille
+                                    .getTypes()
+                                    .add(typesstore.getDroppedTile().getTile().getTypes().get(0));
                         else
-                            tileGrille.getTypes().set(0, typesstore.getDroppedTile().getTile().getTypes().get(0));
+                            tileGrille
+                                    .getTypes()
+                                    .set(
+                                            0,
+                                            typesstore
+                                                    .getDroppedTile()
+                                                    .getTile()
+                                                    .getTypes()
+                                                    .get(0));
                         tileGrille.getTypes().get(0).getImg().draw();
-                    }
-                    else
-                    {
-                        tileGrille.getTypes().add(typesstore.getDroppedTile().getTile().getTypes().get(typesstore.getDroppedTile().getTile().getTypes().size()-1));
+                    } else {
+                        tileGrille
+                                .getTypes()
+                                .add(
+                                        typesstore
+                                                .getDroppedTile()
+                                                .getTile()
+                                                .getTypes()
+                                                .get(
+                                                        typesstore
+                                                                        .getDroppedTile()
+                                                                        .getTile()
+                                                                        .getTypes()
+                                                                        .size()
+                                                                - 1));
                         System.out.println("type ajouté");
                     }
                 }
-
             }
 
             typesstore.getDroppedTile().setDropped(false);
         }
 
         toolbox.refresh();
-        if(toolbox.getSelectedPointeur().equals(Pointeur.MAIN))
-        {
-            current_function=Function.MOVE_MAP;
-        }
-        else if(toolbox.getSelectedPointeur().equals(Pointeur.SELEC))
-        {
-            current_function=Function.SELECTION;
-        }
-        else if(toolbox.getSelectedPointeur().equals(Pointeur.PLUS))
-        {
-            current_function=Function.PLUS;
-        }
-        else if(toolbox.getSelectedPointeur().equals(Pointeur.SUPPR))
-        {
-            current_function=Function.SUPPR;
+        if (toolbox.getSelectedPointeur().equals(Pointeur.MAIN)) {
+            current_function = Function.MOVE_MAP;
+        } else if (toolbox.getSelectedPointeur().equals(Pointeur.SELEC)) {
+            current_function = Function.SELECTION;
+        } else if (toolbox.getSelectedPointeur().equals(Pointeur.PLUS)) {
+            current_function = Function.PLUS;
+        } else if (toolbox.getSelectedPointeur().equals(Pointeur.SUPPR)) {
+            current_function = Function.SUPPR;
         }
         this.mapManager.setAbsolute(absolute);
-
 
         gui_manager.getTwlInputAdapter().update();
     }
 
     @Override
-    public void mouseDragged(int oldx, int oldy, int newx, int newy)
-    {
+    public void mouseDragged(int oldx, int oldy, int newx, int newy) {
 
         int offx = newx - oldx;
         int offy = newy - oldy;
 
-        if(current_function.equals(Function.MOVE_MAP))
-        {
+        if (current_function.equals(Function.MOVE_MAP)) {
             absolute = new Vector2f(absolute.x + offx, absolute.y + offy);
-        }
-
-        else if(current_function.equals(Function.SELECTION))
-        {
-            if(selection == null)
-            {
+        } else if (current_function.equals(Function.SELECTION)) {
+            if (selection == null) {
                 selection = new Selection(oldx, oldy, offx, offy);
                 selection.setMouseOld(new Vector2f(oldx, oldy));
+            } else {
+                selection.setSize(
+                        newx - selection.getMouseOld().x, newy - selection.getMouseOld().y);
             }
-            else
+
+            // Tile tileGrille = this.mapManager.getMap(0).getTilePointed(x, y);
+
+            /*if(calqueSelection.getGrille().get(i).get(j).isPointed(newx, newy))
             {
-                selection.setSize(newx-selection.getMouseOld().x, newy-selection.getMouseOld().y);
+                calqueSelection.getGrille().get(i).get(j).setState(Tile.CLICKED);
+            }
+            else if(!calqueSelection.getGrille().get(i).get(j).isPointed(newx, newy) && selec == false)
+            {
+                calqueSelection.getGrille().get(i).get(j).setState(Tile.NONE);
             }
 
-            //Tile tileGrille = this.mapManager.getMap(0).getTilePointed(x, y);
-
-                    /*if(calqueSelection.getGrille().get(i).get(j).isPointed(newx, newy))
-                    {
-                        calqueSelection.getGrille().get(i).get(j).setState(Tile.CLICKED);
-                    }
-                    else if(!calqueSelection.getGrille().get(i).get(j).isPointed(newx, newy) && selec == false)
-                    {
-                        calqueSelection.getGrille().get(i).get(j).setState(Tile.NONE);
-                    }
-
-                    if(calqueSelection.getGrille().get(i).get(j).getState() == Tile.CLICKED)
-                    {
-                        selection.add(new Vector2f(calqueSelection.getGrille().get(i).get(j).getPos_x_real(), calqueSelection.getGrille().get(i).get(j).getPos_y_real()));
-                    }*/
+            if(calqueSelection.getGrille().get(i).get(j).getState() == Tile.CLICKED)
+            {
+                selection.add(new Vector2f(calqueSelection.getGrille().get(i).get(j).getPos_x_real(), calqueSelection.getGrille().get(i).get(j).getPos_y_real()));
+            }*/
         }
-
     }
+
     @Override
-    public void mouseClicked(int button, int x, int y, int clickcount)
-    {
-        //Si la souris est cliquée (1 ou plusieurs clics).
+    public void mouseClicked(int button, int x, int y, int clickcount) {
+        // Si la souris est cliquée (1 ou plusieurs clics).
     }
 
     /**
-     * Cette fonction gère le remplacement d'une Tile de la grille si un Tile "type" a été posé sur la grille par l'utilisateur.
+     * Cette fonction gère le remplacement d'une Tile de la grille si un Tile "type" a été posé sur
+     * la grille par l'utilisateur.
      */
     @Override
-    public void mouseReleased(int button, int x, int y)
-    {
+    public void mouseReleased(int button, int x, int y) {
 
-        if(selection!=null) //S'il y a eu une selection
+        if (selection != null) // S'il y a eu une selection
         {
             long timer = System.currentTimeMillis();
-            ArrayList<Tile> tiles_selectionnees = new ArrayList<Tile>();//On crée le tableau qui contiendra les tiles sélectionnées
+            ArrayList<Tile> tiles_selectionnees =
+                    new ArrayList<
+                            Tile>(); // On crée le tableau qui contiendra les tiles sélectionnées
 
-            for(int i = 0; i < (int)selection.getWidth(); i+=40)
-            {
-                for(int j = 0; j < (int)selection.getHeight(); j+=20)
-                {
-                    Tile tile = this.mapManager.getTilePointed(i+(int)selection.getX(), j+(int)selection.getY());
-                    if(tile != null && !clicked.contains(tile) && !tiles_selectionnees.contains(tile))
-                    {
+            for (int i = 0; i < (int) selection.getWidth(); i += 40) {
+                for (int j = 0; j < (int) selection.getHeight(); j += 20) {
+                    Tile tile =
+                            this.mapManager.getTilePointed(
+                                    i + (int) selection.getX(), j + (int) selection.getY());
+                    if (tile != null
+                            && !clicked.contains(tile)
+                            && !tiles_selectionnees.contains(tile)) {
                         tiles_selectionnees.add(tile);
                     }
                 }
             }
             clicked.addAll(tiles_selectionnees);
 
-            long time = (System.currentTimeMillis()-timer);
+            long time = (System.currentTimeMillis() - timer);
             System.out.println("Temps d'exécution : " + time);
         }
 
@@ -585,20 +612,17 @@ public class Principal extends BasicGameState implements MouseListener
     }
 
     @Override
-    public void mousePressed(int button, int x, int y)
-    {
-        if(current_function.equals(Function.SUPPR))
-        {
+    public void mousePressed(int button, int x, int y) {
+        if (current_function.equals(Function.SUPPR)) {
             Tile tile = mapManager.getTilePointed(x, y);
-            if(tile != null)
-            {
+            if (tile != null) {
                 ArrayList<Type_tile> t = new ArrayList<>();
                 t.add(tile.getTypes().get(0));
                 tile.setTypes(t);
             }
         }
 
-        //--------------------------------------MAP------------------------------*
+        // --------------------------------------MAP------------------------------*
         /*if(button == 0)
         {
 
@@ -670,9 +694,6 @@ public class Principal extends BasicGameState implements MouseListener
             }
         }*/
     }
-
-
-
 
     /*private void nouvelle_map(GameContainer gc)
     {
@@ -804,6 +825,5 @@ public class Principal extends BasicGameState implements MouseListener
         });
 
     }*/
-
 
 }

@@ -6,25 +6,22 @@ import de.matthiasmann.twl.TextArea;
 import de.matthiasmann.twl.Widget;
 import de.matthiasmann.twl.textarea.HTMLTextAreaModel;
 
-public class TextBubble extends Widget
-{
+public class TextBubble extends Widget {
     private HTMLTextAreaModel model;
     private TextArea textarea;
     private String text;
     private Chrono chrono;
 
-    public TextBubble(String text)
-    {
+    public TextBubble(String text) {
         this.text = text;
         this.init();
     }
 
-    public void init()
-    {
+    public void init() {
         this.setTheme("/bullewidget");
         model = new HTMLTextAreaModel();
         textarea = new TextArea(model);
-        model.setHtml("<div style=\"font-family: default; \">"+text+"</div>");
+        model.setHtml("<div style=\"font-family: default; \">" + text + "</div>");
         this.add(textarea);
 
         chrono = new Chrono();
@@ -54,6 +51,4 @@ public class TextBubble extends Widget
     public void setChrono(Chrono chrono) {
         this.chrono = chrono;
     }
-
-
 }

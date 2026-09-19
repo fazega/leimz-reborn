@@ -8,65 +8,63 @@ import org.newdawn.slick.geom.Vector2f;
 
 import com.client.map.Tile;
 
-public abstract class Entity
-{
+public abstract class Entity {
 
-
-    //Position de l'entite sur la carte
-    //En repere (0;80;40)
+    // Position de l'entite sur la carte
+    // En repere (0;80;40)
     protected Tile tile;
-    //En repere (0;1;1)
+    // En repere (0;1;1)
     protected Vector2f pos_real;
 
-    //Position correspondant au barycentre de la tile sur laquelle l'entite est
+    // Position correspondant au barycentre de la tile sur laquelle l'entite est
     protected Vector2f pos_real_on_screen;
 
-    //Taille de l'entite
+    // Taille de l'entite
     protected Vector2f size;
 
-    //Formes avec la taille + la position
+    // Formes avec la taille + la position
     protected Rectangle pieds, corps;
 
-    //Orientation de l'entite
+    // Orientation de l'entite
     protected Orientation orientation;
 
-    //Etat
-    public enum Etat
-    {
-        NORMAL, OVER, CLICKED
+    // Etat
+    public enum Etat {
+        NORMAL,
+        OVER,
+        CLICKED
     };
+
     protected Etat etat;
 
-    //Booleen indiquant si l'entite est en collision ou non
+    // Booleen indiquant si l'entite est en collision ou non
     protected boolean on_collision = false;
 
-    //*******************************COTE GRAPHIQUE***********************************
+    // *******************************COTE GRAPHIQUE***********************************
 
-    //Les images de l'entite au repos
+    // Les images de l'entite au repos
     protected Image[] imgs_repos;
 
-    //L'image actuelle au repos
+    // L'image actuelle au repos
     protected Image current_img_repos;
 
-    //Les animations (eventuelles de l'entites)
+    // Les animations (eventuelles de l'entites)
     protected ArrayList<Animation> animations;
 
-    //*******************************ANNEXES********************************
+    // *******************************ANNEXES********************************
 
-    //La taille relative de l'entite
+    // La taille relative de l'entite
     protected float scaleSize = 1;
 
-    //La vitesse de l'entite
+    // La vitesse de l'entite
     protected float speed = 1.0f;
 
-    public Entity(Orientation orientation, Tile tile)
-    {
+    public Entity(Orientation orientation, Tile tile) {
         this.orientation = orientation;
         this.tile = tile;
 
-        this.pos_real = new Vector2f(0,0);
-        if(tile != null)
-        {
+        this.pos_real = new Vector2f(0, 0);
+        if (tile != null) {
             this.pos_real.x = tile.getPos_real().x;
             this.pos_real.y = tile.getPos_real().y;
         }
@@ -74,10 +72,8 @@ public abstract class Entity
         this.etat = Etat.NORMAL;
     }
 
-    public Image returnImgOrientation(Orientation orientation)
-    {
-        switch(orientation)
-        {
+    public Image returnImgOrientation(Orientation orientation) {
+        switch (orientation) {
             case BAS:
                 return imgs_repos[0];
             case HAUT:
@@ -99,20 +95,14 @@ public abstract class Entity
         }
     }
 
-    //Methode permettant de dessiner l'entite
-    public void draw()
-    {
-        /**
-         * A voir en fonction de l'entite
-         */
+    // Methode permettant de dessiner l'entite
+    public void draw() {
+        /** A voir en fonction de l'entite */
     }
 
-    //Methode permettant de rafraichir des elements de l'entite (formes par exemple)
-    public void refresh()
-    {
-        /**
-         * A voir en fonction de l'entite
-         */
+    // Methode permettant de rafraichir des elements de l'entite (formes par exemple)
+    public void refresh() {
+        /** A voir en fonction de l'entite */
     }
 
     public Tile getTile() {

@@ -16,35 +16,28 @@ import de.matthiasmann.twl.model.SimpleChangableListModel;
 import com.client.display.gui.GUI_Manager;
 import com.client.network.NetworkManager;
 
-public class CreationPerso extends BasicGameState
-{
+public class CreationPerso extends BasicGameState {
     private UnicodeFont labeltitre;
     private UnicodeFont label;
     private Image fond;
 
     @Override
-    public void init(GameContainer arg0, StateBasedGame arg1)
-            throws SlickException
-    {
-
-    }
+    public void init(GameContainer arg0, StateBasedGame arg1) throws SlickException {}
 
     @SuppressWarnings("unchecked")
     @Override
-    public void enter(GameContainer gc, final StateBasedGame sbg)
-            throws SlickException
-    {
+    public void enter(GameContainer gc, final StateBasedGame sbg) throws SlickException {
         Font f = new Font("Trebuchet MS", 25, Font.BOLD);
 
         label = new UnicodeFont(f, 15, true, false);
         label.addAsciiGlyphs();
-        label.addGlyphs(400,600);
+        label.addGlyphs(400, 600);
         label.getEffects().add(new ColorEffect(java.awt.Color.WHITE));
         label.loadGlyphs();
 
         labeltitre = new UnicodeFont(f, 25, true, false);
         labeltitre.addAsciiGlyphs();
-        labeltitre.addGlyphs(400,600);
+        labeltitre.addGlyphs(400, 600);
         labeltitre.getEffects().add(new ColorEffect(java.awt.Color.WHITE));
         labeltitre.loadGlyphs();
 
@@ -63,7 +56,8 @@ public class CreationPerso extends BasicGameState
 
         final ComboBox<String> racebox = new ComboBox<String>();
         racebox.setTheme("/combobox");
-        final SimpleChangableListModel<String> modelracebox = new SimpleChangableListModel<String>();
+        final SimpleChangableListModel<String> modelracebox =
+                new SimpleChangableListModel<String>();
         modelracebox.addElement("Mohm");
         modelracebox.addElement("Elfe");
         racebox.setModel(modelracebox);
@@ -73,7 +67,8 @@ public class CreationPerso extends BasicGameState
 
         final ComboBox<String> sexebox = new ComboBox<String>();
         sexebox.setTheme("/combobox");
-        final SimpleChangableListModel<String> modelsexebox = new SimpleChangableListModel<String>();
+        final SimpleChangableListModel<String> modelsexebox =
+                new SimpleChangableListModel<String>();
         modelsexebox.addElement("Homme");
         modelsexebox.addElement("Femme");
         sexebox.setModel(modelsexebox);
@@ -83,36 +78,45 @@ public class CreationPerso extends BasicGameState
 
         DialogLayout layout = new DialogLayout();
         layout.setTheme("/dialoglayout");
-        layout.setHorizontalGroup(layout.createSequentialGroup().addGroup(layout.createParallelGroup(nomlabel, racelabel, sexelabel))
-                .addGroup(layout.createParallelGroup(nomfield, racebox, sexebox)));
-        layout.setVerticalGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(nomlabel, nomfield))
-                    .addGap(20)
-                    .addGroup(layout.createParallelGroup(racelabel, racebox))
-                    .addGap(20)
-                    .addGroup(layout.createParallelGroup(sexelabel, sexebox))
-                    .addGap(20));
+        layout.setHorizontalGroup(
+                layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(nomlabel, racelabel, sexelabel))
+                        .addGroup(layout.createParallelGroup(nomfield, racebox, sexebox)));
+        layout.setVerticalGroup(
+                layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(nomlabel, nomfield))
+                        .addGap(20)
+                        .addGroup(layout.createParallelGroup(racelabel, racebox))
+                        .addGap(20)
+                        .addGroup(layout.createParallelGroup(sexelabel, sexebox))
+                        .addGap(20));
 
         frame.add(layout);
         frame.setPosition(350, 200);
         GUI_Manager.instance.getRoot().add(frame);
 
-
         Button creer = new Button("CrÃ©er le Perso");
         creer.setTheme("/button");
-        creer.addCallback(new Runnable() {
+        creer.addCallback(
+                new Runnable() {
 
-            @Override
-            public void run() {
-                NetworkManager.instance.sendToServer("cp;"+nomfield.getText()+";"+modelracebox.getEntry(racebox.getSelected())+";"+
-                        modelsexebox.getEntry(sexebox.getSelected()));
+                    @Override
+                    public void run() {
+                        NetworkManager.instance.sendToServer(
+                                "cp;"
+                                        + nomfield.getText()
+                                        + ";"
+                                        + modelracebox.getEntry(racebox.getSelected())
+                                        + ";"
+                                        + modelsexebox.getEntry(sexebox.getSelected()));
 
-                sbg.enterState(Base.CHOIX_PERSO);
-            }
-        });
+                        sbg.enterState(Base.CHOIX_PERSO);
+                    }
+                });
         GUI_Manager.instance.getRoot().add(creer);
         creer.adjustSize();
-        creer.setPosition(Base.sizeOfScreen_x/2-creer.getWidth()/2, Base.sizeOfScreen_y-100);
+        creer.setPosition(
+                Base.sizeOfScreen_x / 2 - creer.getWidth() / 2, Base.sizeOfScreen_y - 100);
 
         frame.requestKeyboardFocus();
     }
@@ -124,17 +128,14 @@ public class CreationPerso extends BasicGameState
         fond.draw();
 
         String titre = "Creation de personnage";
-        labeltitre.drawString(Base.sizeOfScreen_x/2-labeltitre.getWidth(titre)/2, 100, titre);
+        labeltitre.drawString(Base.sizeOfScreen_x / 2 - labeltitre.getWidth(titre) / 2, 100, titre);
 
         GUI_Manager.instance.getTwlInputAdapter().render();
-
     }
 
     @Override
-    public void update(GameContainer arg0, StateBasedGame arg1, int arg2)
-            throws SlickException {
+    public void update(GameContainer arg0, StateBasedGame arg1, int arg2) throws SlickException {
         GUI_Manager.instance.getTwlInputAdapter().update();
-
     }
 
     @Override
@@ -142,5 +143,4 @@ public class CreationPerso extends BasicGameState
         // TODO Auto-generated method stub
         return 5;
     }
-
 }

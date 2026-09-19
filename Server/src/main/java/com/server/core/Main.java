@@ -1,12 +1,9 @@
 package com.server.core;
 
-/**
- * @author fazega
- */
+/** @author fazega */
 public class Main {
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         ServerSingleton.getInstance().start();
     }
 }

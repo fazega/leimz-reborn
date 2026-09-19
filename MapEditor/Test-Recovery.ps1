@@ -12,4 +12,5 @@ Push-Location $PSScriptRoot
 try {
     & (Get-JavaTool 'java') "-Djava.library.path=$PSScriptRoot\lib" -cp "$classes;$PSScriptRoot\build\classes;$PSScriptRoot\lib\*" EditorRecoveryTest
     if ($LASTEXITCODE -ne 0) { throw 'Editor recovery test failed.' }
-} finally { Pop-Location }
+}
+finally { Pop-Location }
