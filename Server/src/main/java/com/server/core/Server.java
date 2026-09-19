@@ -24,6 +24,10 @@ public class Server {
         // On lance le gestionnaire de commandes
         try {
             dbConnexion = new DBConnection();
+            // This server owns the local world's sessions; none survive a process restart.
+            try (Statement reset = dbConnexion.getConnexion().createStatement()) {
+                reset.executeUpdate("UPDATE account SET connected=false");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

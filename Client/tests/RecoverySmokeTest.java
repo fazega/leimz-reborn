@@ -28,6 +28,8 @@ import org.lwjgl.opengl.DisplayMode;
 import de.matthiasmann.twl.Event;
 
 import de.matthiasmann.twl.EditField;
+import de.matthiasmann.twl.Button;
+import de.matthiasmann.twl.Widget;
 
 /** End-to-end checks against the recovered demo world and its fixed fixtures. */
 public class RecoverySmokeTest extends Base {
@@ -65,12 +67,13 @@ public class RecoverySmokeTest extends Base {
             }
             if (state == IDENTIFICATION && framesInState == 10)
                 verifyWindowSize(container, 1100, 720);
+            if (state == IDENTIFICATION && framesInState == 20)
+                saveScreenshot(container, graphics, state);
             if (state == IDENTIFICATION && framesInState == LOGIN_ACTION_FRAME) {
                 submitLogin();
             }
-            if (state == CHOIX_PERSO && framesInState == LOGIN_ACTION_FRAME) {
-                selectFirstCharacter();
-            }
+            if (state != IDENTIFICATION && state != LOADING && state != PRINCIPAL)
+                throw new AssertionError("Unexpected character selection screen");
             if ((state == LOADING && framesInState == 1)
                     || (state == PRINCIPAL && framesInState == GAMEPLAY_SCREENSHOT_FRAME)) {
                 saveScreenshot(container, graphics, state);
@@ -148,11 +151,33 @@ public class RecoverySmokeTest extends Base {
 
     private void submitLogin() throws Exception {
         Object login = getCurrentState();
+        if (Boolean.getBoolean("test.quickConnect")) {
+            setLoginField(login, "ef_login", "ignored-test-input");
+            setLoginField(login, "ef_password", "ignored-test-input");
+            Button quick = findQuickConnect(GUI_Manager.instance.getRoot());
+            if (quick == null) throw new AssertionError("Local quick-connect button missing");
+            int x = quick.getX() + quick.getWidth() / 2;
+            int y = quick.getY() + quick.getHeight() / 2;
+            GUI_Manager.instance.getTwlInputAdapter().mousePressed(0, x, y);
+            GUI_Manager.instance.getTwlInputAdapter().mouseReleased(0, x, y);
+            System.out.println("VERIFIED_QUICK_CONNECT_BUTTON_CLICK");
+            return;
+        }
         setLoginField(login, "ef_login", System.getProperty("test.user"));
         setLoginField(login, "ef_password", System.getProperty("test.password"));
         Method submit = login.getClass().getDeclaredMethod("test");
         submit.setAccessible(true);
         submit.invoke(login);
+    }
+
+    private Button findQuickConnect(Widget widget) {
+        if (widget instanceof Button && ((Button) widget).getText().startsWith("Connexion rapide"))
+            return (Button) widget;
+        for (int i = 0; i < widget.getNumChildren(); i++) {
+            Button found = findQuickConnect(widget.getChild(i));
+            if (found != null) return found;
+        }
+        return null;
     }
 
     private void setLoginField(Object login, String fieldName, String value) throws Exception {
@@ -161,21 +186,14 @@ public class RecoverySmokeTest extends Base {
         ((EditField) field.get(login)).setText(value);
     }
 
-    private void selectFirstCharacter() throws Exception {
-        Field characters = getCurrentState().getClass().getDeclaredField("persos");
-        characters.setAccessible(true);
-        Joueur player = (Joueur) ((ArrayList<?>) characters.get(getCurrentState())).get(0);
-        new MainJoueur(player.getPerso(), null, player.getOrientation());
-        MainJoueur.instance.setTile(new Tile(new Vector2f(START_TILE_X, START_TILE_Y), null));
-        NetworkManager.instance.sendToServer("lo;j;i;FaZeGa;Groz;barbare;24;43");
-        enterState(LOADING);
-    }
-
     private void saveScreenshot(GameContainer container, Graphics graphics, int state)
             throws Exception {
         Image screenshot = new Image(container.getWidth(), container.getHeight());
         graphics.copyArea(screenshot, 0, 0);
-        String name = state == LOADING ? "latest-loading" : "latest-gameplay";
+        String name =
+                state == IDENTIFICATION
+                        ? "latest-login"
+                        : state == LOADING ? "latest-loading" : "latest-gameplay";
         ImageOut.write(
                 screenshot, "png", System.getProperty("test.output") + "/" + name + ".png", false);
     }

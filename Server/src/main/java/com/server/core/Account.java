@@ -1,13 +1,21 @@
 package com.server.core;
 
-import java.util.ArrayList;
 import com.server.entities.Joueur;
+import com.server.db.AccountCharacter;
 
 public class Account {
     private String name;
     private String passwd;
-    private ArrayList<Joueur> joueurs;
     private Joueur current_joueur;
+    private AccountCharacter character;
+
+    public AccountCharacter getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(AccountCharacter character) {
+        this.character = character;
+    }
 
     public Account() {}
 
@@ -18,14 +26,6 @@ public class Account {
 
     public void setMdp(String mdp) {
         passwd = mdp;
-    }
-
-    public ArrayList<Joueur> getJoueurs() {
-        return joueurs;
-    }
-
-    public void setJoueurs(ArrayList<Joueur> joueurs) {
-        this.joueurs = joueurs;
     }
 
     public Joueur getCurrent_joueur() {

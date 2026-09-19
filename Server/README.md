@@ -28,3 +28,7 @@ Configure `dbUrl`, `dbUser` and `dbPassword` in root `local.settings.json`. Alte
 On the recovery workstation, local settings point to a separate `leimz_reborn` database on the existing local MariaDB instance at port 3307. Its game server uses port 1501 to avoid interrupting the older recovery session. These workstation settings are deliberately not committed.
 
 Server output and PID are written under `logs/`. Stop the specific server process using that PID. Do not terminate unrelated Java processes.
+
+## One character per account
+
+The server uses account.currjoueur when valid, otherwise deterministically adopts an existing character. Legacy extra rows remain preserved but are not playable through the protocol. An account with no character receives a Groz/barbare character and the historical default stats transactionally on first login. There is no character-creation command. The server chooses identity, race and starting position from its own account record; client-supplied choices are ignored. Run ./Server/Test-Accounts.ps1 for rolled-back database integration checks.

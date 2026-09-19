@@ -39,6 +39,8 @@ public class NetworkManager {
     public NetworkManager(InetAddress a, int port) throws UnknownHostException, IOException {
         message_recu_serveur = new HashMap<String, ArrayList<String>>();
         s = new Socket(a, port);
+        // Movement uses small request/reply packets; do not wait for TCP batching.
+        s.setTcpNoDelay(true);
         s.setSoTimeout(100);
         br = new BufferedReader(new InputStreamReader(s.getInputStream(), "ISO-8859-15"));
         pw = new PrintWriter(s.getOutputStream());

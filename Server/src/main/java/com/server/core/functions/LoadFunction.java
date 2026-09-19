@@ -26,6 +26,7 @@ import com.server.core.Client;
 import com.server.core.GlobalConstant;
 import com.server.core.ServerSingleton;
 import com.server.entities.managers.EntitiesManager;
+import com.server.db.AccountCharacter;
 
 public class LoadFunction implements Functionable {
     public LoadFunction() {}
@@ -87,16 +88,23 @@ public class LoadFunction implements Functionable {
     }
 
     public void getInfos(Client client, String[] args, String tag) {
+        AccountCharacter character = client.getCompte().getCharacter();
+        if (character == null)
+            throw new IllegalStateException("Account character must be loaded first");
+        if (client.getCompte().getCurrent_joueur() != null) return;
         client.getCompte()
                 .setCurrent_joueur(
                         new Joueur(
-                                new Personnage(args[3]),
+                                new Personnage(character.name),
                                 MapManager.instance.getEntire_map()
-                                        .getGrille()[Integer.parseInt(args[6])][
-                                        Integer.parseInt(args[7])],
+                                        .getGrille()[character.x][character.y],
                                 Orientation.BAS));
-        client.getCompte().getCurrent_joueur().getPerso().getRace().setNom(args[4]);
-        client.getCompte().getCurrent_joueur().getPerso().getClasse().setNom(args[5]);
+        client.getCompte().getCurrent_joueur().getPerso().getRace().setNom(character.race);
+        client.getCompte()
+                .getCurrent_joueur()
+                .getPerso()
+                .getClasse()
+                .setNom(character.characterClass);
         EntitiesManager.instance
                 .getPlayers_manager()
                 .addNewPlayer(client.getCompte().getCurrent_joueur());

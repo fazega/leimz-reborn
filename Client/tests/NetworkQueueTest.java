@@ -22,6 +22,8 @@ public final class NetworkQueueTest {
             NetworkManager network =
                     new NetworkManager(InetAddress.getLoopbackAddress(), server.getLocalPort());
             try (Socket peer = server.accept()) {
+                if (!network.getS().getTcpNoDelay())
+                    throw new AssertionError("Movement packets must not wait for TCP batching");
                 HashMap<String, ArrayList<String>> queue = new HashMap<>();
                 ArrayList<String> packets = new ArrayList<>();
                 packets.add("first");

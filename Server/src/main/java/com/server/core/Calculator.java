@@ -11,11 +11,10 @@ import com.server.core.functions.AttackFunction;
 import com.server.core.functions.CheckNewEntitiesAroundFunction;
 import com.server.core.functions.CombatFunction;
 import com.server.core.functions.ConnectFunction;
-import com.server.core.functions.CreationPersoFunction;
 import com.server.core.functions.Functionable;
 import com.server.core.functions.InfoFunction;
 import com.server.core.functions.LoadFunction;
-import com.server.core.functions.PersosInformationsFunction;
+import com.server.core.functions.AccountCharacterFunction;
 import com.server.core.functions.PnjDialogFunction;
 import com.server.core.functions.RefreshStateFunction;
 import com.server.core.functions.SayFunction;
@@ -34,8 +33,7 @@ public class Calculator implements Runnable {
         dictfunctions.put("pd", new PnjDialogFunction());
         dictfunctions.put("i", new InfoFunction());
         dictfunctions.put("c", new ConnectFunction());
-        dictfunctions.put("cp", new CreationPersoFunction());
-        dictfunctions.put("ci", new PersosInformationsFunction());
+        dictfunctions.put("ci", new AccountCharacterFunction());
         dictfunctions.put("sa", new SayFunction());
         dictfunctions.put("lo", new LoadFunction());
         dictfunctions.put("fi", new CombatFunction());
@@ -55,6 +53,10 @@ public class Calculator implements Runnable {
             System.out.println("Message reçu : "+mess);*/
             String[] temp = mess.split(";");
             Functionable f = dictfunctions.get(temp[0]);
+            if (f == null) {
+                source.sendMessage("REQUEST_FAIL;UNKNOWN_COMMAND");
+                return;
+            }
             try {
                 f.doSomething(temp, source);
             } catch (RuntimeException e) {

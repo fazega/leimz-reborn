@@ -19,11 +19,7 @@ public class Base extends StateBasedGame {
     }
 
     // Les entiers correspondants aux etats de jeu
-    public static int IDENTIFICATION = 1,
-            CHOIX_PERSO = 2,
-            CREATION_PERSO = 5,
-            LOADING = 3,
-            PRINCIPAL = 4;
+    public static int IDENTIFICATION = 1, LOADING = 3, PRINCIPAL = 4;
 
     // Taille de la fenetre de jeu (largeur (x) et hauteur (y) )
     public static int sizeOfScreen_x = 1280;
@@ -41,8 +37,6 @@ public class Base extends StateBasedGame {
 
         // Ajouts des etats de jeu, chaque etat correspond a une classe fille de BasicGameState
         this.addState(new Identification());
-        this.addState(new ChoixPerso());
-        this.addState(new CreationPerso());
         this.addState(new Loading());
         this.addState(new Principal());
     }

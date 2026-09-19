@@ -10,6 +10,7 @@ if ($LASTEXITCODE -ne 0) { throw 'Content preservation tests failed.' }
 & $node --test "$RepoRoot\Website\tests\website.test.cjs" "$RepoRoot\Website\tests\deployment.test.cjs"
 if ($LASTEXITCODE -ne 0) { throw 'Website tests failed.' }
 if ($Integration) {
+    & "$RepoRoot\Server\Test-Accounts.ps1"
     & "$RepoRoot\Client\Test-Recovery.ps1"
     & "$RepoRoot\MapEditor\Test-Recovery.ps1"
 }

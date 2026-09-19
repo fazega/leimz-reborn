@@ -4,7 +4,7 @@
 
 The five recovered race definitions all use the same `perso2` artwork. They now use a cleaned, transparent eight-direction atlas at `Client/data/Images/Persos/reborn/adventurer.png`, generated with the built-in image-generation tool from the original front, back and right-profile sprites. The original files remain intact. Only the new atlas was added to the protected content baseline.
 
-The renderer slices four columns and eight rows, keeps a fixed 88×88 canvas and common anchor across all poses to avoid resizing and recentering between frames. Column zero is idle; walking plays columns 1, 2, 3, 2 over 1440 ms (360 ms per pose). A subtle breathing effect runs while idle. Walking follows confirmed world-position changes, stops after movement ceases, and ignores teleport jumps. Gameplay coordinates, collision rules, dialogue and map data are unchanged. NPC artwork remains the recovered artwork.
+Walking now uses adventurer-walk.png: eight chronological frames per direction, played at 140 ms per frame (1120 ms per full two-step cycle). Five rows cover south, southeast, east, northeast and north; the three west-facing directions mirror the corresponding east-facing rows. Original idle poses remain in adventurer.png. Runtime canvases use a shared scale within each atlas and never resize poses independently. Movement state follows confirmed world coordinates; brief gaps retain the cycle, stopped movement returns to idle, and teleports reset it. TCP_NODELAY is enabled on both ends to avoid batching tiny movement approval packets.
 
 The atlas is derived from the existing character, not an independently licensed replacement for the historical artwork. The external packs below remain alternatives.
 
@@ -31,3 +31,11 @@ Research: 19 September 2026. These are candidates, not imported assets or replac
 Check actual files for complete direction coverage and consistent foot placement before choosing a pack. Preserve the creator's license alongside imported assets and update only the newly approved content-baseline entries.
 
 Wakfu is a useful visual reference. Its game artwork is proprietary; the [Ankama terms](https://store.steampowered.com/eula/215080_eula_0) do not establish a reusable asset-pack license. The candidates above have explicit reuse terms. No additional Dofus/Wakfu files were extracted or imported.
+
+## Revised walking atlas generation
+
+Generated with the built-in image-generation tool using the previous atlas only as a character reference. Saved in Client/data/Images/Persos/reborn/adventurer-walk.png. The first eight-direction draft was rejected because it mixed camera directions.
+
+Prompt: Redraw the reference character as a clean transparent walk animation sprite sheet, exactly eight columns and five rows: south, southeast, east profile, northeast and north. Eight chronological poses per row: left contact, down, passing, up, right contact, down, passing, up. Preserve brown ponytail, yellow sleeveless tunic, teal trousers and brown boots; consistent body scale and ground anchor, opposite arm/leg swing, minimal torso bob, no text, shadows or gridlines. West-facing directions are mirrored in the renderer.
+
+Runtime inspection found uneven generated row spacing. CharacterSprites uses explicit row bounds for the 1586×992 atlas, registers head positions, and uses a shared scale rather than resizing individual silhouettes. Idle bottoms are trimmed at runtime to align feet with the same world anchor. Client/Test-Animation.ps1 reproduces the visual contact sheet.

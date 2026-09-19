@@ -16,6 +16,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import com.client.display.gui.GUI_Manager;
 import com.client.network.NetworkManager;
+import com.client.network.PlayerSession;
 
 import de.matthiasmann.twl.Button;
 import de.matthiasmann.twl.DialogLayout;
@@ -167,10 +168,26 @@ public class Identification extends BasicGameState {
                     }
                 });
 
-        panel.setVerticalGroup(
-                panel.createSequentialGroup(l_login, ef_login, l_password, ef_password, bouton));
-        panel.setHorizontalGroup(
-                panel.createParallelGroup(l_login, ef_login, l_password, ef_password, bouton));
+        Button quickConnect = new Button("Connexion rapide");
+        quickConnect.setTheme("/button");
+        quickConnect.addCallback(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        quickConnect();
+                    }
+                });
+        boolean localTest = isLocalTestConnection();
+        Group vertical =
+                panel.createSequentialGroup(l_login, ef_login, l_password, ef_password, bouton);
+        Group horizontal =
+                panel.createParallelGroup(l_login, ef_login, l_password, ef_password, bouton);
+        if (localTest) {
+            vertical.addWidget(quickConnect);
+            horizontal.addWidget(quickConnect);
+        }
+        panel.setVerticalGroup(vertical);
+        panel.setHorizontalGroup(horizontal);
 
         loginPanel.add(panel);
         loginPanel.adjustSize();
@@ -211,7 +228,8 @@ public class Identification extends BasicGameState {
         if (confirm.equals("CONNECT_SUCCEED")) {
             System.out.println("Connection OK.");
             // music.stop();
-            test_sbg.enterState(Base.CHOIX_PERSO);
+            PlayerSession.enterWorld(network);
+            test_sbg.enterState(Base.LOADING);
         } else {
             String info = confirm.split(";")[1];
             if (info.equals("INCORRECT_NDC_PASS")) {
@@ -220,6 +238,22 @@ public class Identification extends BasicGameState {
                 openPopup("Compte dÃ©jÃ  connectÃ©.");
             }
         }
+    }
+
+    private static boolean isLocalTestConnection() {
+        try {
+            return InetAddress.getByName(System.getProperty("leimz.host", "127.0.0.1"))
+                    .isLoopbackAddress();
+        } catch (UnknownHostException exception) {
+            return false;
+        }
+    }
+
+    private void quickConnect() {
+        if (!isLocalTestConnection()) return;
+        ef_login.setText("player");
+        ef_password.setText("leimz-local");
+        test();
     }
 
     private void openPopup(String text) {

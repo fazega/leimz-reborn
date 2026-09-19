@@ -1,4 +1,4 @@
-param([switch]$Borders)
+param([switch]$Borders, [switch]$QuickConnect)
 . "$PSScriptRoot\..\common.ps1"
 $classes = "$PSScriptRoot\build\classes"
 $testDir = "$PSScriptRoot\build\tests"
@@ -9,6 +9,7 @@ $port = Get-Setting 'gamePort' 1500
 
 $argsList = @('-Dfile.encoding=ISO-8859-15', "-Dleimz.port=$port", '-Dtest.user=player', '-Dtest.password=leimz-local', "`"-Dtest.output=$testDir`"", "`"-Djava.library.path=$PSScriptRoot\lib`"", '-cp', "`"$testDir;$classes;$PSScriptRoot\lib\*`"", 'RecoverySmokeTest')
 if ($Borders) { $argsList = @('-Dtest.borders=true') + $argsList }
+if ($QuickConnect) { $argsList = @('-Dtest.quickConnect=true') + $argsList }
 $process = Start-Process (Get-JavaTool 'java') -ArgumentList $argsList -WorkingDirectory $PSScriptRoot -WindowStyle Hidden -PassThru -RedirectStandardOutput "$testDir\smoke.log" -RedirectStandardError "$testDir\smoke-error.log"
 if (-not $process.WaitForExit(60000)) { $process.Kill(); throw 'Integration test timed out. See Client/build/tests.' }
 $log = Get-Content "$testDir\smoke.log" -Raw

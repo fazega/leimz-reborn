@@ -22,6 +22,7 @@ public class Client {
     public Client(Socket player, int liste) throws IOException {
         this.liste = liste;
         s = player;
+        s.setTcpNoDelay(true);
         br = new BufferedReader(new InputStreamReader(s.getInputStream(), "UTF-8"));
         pw = new PrintWriter(s.getOutputStream());
         compte = new Account();
@@ -32,6 +33,10 @@ public class Client {
         try {
             this.getS().setSoTimeout(1);
             tmp = this.br.readLine();
+            if (tmp == null) {
+                disconnect();
+                return null;
+            }
             noresponse = 0;
         } catch (SocketTimeoutException ex) {
             // Si on chope l'erreur comme quoi le socket n'a pas repondu

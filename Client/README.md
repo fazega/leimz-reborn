@@ -6,7 +6,7 @@ Java entry point: `com.client.gamestates.Base`. Run `../Build.ps1 Client` and `.
 
 Demo login: **player / leimz-local** → **FaZeGa**. NPC **Well Caume** is at (5,5); select him and choose **Parler**. Inventory: **I**; character statistics: **P**; menu: **Escape**. There is no recovered quest-log shortcut.
 
-The launcher preserves the legacy 1000×680 game surface. Font/DPI initialization now happens before window creation. Collisions use solid map tiles, rather than pixel-perfect sprite shapes.
+The launcher opens a resizable 1280×800 window. Font/DPI initialization now happens before window creation. Collisions use solid map tiles, rather than pixel-perfect sprite shapes.
 
 The optional `Test-Recovery.ps1` integration check logs into the demo database, tests a barrel collision and verifies NPC discovery after synchronizing position. Run only against the demo seed: it temporarily changes FaZeGa's saved position. It does not test all quest, combat or click-pathfinding behavior.
 
@@ -21,3 +21,9 @@ World loading consumes queued network packets immediately and enters gameplay as
 The outermost map tiles are solid on both client and server. A procedural mossy rock field continues beyond the map to cover the camera view at every edge. This is a runtime border; the historical map XML, database seed, NPCs and interior scenery remain unchanged. The MapEditor still edits the original map data.
 
 Run `./Client/Test-Recovery.ps1 -Borders` from the repository root with the demo server running to capture all four corners and four edge midpoints under `Client/build/tests/border-*.png`. This includes the normal gameplay smoke checks. Animated character candidates and renderer requirements are documented in [CHARACTER-ART.md](../CHARACTER-ART.md).
+
+## Direct login and local testing
+
+Login opens the account's single character directly; there are no character selection or creation screens. The local login form offers **Connexion rapide**, which signs in with the demo account without typing credentials. The button is only offered for a loopback server and still uses normal server authentication.
+
+Run Client/Test-Recovery.ps1 -QuickConnect to exercise the quick-connect callback and full world entry, or omit the switch to test entered credentials. Client/Test-Animation.ps1 renders a contact sheet of the actual runtime sprites for visual inspection.

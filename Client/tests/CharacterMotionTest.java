@@ -2,6 +2,7 @@ import com.client.display.CharacterMotion;
 
 public final class CharacterMotionTest {
     public static void main(String[] args) throws Exception {
+        verifyWalkAtlas(new java.io.File(args[0]).getParentFile());
         java.awt.image.BufferedImage atlas = javax.imageio.ImageIO.read(new java.io.File(args[0]));
         require(atlas.getColorModel().hasAlpha(), "Atlas must preserve transparency");
         require(
@@ -31,26 +32,61 @@ public final class CharacterMotionTest {
         CharacterMotion motion = new CharacterMotion();
         CharacterMotion slowWalk = new CharacterMotion();
         slowWalk.update(0, 0, 0);
-        for (int millisecond = 1; millisecond < 360; millisecond++) {
+        for (int millisecond = 1; millisecond < CharacterMotion.WALK_FRAME_MS; millisecond++) {
             slowWalk.update(millisecond, 0, 1);
-            require(slowWalk.getFrame() == 1, "Walking pose must remain visible for 360 ms");
+            require(slowWalk.getFrame() == 1, "Walking pose must remain visible for 140 ms");
         }
-        slowWalk.update(360, 0, 1);
+        slowWalk.update(CharacterMotion.WALK_FRAME_MS, 0, 1);
         require(slowWalk.getFrame() == 2, "Walk advances after the full pose duration");
         motion.update(0, 0, 0);
         require(motion.getFrame() == 0, "Initially idle");
-        boolean[] seen = new boolean[4];
-        for (int i = 1; i <= 30; i++) {
+        boolean[] seen = new boolean[9];
+        for (int i = 1; i <= 40; i++) {
             motion.update(i, 0, 32);
             seen[motion.getFrame()] = true;
         }
-        require(seen[1] && seen[2] && seen[3], "Walk cycle must advance through all poses");
-        for (int i = 0; i < 10; i++) motion.update(30, 0, 32);
+        require(
+                seen[1] && seen[2] && seen[3] && seen[4] && seen[5] && seen[6] && seen[7]
+                        && seen[8],
+                "Walk cycle must advance through all poses");
+        for (int i = 0; i < 10; i++) motion.update(40, 0, 32);
         require(motion.getFrame() == 0, "Blocked/stopped player must return to idle");
         motion.update(3000, 3000, 32);
         require(motion.getFrame() == 0, "Teleport must not trigger a walk");
         require(Math.abs(motion.getBreathingScale() - 1) <= 0.009f, "Idle breathing stays subtle");
+        for (int step : new int[] {10, 20, 40}) {
+            CharacterMotion timed = new CharacterMotion();
+            timed.update(0, 0, 0);
+            for (int elapsed = step; elapsed <= 1120; elapsed += step) {
+                timed.update(elapsed / 20f, 0, step);
+            }
+            require(timed.getFrame() == 1, "Full cycle timing must be independent of update rate");
+        }
         System.out.println("PASS: walk cycle, idle, stopped movement and teleport animation.");
+    }
+
+    private static void verifyWalkAtlas(java.io.File directory) throws Exception {
+        java.awt.image.BufferedImage image =
+                javax.imageio.ImageIO.read(new java.io.File(directory, "adventurer-walk.png"));
+        require(image.getColorModel().hasAlpha(), "Walking sprites need transparent background");
+        require(
+                Math.abs(image.getWidth() * 5 - image.getHeight() * 8) < 8,
+                "Walk atlas must contain eight columns and five directional rows");
+        for (int row = 0; row < 5; row++) {
+            for (int frame = 0; frame < 8; frame++) {
+                int left = frame * image.getWidth() / 8;
+                int top = row * image.getHeight() / 5;
+                int right = (frame + 1) * image.getWidth() / 8;
+                int bottom = (row + 1) * image.getHeight() / 5;
+                int pixels = 0;
+                for (int y = top; y < bottom; y++)
+                    for (int x = left; x < right; x++)
+                        if ((image.getRGB(x, y) >>> 24) > 128) pixels++;
+                require(
+                        pixels > 100 && pixels < (right - left) * (bottom - top) * 0.6,
+                        "Every walk pose must be present and surrounded by transparency");
+            }
+        }
     }
 
     private static void require(boolean condition, String message) {
