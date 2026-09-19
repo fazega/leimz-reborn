@@ -186,7 +186,8 @@ public class RecoverySmokeTest extends Base {
         if (framesInState == 1) {
             beginBarrelApproach(grid);
         }
-        if (framesInState < BARREL_CHECK_FRAME) {
+        // Let the final server approval settle before relocating to the NPC fixture.
+        if (framesInState < BARREL_CHECK_FRAME - 20) {
             sendMovementBurst();
         }
         if (maps.getTileReal(MainJoueur.instance.getPos_real()).isCollidable()) {
@@ -197,15 +198,53 @@ public class RecoverySmokeTest extends Base {
         }
         if (framesInState == NPC_CHECK_FRAME) {
             checkNpcLoaded();
+            verifyMapClickStartsWalking();
+        }
+        if (framesInState == 350) {
+            Vector2f destination = grid[9][14].getPos_real_barycentre();
+            if (MainJoueur.instance.getPos_real().distance(destination) > 2) {
+                throw new AssertionError(
+                        "Click-to-move did not reach its destination: "
+                                + MainJoueur.instance.getPos_real());
+            }
+            System.out.println("VERIFIED_CLICK_TO_MOVE_REACHED_DESTINATION");
             if (!Boolean.getBoolean("test.borders")) container.exit();
         }
+    }
+
+    private void verifyMapClickStartsWalking() {
+        final MapManager maps = MapManager.instance;
+        final Vector2f point = maps.getEntire_map().getGrille()[9][14].getPos_screen_barycentre();
+        for (Tile[] column : maps.getMap_visible().getGrille()) {
+            for (Tile tile : column) tile.setDrawn(false);
+        }
+        org.newdawn.slick.Input click =
+                new org.newdawn.slick.Input(Base.sizeOfScreen_y) {
+                    @Override
+                    public boolean isMousePressed(int button) {
+                        return button == 0;
+                    }
+
+                    @Override
+                    public int getMouseX() {
+                        return (int) point.x;
+                    }
+
+                    @Override
+                    public int getMouseY() {
+                        return (int) point.y;
+                    }
+                };
+        new com.client.events.MainEventListener(
+                        new com.client.utils.pathfinder.PathFinder(maps.getEntire_map()), click)
+                .pollEvents();
     }
 
     private void checkBorders(GameContainer container, Graphics graphics) throws Exception {
         int[][] positions = {
             {1, 1}, {100, 1}, {198, 1}, {198, 100}, {198, 198}, {100, 198}, {1, 198}, {1, 100}
         };
-        int elapsed = framesInState - NPC_CHECK_FRAME;
+        int elapsed = framesInState - 360;
         if (elapsed < 0) return;
         int index = elapsed / 15;
         if (index >= positions.length) {

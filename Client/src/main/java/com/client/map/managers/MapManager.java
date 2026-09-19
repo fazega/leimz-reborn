@@ -176,13 +176,12 @@ public class MapManager implements NetworkListener {
 
     /** Retourne la tile en fonction du (x;y) */
     public Tile getTileScreen(Vector2f posScreen) {
-        for (int i = 0;
-                i < this.entire_map.getGrille().length;
-                i++) { // Parcours toute la grille visible
-            for (int j = 0; j < this.entire_map.getGrille()[i].length; j++) {
-                if (this.entire_map.getGrille()[i][j].isPointed(posScreen)
-                        && this.entire_map.getGrille()[i][j].isDrawn())
-                    return this.entire_map.getGrille()[i][j];
+        if (posScreen == null || map_visible == null) return null;
+        // Input runs after camera updates but before rendering. Visibility, not the
+        // previous render's drawn flag, determines which tiles can be clicked.
+        for (Tile[] column : map_visible.getGrille()) {
+            for (Tile tile : column) {
+                if (tile.isPointed(posScreen)) return tile;
             }
         }
 

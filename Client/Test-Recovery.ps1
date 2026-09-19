@@ -12,6 +12,7 @@ if ($Borders) { $argsList = @('-Dtest.borders=true') + $argsList }
 $process = Start-Process (Get-JavaTool 'java') -ArgumentList $argsList -WorkingDirectory $PSScriptRoot -WindowStyle Hidden -PassThru -RedirectStandardOutput "$testDir\smoke.log" -RedirectStandardError "$testDir\smoke-error.log"
 if (-not $process.WaitForExit(60000)) { $process.Kill(); throw 'Integration test timed out. See Client/build/tests.' }
 $log = Get-Content "$testDir\smoke.log" -Raw
+if ($log -notmatch 'VERIFIED_CLICK_TO_MOVE_REACHED_DESTINATION') { throw 'Click-to-move test failed.' }
 if ($log -notmatch 'BARREL_BLOCKED' -or $log -notmatch 'VERIFIED_NPC_LOADED_AFTER_POSITION_SYNC') { throw 'Recovery integration test failed. See Client/build/tests logs.' }
 Write-Host 'PASS: demo login, map rendering, barrel collision and NPC discovery.'
 if ($log -notmatch 'VERIFIED_CHAT_FOCUS_AND_SHORTCUT_RELEASE' -or $log -notmatch 'VERIFIED_RESIZE=1280x800') { throw 'Chat focus or resizing regression failed.' }

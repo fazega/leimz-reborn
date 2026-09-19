@@ -70,6 +70,9 @@ public final class MapGeometryTest {
             for (Tile[] column : manager.getMap_visible().getGrille()) {
                 for (Tile visible : column) {
                     require(
+                            manager.getTileScreen(visible.getPos_screen_barycentre()) == visible,
+                            "Visible tile must be clickable before render");
+                    require(
                             visible.getPos_screen()
                                             .distance(visible.getPos_real().copy().add(offset))
                                     < 0.001f,
