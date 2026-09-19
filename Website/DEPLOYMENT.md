@@ -1,4 +1,21 @@
-# Publish to Cloudflare Pages
+# Publish to Cloudflare
+
+## Workers deployment (current setup)
+
+Connect `fazega/leimz-reborn`, branch `main`, with the repository root as the
+root directory. Use build command `node Website/build.cjs` and deploy command
+`npx wrangler deploy`. The root `wrangler.jsonc` defines the Worker name,
+compatibility date and public assets directory. The existing command
+`npx wrangler deploy --assets ./Website/dist --name leimz-reborn` also works.
+
+Deploy the latest commit, then open the Worker's **Settings → Domains & Routes →
+Add → Custom domain** and enter `leimz.com`. Approve Cloudflare's DNS changes.
+
+The compatibility date is pinned to 2026-09-18; it selects platform behavior,
+not the date the website was built. A failed historical deployment must be
+retried with the latest commit to include this configuration.
+
+## Alternative: Pages deployment
 
 The website is static. `node build.cjs` creates `dist/` containing only
 `index.html`, `app.js`, `style.css`, and `assets/`. No Node server is needed in
