@@ -34,7 +34,7 @@ public class Camera {
         Vector2f offset =
                 new Vector2f(
                         Base.sizeOfScreen_x / 2f - player.x,
-                        Base.sizeOfScreen_y / 2f + 40 - player.y);
+                        Base.sizeOfScreen_y / 2f + WalkPose.BODY_HEIGHT / 2f - player.y);
         int startX = Math.max(0, (int) Math.floor(-offset.x / 40) - 6);
         int startY = Math.max(0, (int) Math.floor(-offset.y / 40) - 4);
         int endX =

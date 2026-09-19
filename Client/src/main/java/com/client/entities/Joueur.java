@@ -138,20 +138,20 @@ public class Joueur extends Entity {
         motion.update(pos_real.x, pos_real.y, (int) ((now - lastAnimationTime) / 1000000));
         lastAnimationTime = now - (now - lastAnimationTime) % 1000000;
         try {
-            current_img_repos = CharacterSprites.get(orientation, motion.getFrame());
+            current_img_repos = CharacterSprites.get(orientation);
         } catch (SlickException exception) {
             throw new IllegalStateException("Cannot load character animation", exception);
         }
     }
 
     private void drawAnimated(float scale) {
-        float height = current_img_repos.getHeight() * scale * motion.getBreathingScale();
-        float width = current_img_repos.getWidth() * scale;
-        current_img_repos.draw(
-                pos_real.x + MapManager.instance.getAbsolute().x - width / 2,
-                pos_real.y + MapManager.instance.getAbsolute().y - height,
-                width,
-                height);
+        CharacterSprites.draw(
+                orientation,
+                motion.getWalkPhase(),
+                motion.getWalkAmount(),
+                pos_real.x + MapManager.instance.getAbsolute().x,
+                pos_real.y + MapManager.instance.getAbsolute().y,
+                scale);
     }
 
     public String stringOrientation() {

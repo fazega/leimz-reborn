@@ -7,15 +7,24 @@ public final class CharacterMotion {
     private float previousX, previousY;
     private boolean initialized;
     private int movingFor, phase, idleTime;
+    private float walkAmount;
 
     public void update(float x, float y, int delta) {
         delta = Math.max(0, Math.min(delta, 100));
         float distance = Math.abs(x - previousX) + Math.abs(y - previousY);
         if (initialized && distance > 0.01f && distance < 64) movingFor = 130;
         else movingFor = Math.max(0, movingFor - delta);
-        if (initialized && distance >= 64) movingFor = 0;
+        if (initialized && distance >= 64) {
+            movingFor = 0;
+            phase = 0;
+            walkAmount = 0;
+        }
         if (movingFor > 0) phase = (phase + delta) % (WALK_FRAME_COUNT * WALK_FRAME_MS);
-        else phase = 0;
+        // Preserve stride through short network pauses instead of restarting at the same pose.
+        walkAmount =
+                Math.max(
+                        0,
+                        Math.min(1, walkAmount + (movingFor > 0 ? delta / 100f : -delta / 120f)));
         idleTime = (idleTime + delta) % 2400;
         previousX = x;
         previousY = y;
@@ -25,6 +34,14 @@ public final class CharacterMotion {
     public int getFrame() {
         if (movingFor == 0) return 0;
         return 1 + phase / WALK_FRAME_MS;
+    }
+
+    public float getWalkPhase() {
+        return (float) (phase * Math.PI * 2 / (WALK_FRAME_COUNT * WALK_FRAME_MS));
+    }
+
+    public float getWalkAmount() {
+        return walkAmount;
     }
 
     public float getBreathingScale() {

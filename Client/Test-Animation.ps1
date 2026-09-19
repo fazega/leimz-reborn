@@ -7,4 +7,5 @@ $previewArgs = @("`"-Dtest.output=$testDir`"", "`"-Djava.library.path=$PSScriptR
 $preview = Start-Process (Get-JavaTool 'java') -ArgumentList $previewArgs -WorkingDirectory $PSScriptRoot -WindowStyle Hidden -PassThru -RedirectStandardOutput "$testDir\preview.log" -RedirectStandardError "$testDir\preview-error.log"
 if (-not $preview.WaitForExit(15000)) { $preview.Kill(); throw 'Animation preview timed out.' }
 if ($preview.ExitCode -ne 0) { throw 'Animation preview failed.' }
+if ((Get-Content "$testDir\preview.log" -Raw) -notmatch 'rendered feet alternate in all eight directions') { throw 'Rendered gait verification failed.' }
 Write-Host "Animation contact sheet: $testDir\animation-proof.png"

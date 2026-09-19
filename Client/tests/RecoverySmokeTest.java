@@ -107,6 +107,16 @@ public class RecoverySmokeTest extends Base {
             throw new AssertionError("GUI viewport did not resize");
         }
         if (getCurrentStateID() == PRINCIPAL) {
+            Vector2f player = MainJoueur.instance.getPos_real();
+            Vector2f offset = MapManager.instance.getAbsolute();
+            if (Math.abs(player.x + offset.x - width / 2f) > 2
+                    || Math.abs(
+                                    player.y
+                                            + offset.y
+                                            - com.client.display.WalkPose.BODY_HEIGHT / 2f
+                                            - height / 2f)
+                            > 2)
+                throw new AssertionError("Player body is not centered after resize");
             ChatFrame chat = PrincipalGui.instance.getChat_frame();
             if (chat.getY() + chat.getHeight() > height || chat.getX() + chat.getWidth() > width) {
                 throw new AssertionError("Chat clipped after resize");

@@ -59,6 +59,18 @@ public final class MapGeometryTest {
             Tile focus = manager.getTileReal(player);
             camera.focusOn(focus, focus.getPos_real().copy().sub(player));
             Vector2f offset = manager.getAbsolute();
+            require(
+                    Math.abs(player.x + offset.x - com.client.gamestates.Base.sizeOfScreen_x / 2f)
+                            < 0.001f,
+                    "Player must be horizontally centered");
+            require(
+                    Math.abs(
+                                    player.y
+                                            + offset.y
+                                            - com.client.display.WalkPose.BODY_HEIGHT / 2f
+                                            - com.client.gamestates.Base.sizeOfScreen_y / 2f)
+                            < 0.001f,
+                    "Player body must be vertically centered");
             if (previousOffset != null) {
                 require(
                         Math.abs(offset.x - previousOffset.x + 1) < 0.001f,

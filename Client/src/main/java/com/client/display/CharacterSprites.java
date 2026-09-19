@@ -1,83 +1,115 @@
 package com.client.display;
 
 import com.client.entities.Orientation;
+import org.lwjgl.opengl.GL11;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
-/** Shared idle poses and an eight-phase walk cycle. Left-facing walks mirror right-facing rows. */
+/** Stable directional artwork with independently articulated legs. */
 public final class CharacterSprites {
-    private static Image[][] frames;
+    private static Image[] poses;
+    private static final float[] JOINTS = {WalkPose.HIP, 0.80f, 0.92f, 1};
 
     private CharacterSprites() {}
 
-    public static Image get(Orientation direction, int frame) throws SlickException {
-        if (frames == null) {
-            Image atlas = new Image("data/Images/Persos/reborn/adventurer.png");
-            Image walk = new Image("data/Images/Persos/reborn/adventurer-walk.png");
-            if (walk.getWidth() != 1586 || walk.getHeight() != 992)
-                throw new IllegalStateException("Walk atlas changed; update frame bounds first");
-            // The generated sheet has uneven row spacing. Explicit bounds prevent adjacent
-            // heads/feet bleeding into a frame; do not assume a mathematically uniform grid.
-            int[] rowTop = {0, 198, 392, 584, 776};
-            int[] rowBottom = {190, 386, 577, 770, 971};
-            frames = new Image[8][9];
-            int[] walkRows = {0, 1, 2, 3, 4, 3, 2, 1};
-            for (int row = 0; row < 8; row++) {
-                int idleY = row * atlas.getHeight() / 8;
-                int idleBottom = idleY;
-                for (int y = idleY; y < (row + 1) * atlas.getHeight() / 8; y++) {
-                    for (int x = 0; x < atlas.getWidth() / 4; x++) {
-                        if (atlas.getColor(x, y).a > 0.5f) idleBottom = y + 1;
-                    }
-                }
-                frames[row][0] =
-                        atlas.getSubImage(0, idleY, atlas.getWidth() / 4, idleBottom - idleY)
-                                .getScaledCopy(88f / (atlas.getWidth() / 4));
-                int walkRow = walkRows[row];
-                for (int column = 0; column < CharacterMotion.WALK_FRAME_COUNT; column++) {
-                    int x = column * walk.getWidth() / 8;
-                    int y = rowTop[walkRow];
-                    int cellWidth = (column + 1) * walk.getWidth() / 8 - x;
-                    int left = cellWidth, right = 0;
-                    for (int headY = y; headY < y + 45; headY++) {
-                        for (int headX = 0; headX < cellWidth; headX++) {
-                            if (walk.getColor(x + headX, headY).a > 0.5f) {
-                                left = Math.min(left, headX);
-                                right = Math.max(right, headX);
-                            }
-                        }
-                    }
-                    // Register the head, not the changing silhouette of the swinging limbs.
-                    x += (left + right - cellWidth) / 2;
-                    Image cell = walk.getSubImage(x, y, cellWidth, rowBottom[walkRow] - y);
-                    if (row > 4) cell = cell.getFlippedCopy(true, false);
-                    frames[row][column + 1] = cell.getScaledCopy(80f / cellWidth);
-                }
-            }
-        }
-        return frames[row(direction)][frame];
+    public static Image get(Orientation direction) throws SlickException {
+        if (poses == null) load();
+        return poses[direction.ordinal()];
     }
 
-    private static int row(Orientation direction) {
-        switch (direction) {
-            case BAS:
-                return 0;
-            case BAS_DROITE:
-                return 1;
-            case DROITE:
-                return 2;
-            case HAUT_DROITE:
-                return 3;
-            case HAUT:
-                return 4;
-            case HAUT_GAUCHE:
-                return 5;
-            case GAUCHE:
-                return 6;
-            case BAS_GAUCHE:
-                return 7;
-            default:
-                return 0;
+    private static void load() throws SlickException {
+        Image atlas = new Image("data/Images/Persos/reborn/adventurer.png");
+        Image[] sources = new Image[5];
+        for (int row = 0; row < sources.length; row++) {
+            int originY = row * atlas.getHeight() / 8;
+            int left = atlas.getWidth(), right = 0, top = atlas.getHeight(), bottom = 0;
+            for (int y = originY; y < (row + 1) * atlas.getHeight() / 8; y++) {
+                for (int x = 0; x < atlas.getWidth() / 4; x++) {
+                    if (atlas.getColor(x, y).a > 0.5f) {
+                        left = Math.min(left, x);
+                        right = Math.max(right, x + 1);
+                        top = Math.min(top, y);
+                        bottom = Math.max(bottom, y + 1);
+                    }
+                }
+            }
+            Image source = atlas.getSubImage(left, top, right - left, bottom - top);
+            sources[row] = source.getScaledCopy((float) WalkPose.BODY_HEIGHT / source.getHeight());
         }
+        Image[] loaded = new Image[Orientation.values().length];
+        for (Orientation direction : Orientation.values()) {
+            Image source = sources[WalkPose.sourceRow(direction)];
+            loaded[direction.ordinal()] =
+                    WalkPose.mirrored(direction) ? source.getFlippedCopy(true, false) : source;
+        }
+        poses = loaded;
+    }
+
+    public static void draw(
+            Orientation direction,
+            float phase,
+            float amount,
+            float anchorX,
+            float anchorY,
+            float scale) {
+        Image image;
+        try {
+            image = get(direction);
+        } catch (SlickException exception) {
+            throw new IllegalStateException(exception);
+        }
+        if (amount <= 0) {
+            image.draw(
+                    anchorX - image.getWidth() * scale / 2,
+                    anchorY - WalkPose.BODY_HEIGHT * scale,
+                    image.getWidth() * scale,
+                    WalkPose.BODY_HEIGHT * scale);
+            return;
+        }
+        Color.white.bind();
+        image.getTexture().bind();
+        GL11.glBegin(GL11.GL_QUADS);
+        for (int leg = 0; leg < 2; leg++) {
+            for (int joint = 0; joint < JOINTS.length - 1; joint++) {
+                float x1 = leg * 0.5f, x2 = x1 + 0.5f;
+                float y1 = JOINTS[joint], y2 = JOINTS[joint + 1];
+                vertex(image, direction, leg, x1, y1, phase, amount, anchorX, anchorY, scale);
+                vertex(image, direction, leg, x2, y1, phase, amount, anchorX, anchorY, scale);
+                vertex(image, direction, leg, x2, y2, phase, amount, anchorX, anchorY, scale);
+                vertex(image, direction, leg, x1, y2, phase, amount, anchorX, anchorY, scale);
+            }
+        }
+        // Torso stays on its fixed anchor with no frame-dependent size or recentering.
+        vertex(image, direction, 0, 0, 0, phase, 0, anchorX, anchorY, scale);
+        vertex(image, direction, 0, 1, 0, phase, 0, anchorX, anchorY, scale);
+        vertex(image, direction, 0, 1, WalkPose.HIP, phase, 0, anchorX, anchorY, scale);
+        vertex(image, direction, 0, 0, WalkPose.HIP, phase, 0, anchorX, anchorY, scale);
+        GL11.glEnd();
+    }
+
+    private static void vertex(
+            Image image,
+            Orientation direction,
+            int leg,
+            float x,
+            float y,
+            float phase,
+            float amount,
+            float anchorX,
+            float anchorY,
+            float scale) {
+        GL11.glTexCoord2f(
+                image.getTextureOffsetX() + x * image.getTextureWidth(),
+                image.getTextureOffsetY() + y * image.getTextureHeight());
+        GL11.glVertex2f(
+                anchorX
+                        + ((x - 0.5f) * image.getWidth()
+                                        + WalkPose.offsetX(direction, leg, y, phase) * amount)
+                                * scale,
+                anchorY
+                        + ((y - 1) * WalkPose.BODY_HEIGHT
+                                        + WalkPose.offsetY(direction, leg, y, phase) * amount)
+                                * scale);
     }
 }

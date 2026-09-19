@@ -1,7 +1,37 @@
 import com.client.display.CharacterMotion;
+import com.client.display.WalkPose;
+import com.client.entities.Orientation;
 
 public final class CharacterMotionTest {
     public static void main(String[] args) throws Exception {
+        for (Orientation direction : Orientation.values()) {
+            float dx =
+                    WalkPose.offsetX(direction, 0, 1, 0)
+                            - WalkPose.offsetX(direction, 0, 1, (float) Math.PI);
+            float dy =
+                    WalkPose.offsetY(direction, 0, 1, 0)
+                            - WalkPose.offsetY(direction, 0, 1, (float) Math.PI);
+            require(Math.abs(dx) + Math.abs(dy) >= 8, "Foot must visibly swing in " + direction);
+            require(
+                    Math.abs(
+                                    WalkPose.offsetX(direction, 0, 1, 0)
+                                            + WalkPose.offsetX(direction, 1, 1, 0))
+                            < 0.001f,
+                    "Feet must alternate in " + direction);
+            require(
+                    WalkPose.offsetX(direction, 0, WalkPose.HIP, 1) == 0
+                            && WalkPose.offsetY(direction, 0, WalkPose.HIP, 1) == 0,
+                    "Hip must stay anchored");
+            float before = WalkPose.offsetX(direction, 0, 1, 1);
+            float after = WalkPose.offsetX(direction, 0, 1, 1.01f);
+            require(
+                    Math.abs(after - before) < 0.1f,
+                    "Gait must move continuously, without frame jumps");
+        }
+        require(
+                !WalkPose.mirrored(Orientation.HAUT_DROITE)
+                        && WalkPose.mirrored(Orientation.HAUT_GAUCHE),
+                "Rear diagonal views must not be inverted");
         verifyWalkAtlas(new java.io.File(args[0]).getParentFile());
         java.awt.image.BufferedImage atlas = javax.imageio.ImageIO.read(new java.io.File(args[0]));
         require(atlas.getColorModel().hasAlpha(), "Atlas must preserve transparency");
@@ -54,6 +84,15 @@ public final class CharacterMotionTest {
         motion.update(3000, 3000, 32);
         require(motion.getFrame() == 0, "Teleport must not trigger a walk");
         require(Math.abs(motion.getBreathingScale() - 1) <= 0.009f, "Idle breathing stays subtle");
+        CharacterMotion delayed = new CharacterMotion();
+        delayed.update(0, 0, 0);
+        boolean[] delayedFrames = new boolean[9];
+        for (int elapsed = 20; elapsed <= 4000; elapsed += 20) {
+            delayed.update(elapsed / 180, 0, 20);
+            delayedFrames[delayed.getFrame()] = true;
+        }
+        for (int frame = 1; frame <= 8; frame++)
+            require(delayedFrames[frame], "Delayed movement replies must not pin the first pose");
         for (int step : new int[] {10, 20, 40}) {
             CharacterMotion timed = new CharacterMotion();
             timed.update(0, 0, 0);
