@@ -1,5 +1,7 @@
 # Leimz Reborn
 
+[![Build and tests](https://github.com/fazega/leimz-reborn/actions/workflows/ci.yml/badge.svg)](https://github.com/fazega/leimz-reborn/actions/workflows/ci.yml)
+
 Recovered Leïmz game and rebuilt player website, maintained in one repository.
 
 | Folder | Purpose | Runtime |
@@ -48,6 +50,10 @@ See `RECOVERY.md` for implementation details, checks and known limitations. This
 For navigating and improving the source, start with [the architecture guide](ARCHITECTURE.md) and [the staged cleanup plan](CLEANUP-PLAN.md).
 
 ## Tests and content preservation
+
+GitHub Actions runs the Java builds, headless geometry/collision tests, content preservation, editor provenance and website tests on every push and pull request to `main` or `master`. It can also be started manually from the Actions tab. Each run provides named checks, a summary and downloadable TAP reports. The workflow uses Windows, Java 8 and Node.js 24; no local settings or database secrets are needed.
+
+Graphical integration tests remain local because they require a working OpenGL desktop and a demo game server/database. They are not included in the CI badge's result.
 
 ```powershell
 .\Test.ps1

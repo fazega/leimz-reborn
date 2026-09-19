@@ -1,0 +1,95 @@
+name: Build and tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verification:
+    name: Java builds, content and website
+    runs-on: windows-2022
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Java 8
+        uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6
+        with:
+          distribution: temurin
+          java-version: '8'
+
+      - name: Set up Node.js 24
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Compile Client, Server and MapEditor
+        id: build
+        run: ./Build.ps1
+
+      - name: Test geometry and collision rules
+        id: geometry
+        run: ./Client/Test-Fast.ps1
+
+      - name: Verify protected game and website content
+        id: content
+        run: |
+          node --test --test-reporter=tap Test-Content.cjs | Tee-Object content-tests.tap
+          if ($LASTEXITCODE -ne 0) { throw 'Content preservation tests failed.' }
+
+      - name: Verify editor archive provenance
+        id: editor
+        run: ./MapEditor/Test-Content.ps1
+
+      - name: Test website content and HTTP server
+        id: website
+        run: |
+          node --check Website/server.cjs
+          if ($LASTEXITCODE -ne 0) { throw 'Server syntax check failed.' }
+          node --check Website/app.js
+          if ($LASTEXITCODE -ne 0) { throw 'Browser script syntax check failed.' }
+          node --test --test-reporter=tap Website/tests/website.test.cjs | Tee-Object website-tests.tap
+          if ($LASTEXITCODE -ne 0) { throw 'Website tests failed.' }
+
+      - name: Write test summary
+        if: always()
+        run: |
+          @'
+          ## Leimz Reborn verification
+          | Check | Result |
+          | --- | --- |
+          | Three Java builds | ${{ steps.build.outcome }} |
+          | Geometry and collisions | ${{ steps.geometry.outcome }} |
+          | Content preservation | ${{ steps.content.outcome }} |
+          | Editor archive provenance | ${{ steps.editor.outcome }} |
+          | Website content and HTTP | ${{ steps.website.outcome }} |
+
+          Graphical game/editor smoke tests remain local: `./Test.ps1 -Integration`.
+          They require an OpenGL desktop and, for the game, a running demo database/server.
+          '@ | Add-Content $env:GITHUB_STEP_SUMMARY
+
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: test-reports
+          path: '*-tests.tap'
+          if-no-files-found: ignore
+          retention-days: 14
