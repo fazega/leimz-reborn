@@ -7,6 +7,7 @@ Recovered Leïmz game and rebuilt player website, maintained in one repository.
 | `Server` | Game server, database seed and server dependencies | Java 8, MariaDB |
 | `Client` | Desktop game, assets and native libraries | Java 8, Windows |
 | `Website` | Static French player portal and preview server | Node.js |
+| `MapEditor` | Recovered standalone map editor and XML maps | Java 8, Windows |
 
 ## Quick start on Windows
 
@@ -18,6 +19,8 @@ Recovered Leïmz game and rebuilt player website, maintained in one repository.
 .\Build.ps1
 .\Server\Start.ps1
 .\Client\Start.ps1
+# Optional standalone editor:
+.\MapEditor\Start.ps1
 # In a separate terminal:
 .\Website\Start.ps1
 ```
@@ -41,6 +44,20 @@ Use labels such as `client`, `server`, `website`, `recovery` and `bug` for issue
 - Website: rebuilt from the graphic charter with original assets, generated clean scenery and code-based ornamentation. See its README for provenance.
 
 See `RECOVERY.md` for implementation details, checks and known limitations. This is a runnable historical recovery baseline, not a modernized production service. The legacy authentication/protocol and dependency stack still need modernization before internet deployment.
+
+For navigating and improving the source, start with [the architecture guide](ARCHITECTURE.md) and [the staged cleanup plan](CLEANUP-PLAN.md).
+
+## Tests and content preservation
+
+```powershell
+.\Test.ps1
+# Also run the interactive game smoke test against the running demo server:
+.\Test.ps1 -Integration
+```
+
+The test runner builds all Java components, checks protected content hashes and editor archive provenance, and runs website tests. Integration additionally checks demo login, barrel collision, NPC discovery, and an editor map load/save round trip. The editor writes only a temporary map under its ignored build folder. Run integration only against the development database; it changes the demo character's saved position.
+
+`content-baseline.json` protects the game assets, map XML, database seed, website artwork and editor data. Existing content is pinned to the initial recovery commit; editor content is pinned to its import. Line-ending differences are ignored for declared text formats. Tests reject missing, added or changed protected files. When content work is explicitly approved later, review and update the baseline alongside that change; do not regenerate it just to make a failing test pass.
 
 ## Dependencies and assets
 

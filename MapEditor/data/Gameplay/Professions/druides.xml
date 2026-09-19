@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<clan>
+	<nom>Druides</nom>
+
+	<sorts>
+	<!--Ces sorts sont des BONUS à ceux de la classe-->
+		<sort><nom>Foudre</nom></sort>
+	</sorts>
+
+	<caracs>
+	<!--Ces caractéristiques sont des BONUS à celles de la classe-->
+		<deplacement>2</deplacement>
+		<precision>10</precision>
+		<energie>-600</energie>
+	</caracs>
+</clan>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sorts>
+	<sort>
+		<nom>Coup de Poing</nom>
+		<values>5-7</values>
+		<description>Donne un coup de poing puissant à l'adversaire, qui peut aller jusqu'à l'assomer.</description>
+		
+	</sort>
+
+	<sort>
+		<nom>Foudre</nom>
+		<values>10-11</values>
+		<description>Abat la foudre sur l'adversaire</description>
+		
+	</sort>
+</sorts>
+
+

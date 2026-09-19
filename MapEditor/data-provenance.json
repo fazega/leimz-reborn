@@ -1,0 +1,1161 @@
+{
+  "description": "Archived runtime data. Only types_tiles.xml differs: exactly the listed eleven absolute image paths are made relative. All other copies retain their archived bytes.",
+  "pathChanges": [
+    {
+      "before": "C:/Users/Greg/Programmation/workspace/Leimz-CLIENT/data/Images/tiles/Tiles photoshop/grille 3.png",
+      "after": "data/tiles/recovered/Tiles photoshop/grille 3.png"
+    },
+    {
+      "before": "C:/Users/Greg/Programmation/workspace/Leimz-CLIENT/data/Images/tiles/Tiles photoshop/grosses pierres désafectées 2.png",
+      "after": "data/tiles/recovered/Tiles photoshop/grosses pierres désafectées 2.png"
+    },
+    {
+      "before": "C:\\Users\\Greg\\Programmation\\workspace\\Leimz-CLIENT\\data\\Images\\tiles\\Tiles photoshop\\boue.png",
+      "after": "data/tiles/recovered/Tiles photoshop/boue.png"
+    },
+    {
+      "before": "C:\\Users\\Greg\\Programmation\\workspace\\Leimz-CLIENT\\data\\Images\\tiles\\Tiles photoshop\\paves ordonnes 2.png",
+      "after": "data/tiles/recovered/Tiles photoshop/paves ordonnes 2.png"
+    },
+    {
+      "before": "C:\\Users\\Greg\\Programmation\\workspace\\Leimz-CLIENT\\data\\Images\\tiles\\Tiles photoshop\\grille 1.png",
+      "after": "data/tiles/recovered/Tiles photoshop/grille 1.png"
+    },
+    {
+      "before": "C:\\Users\\Greg\\Programmation\\workspace\\Leimz-CLIENT\\data\\Images\\tiles\\Tiles photoshop\\paves ordonnes roses.png",
+      "after": "data/tiles/recovered/Tiles photoshop/paves ordonnes roses.png"
+    },
+    {
+      "before": "C:\\Users\\Greg\\Programmation\\workspace\\Leimz-CLIENT\\data\\Images\\tiles\\Tiles photoshop\\paves ordonnes desafectes 1.png",
+      "after": "data/tiles/recovered/Tiles photoshop/paves ordonnes desafectes 1.png"
+    },
+    {
+      "before": "C:\\Users\\Greg\\Programmation\\workspace\\Leimz-CLIENT\\data\\Images\\tiles\\poteau 1.png",
+      "after": "data/tiles/recovered/poteau 1.png"
+    },
+    {
+      "before": "C:\\Users\\Greg\\Programmation\\workspace\\Leimz-CLIENT\\data\\Images\\tiles\\Tiles photoshop\\caisse 1.png",
+      "after": "data/tiles/recovered/Tiles photoshop/caisse 1.png"
+    },
+    {
+      "before": "C:\\Users\\Greg\\Programmation\\workspace\\Leimz-CLIENT\\data\\Images\\tiles\\Tiles photoshop\\caisse 2.png",
+      "after": "data/tiles/recovered/Tiles photoshop/caisse 2.png"
+    },
+    {
+      "before": "C:\\Users\\Greg\\Programmation\\workspace\\Leimz-CLIENT\\data\\Images\\tiles\\Tiles photoshop\\tonneau 1.png",
+      "after": "data/tiles/recovered/Tiles photoshop/tonneau 1.png"
+    }
+  ],
+  "files": [
+    {
+      "path": "data/main.png",
+      "sha256": "8c0d3e26ef3f4485dd409019dd443825b83486d7d9bea767c84a1c801f63a3c8",
+      "archivePath": "Leïmz Map Editor/data/main.png",
+      "archiveSha256": "8c0d3e26ef3f4485dd409019dd443825b83486d7d9bea767c84a1c801f63a3c8"
+    },
+    {
+      "path": "data/plus.png",
+      "sha256": "816a81a44879a6204c0e92b22d0fa2236db1eb791ecb10f0fc0ec424d779028f",
+      "archivePath": "Leïmz Map Editor/data/plus.png",
+      "archiveSha256": "816a81a44879a6204c0e92b22d0fa2236db1eb791ecb10f0fc0ec424d779028f"
+    },
+    {
+      "path": "data/souris.jpg",
+      "sha256": "9b951bbcfcb89fbdf318290323251039ebdacd13ac47627429e606e0c03f60ac",
+      "archivePath": "Leïmz Map Editor/data/souris.jpg",
+      "archiveSha256": "9b951bbcfcb89fbdf318290323251039ebdacd13ac47627429e606e0c03f60ac"
+    },
+    {
+      "path": "data/anim/anim.png",
+      "sha256": "612dc4469c1a0f412141f11db323b4dcc91006044d432d99a04424529e2a7b85",
+      "archivePath": "Leïmz Map Editor/data/anim/anim.png",
+      "archiveSha256": "612dc4469c1a0f412141f11db323b4dcc91006044d432d99a04424529e2a7b85"
+    },
+    {
+      "path": "data/anim/chevalier_animation_bas.png",
+      "sha256": "4c5b3d131e61edacab001b829b039ed37e38c4bccb3a21253f5ce6d2b4877ce2",
+      "archivePath": "Leïmz Map Editor/data/anim/chevalier_animation_bas.png",
+      "archiveSha256": "4c5b3d131e61edacab001b829b039ed37e38c4bccb3a21253f5ce6d2b4877ce2"
+    },
+    {
+      "path": "data/anim/chevalier_animation_droite.png",
+      "sha256": "5d1443b368c4d6c0535e050f44e9c288f490a711786ea29edc1fd4ed4cbacb6b",
+      "archivePath": "Leïmz Map Editor/data/anim/chevalier_animation_droite.png",
+      "archiveSha256": "5d1443b368c4d6c0535e050f44e9c288f490a711786ea29edc1fd4ed4cbacb6b"
+    },
+    {
+      "path": "data/anim/chevalier_animation_gauche.png",
+      "sha256": "a112d7e55aec39b125b31ab5780a740bb5f1cc1ee3134c192bcdb1d7a7d46c40",
+      "archivePath": "Leïmz Map Editor/data/anim/chevalier_animation_gauche.png",
+      "archiveSha256": "a112d7e55aec39b125b31ab5780a740bb5f1cc1ee3134c192bcdb1d7a7d46c40"
+    },
+    {
+      "path": "data/anim/chevalier_animation_haut.png",
+      "sha256": "4d75a61c2c50f189f3c9da017bcf2bf8aacc7c5a4ac2eadfebd650a0fc9540ce",
+      "archivePath": "Leïmz Map Editor/data/anim/chevalier_animation_haut.png",
+      "archiveSha256": "4d75a61c2c50f189f3c9da017bcf2bf8aacc7c5a4ac2eadfebd650a0fc9540ce"
+    },
+    {
+      "path": "data/anim/chevalier.png",
+      "sha256": "b87111ef7eea4a488efb7a7f77fe1ef63b457ec5291d336cfb260085ff7f2fff",
+      "archivePath": "Leïmz Map Editor/data/anim/chevalier.png",
+      "archiveSha256": "b87111ef7eea4a488efb7a7f77fe1ef63b457ec5291d336cfb260085ff7f2fff"
+    },
+    {
+      "path": "data/anim/hero.gif",
+      "sha256": "f4ad1ecb845bf506bd1a987c7fb932757ea9008dbb406749c444b16eb01a8269",
+      "archivePath": "Leïmz Map Editor/data/anim/hero.gif",
+      "archiveSha256": "f4ad1ecb845bf506bd1a987c7fb932757ea9008dbb406749c444b16eb01a8269"
+    },
+    {
+      "path": "data/anim/main.png",
+      "sha256": "f89b23d468797499ef2ddfd2ec0b8cad16b12b3e90a9129991f0595c57a5db83",
+      "archivePath": "Leïmz Map Editor/data/anim/main.png",
+      "archiveSha256": "f89b23d468797499ef2ddfd2ec0b8cad16b12b3e90a9129991f0595c57a5db83"
+    },
+    {
+      "path": "data/anim/Monstres.png",
+      "sha256": "7190ad7f6844ed8bcccb6eab5bdff51c0b8375b0df57a4907f3fb5d8fd8e2319",
+      "archivePath": "Leïmz Map Editor/data/anim/Monstres.png",
+      "archiveSha256": "7190ad7f6844ed8bcccb6eab5bdff51c0b8375b0df57a4907f3fb5d8fd8e2319"
+    },
+    {
+      "path": "data/anim/souris.jpg",
+      "sha256": "9b951bbcfcb89fbdf318290323251039ebdacd13ac47627429e606e0c03f60ac",
+      "archivePath": "Leïmz Map Editor/data/anim/souris.jpg",
+      "archiveSha256": "9b951bbcfcb89fbdf318290323251039ebdacd13ac47627429e606e0c03f60ac"
+    },
+    {
+      "path": "data/anim/tiles.png",
+      "sha256": "1156f1609fe96bb18ca8b621157e2d5241f86cac4604c7ee9dfe2d6499f5ae6b",
+      "archivePath": "Leïmz Map Editor/data/anim/tiles.png",
+      "archiveSha256": "1156f1609fe96bb18ca8b621157e2d5241f86cac4604c7ee9dfe2d6499f5ae6b"
+    },
+    {
+      "path": "data/anim/voleur_animation_bas.png",
+      "sha256": "87a3c826cd334b77965cd2da3f3919f5bcb8c10759c1808c5a142c54f46b0f0b",
+      "archivePath": "Leïmz Map Editor/data/anim/voleur_animation_bas.png",
+      "archiveSha256": "87a3c826cd334b77965cd2da3f3919f5bcb8c10759c1808c5a142c54f46b0f0b"
+    },
+    {
+      "path": "data/anim/voleur_animation_droite.png",
+      "sha256": "fdd8c9dad2f583bc2966a9c53e79ebd4c742f4dc1c8b60e401a4ade15177b0b2",
+      "archivePath": "Leïmz Map Editor/data/anim/voleur_animation_droite.png",
+      "archiveSha256": "fdd8c9dad2f583bc2966a9c53e79ebd4c742f4dc1c8b60e401a4ade15177b0b2"
+    },
+    {
+      "path": "data/anim/voleur_animation_gauche.png",
+      "sha256": "252e6dd4b179dcb7c4744fba8b9bee39d1d686b7609f61a940191a03c532246a",
+      "archivePath": "Leïmz Map Editor/data/anim/voleur_animation_gauche.png",
+      "archiveSha256": "252e6dd4b179dcb7c4744fba8b9bee39d1d686b7609f61a940191a03c532246a"
+    },
+    {
+      "path": "data/anim/voleur_animation_haut.png",
+      "sha256": "d20a5faaf778a35d8a755772db1ff9812fdcfd508086127da8297ddcc4822076",
+      "archivePath": "Leïmz Map Editor/data/anim/voleur_animation_haut.png",
+      "archiveSha256": "d20a5faaf778a35d8a755772db1ff9812fdcfd508086127da8297ddcc4822076"
+    },
+    {
+      "path": "data/anim/voleur.png",
+      "sha256": "c8ff9e3928b9060b752d1968e20904edfc2131d1abb8d3b4985664013614682f",
+      "archivePath": "Leïmz Map Editor/data/anim/voleur.png",
+      "archiveSha256": "c8ff9e3928b9060b752d1968e20904edfc2131d1abb8d3b4985664013614682f"
+    },
+    {
+      "path": "data/Gameplay/sorts.xml",
+      "sha256": "c6dee364fd7b9f3f4c17552c254472ba652d16a8c8eca74c01dfc23ab8b2ead9",
+      "archivePath": "Leïmz Map Editor/data/Gameplay/sorts.xml",
+      "archiveSha256": "c6dee364fd7b9f3f4c17552c254472ba652d16a8c8eca74c01dfc23ab8b2ead9"
+    },
+    {
+      "path": "data/Gameplay/Clans/dratabs.xml",
+      "sha256": "47c1e04c1028be867886e9a5cfb9b9a86c73b4cf6736d35b799b2862b25e1f0e",
+      "archivePath": "Leïmz Map Editor/data/Gameplay/Clans/dratabs.xml",
+      "archiveSha256": "47c1e04c1028be867886e9a5cfb9b9a86c73b4cf6736d35b799b2862b25e1f0e"
+    },
+    {
+      "path": "data/Gameplay/Classes/nains.xml",
+      "sha256": "31d5c15fd3c4231bc9a8d745a9da71c1384fceef45ea6b07be43b7930c7e6db2",
+      "archivePath": "Leïmz Map Editor/data/Gameplay/Classes/nains.xml",
+      "archiveSha256": "31d5c15fd3c4231bc9a8d745a9da71c1384fceef45ea6b07be43b7930c7e6db2"
+    },
+    {
+      "path": "data/Gameplay/Professions/druides.xml",
+      "sha256": "585f38a52dff7279b158698ce05de3efe25401a76303e70721205801492131fb",
+      "archivePath": "Leïmz Map Editor/data/Gameplay/Professions/druides.xml",
+      "archiveSha256": "585f38a52dff7279b158698ce05de3efe25401a76303e70721205801492131fb"
+    },
+    {
+      "path": "data/GUI/Images/ailles.png",
+      "sha256": "b1f25eab531c195e7dae9f6567a45abacd128d56cb7823cb59f4f57aebf3e274",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/ailles.png",
+      "archiveSha256": "b1f25eab531c195e7dae9f6567a45abacd128d56cb7823cb59f4f57aebf3e274"
+    },
+    {
+      "path": "data/GUI/Images/bordure_horizontale.png",
+      "sha256": "8340b9ef7622e77f5c121ac77e1699380b0b87aeee58277d7beffb68ab59037b",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/bordure_horizontale.png",
+      "archiveSha256": "8340b9ef7622e77f5c121ac77e1699380b0b87aeee58277d7beffb68ab59037b"
+    },
+    {
+      "path": "data/GUI/Images/bordure_verticale.png",
+      "sha256": "de6016324bd39e32d21585fd98f12a8a5b6d6fe9148cacbbbe54dcba22b170d6",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/bordure_verticale.png",
+      "archiveSha256": "de6016324bd39e32d21585fd98f12a8a5b6d6fe9148cacbbbe54dcba22b170d6"
+    },
+    {
+      "path": "data/GUI/Images/bouton_fermerNormal.png",
+      "sha256": "37e3ced3cd232ad58db487add0fdbc0016ccda32bcee0c40a1c2137bddae3681",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/bouton_fermerNormal.png",
+      "archiveSha256": "37e3ced3cd232ad58db487add0fdbc0016ccda32bcee0c40a1c2137bddae3681"
+    },
+    {
+      "path": "data/GUI/Images/bouton_fermerOver.png",
+      "sha256": "6e660c9566e2bc9adba4c7ef6eb54d971c1e97a1662a81a55f0e4d8437fc9648",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/bouton_fermerOver.png",
+      "archiveSha256": "6e660c9566e2bc9adba4c7ef6eb54d971c1e97a1662a81a55f0e4d8437fc9648"
+    },
+    {
+      "path": "data/GUI/Images/bouton_over.png",
+      "sha256": "607dcaa144e234e14585c7fa6d98bf60c6607fb74c233584aa9aa2279d594e1c",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/bouton_over.png",
+      "archiveSha256": "607dcaa144e234e14585c7fa6d98bf60c6607fb74c233584aa9aa2279d594e1c"
+    },
+    {
+      "path": "data/GUI/Images/bouton_pressed.png",
+      "sha256": "33a5abe207cd9505882aab9791f40c85a867d7a3ff5d9f8250c9cb44ff74d041",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/bouton_pressed.png",
+      "archiveSha256": "33a5abe207cd9505882aab9791f40c85a867d7a3ff5d9f8250c9cb44ff74d041"
+    },
+    {
+      "path": "data/GUI/Images/bouton_reduireNormal.png",
+      "sha256": "6ac26772610c6f08d224630f535edeac7bb5aca05cf6d7687548285968f15886",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/bouton_reduireNormal.png",
+      "archiveSha256": "6ac26772610c6f08d224630f535edeac7bb5aca05cf6d7687548285968f15886"
+    },
+    {
+      "path": "data/GUI/Images/bouton_reduireOver.png",
+      "sha256": "9cef41cbfd39a96c2823139d5b2a9cddbaefcda1020e92ab9d37e8a5a33563c2",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/bouton_reduireOver.png",
+      "archiveSha256": "9cef41cbfd39a96c2823139d5b2a9cddbaefcda1020e92ab9d37e8a5a33563c2"
+    },
+    {
+      "path": "data/GUI/Images/bouton.png",
+      "sha256": "598dfbdc71a07e04037bfbadd6854792e1a89058e09c99855487b5a7d0dc5065",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/bouton.png",
+      "archiveSha256": "598dfbdc71a07e04037bfbadd6854792e1a89058e09c99855487b5a7d0dc5065"
+    },
+    {
+      "path": "data/GUI/Images/bouton2_over.png",
+      "sha256": "3cadf300850196624d4d5b5285529f86f9be12d9f55d9ccf8128ca6259e564e7",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/bouton2_over.png",
+      "archiveSha256": "3cadf300850196624d4d5b5285529f86f9be12d9f55d9ccf8128ca6259e564e7"
+    },
+    {
+      "path": "data/GUI/Images/bouton2_pressed.png",
+      "sha256": "fc5c3b5a9a01a9c87d170593cae8ca7681831abf40310c87582d9c18d802788a",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/bouton2_pressed.png",
+      "archiveSha256": "fc5c3b5a9a01a9c87d170593cae8ca7681831abf40310c87582d9c18d802788a"
+    },
+    {
+      "path": "data/GUI/Images/bouton2.png",
+      "sha256": "555622116a213e98f4fe84264687bdc4aa0352e151aed0314573230da1a05e63",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/bouton2.png",
+      "archiveSha256": "555622116a213e98f4fe84264687bdc4aa0352e151aed0314573230da1a05e63"
+    },
+    {
+      "path": "data/GUI/Images/boutonclic.png",
+      "sha256": "130d4f717a2286d6e45ddb3dd1efd81dda6538e463121f4ab7e341f0628b27db",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/boutonclic.png",
+      "archiveSha256": "130d4f717a2286d6e45ddb3dd1efd81dda6538e463121f4ab7e341f0628b27db"
+    },
+    {
+      "path": "data/GUI/Images/boutonhover.png",
+      "sha256": "d5b721a7a341ab7e48b84d6986e954feb7567409a91bd069e3f4f0572249d9ae",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/boutonhover.png",
+      "archiveSha256": "d5b721a7a341ab7e48b84d6986e954feb7567409a91bd069e3f4f0572249d9ae"
+    },
+    {
+      "path": "data/GUI/Images/boutonN",
+      "sha256": "4ef6e6c11d44024459d07ddb5f7f49d2a109c8de857f3cb646971b6309cfe27f",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/boutonN",
+      "archiveSha256": "4ef6e6c11d44024459d07ddb5f7f49d2a109c8de857f3cb646971b6309cfe27f"
+    },
+    {
+      "path": "data/GUI/Images/boutonnorm.png",
+      "sha256": "a9b9eeebfffe6a3e9823a5669f59b332c7b8593295d7066277660b3b4b134dd7",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/boutonnorm.png",
+      "archiveSha256": "a9b9eeebfffe6a3e9823a5669f59b332c7b8593295d7066277660b3b4b134dd7"
+    },
+    {
+      "path": "data/GUI/Images/buttonOV",
+      "sha256": "bca17dec1d0b745ea59c27053985b2a1106b395408fcd3f4bc9f6eb23aad1540",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/buttonOV",
+      "archiveSha256": "bca17dec1d0b745ea59c27053985b2a1106b395408fcd3f4bc9f6eb23aad1540"
+    },
+    {
+      "path": "data/GUI/Images/buttonP",
+      "sha256": "887d2d13eb482674fbc1ba356bd5b59682f6b4ea787fac5ff0fbfcc15e992777",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/buttonP",
+      "archiveSha256": "887d2d13eb482674fbc1ba356bd5b59682f6b4ea787fac5ff0fbfcc15e992777"
+    },
+    {
+      "path": "data/GUI/Images/caret_2.png",
+      "sha256": "41e762ab8dda6abe84661da16567b2126352df0bd1fa33b4675194043231c0eb",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/caret_2.png",
+      "archiveSha256": "41e762ab8dda6abe84661da16567b2126352df0bd1fa33b4675194043231c0eb"
+    },
+    {
+      "path": "data/GUI/Images/caret.png",
+      "sha256": "4565df63c5b051134a69093f902cd07ac99498aec470b47b8e78823d3c01907b",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/caret.png",
+      "archiveSha256": "4565df63c5b051134a69093f902cd07ac99498aec470b47b8e78823d3c01907b"
+    },
+    {
+      "path": "data/GUI/Images/checkbox.png",
+      "sha256": "ac24dc262d8c3ea9507d28867a817b4ded0d8dfe53641aeb8ea54d1119a9fc47",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/checkbox.png",
+      "archiveSha256": "ac24dc262d8c3ea9507d28867a817b4ded0d8dfe53641aeb8ea54d1119a9fc47"
+    },
+    {
+      "path": "data/GUI/Images/CheckOFF.png",
+      "sha256": "4aa47b76b573120d0ef97529cc159cebc281c37868d0429bb5c711163e799507",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/CheckOFF.png",
+      "archiveSha256": "4aa47b76b573120d0ef97529cc159cebc281c37868d0429bb5c711163e799507"
+    },
+    {
+      "path": "data/GUI/Images/CheckON.png",
+      "sha256": "68060d80aec43f0f3b01ae1b2089dd318a0ad3f74aeb42acd732a9c0fc8e9141",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/CheckON.png",
+      "archiveSha256": "68060d80aec43f0f3b01ae1b2089dd318a0ad3f74aeb42acd732a9c0fc8e9141"
+    },
+    {
+      "path": "data/GUI/Images/CheckOVER.png",
+      "sha256": "d1e65bea248ff8a53be2f889c9b92f599f94a6cc5300b95cdf274c0992ea32ca",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/CheckOVER.png",
+      "archiveSha256": "d1e65bea248ff8a53be2f889c9b92f599f94a6cc5300b95cdf274c0992ea32ca"
+    },
+    {
+      "path": "data/GUI/Images/clic.png",
+      "sha256": "63803109aa337f9e4a3e3eb15065f12397235166cbd3c6f8fb01ec8abe219ff8",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/clic.png",
+      "archiveSha256": "63803109aa337f9e4a3e3eb15065f12397235166cbd3c6f8fb01ec8abe219ff8"
+    },
+    {
+      "path": "data/GUI/Images/cotémal.png",
+      "sha256": "23eb4254bdd630f5938f88b1e32b07699e82180f1358918f42c7b970344f6dea",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/cotémal.png",
+      "archiveSha256": "23eb4254bdd630f5938f88b1e32b07699e82180f1358918f42c7b970344f6dea"
+    },
+    {
+      "path": "data/GUI/Images/curseur_texte.jpg",
+      "sha256": "536a9feb367a638b70b493adb18d15e0f5f9e006872c32ea4b2af7618b7b0ec4",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/curseur_texte.jpg",
+      "archiveSha256": "536a9feb367a638b70b493adb18d15e0f5f9e006872c32ea4b2af7618b7b0ec4"
+    },
+    {
+      "path": "data/GUI/Images/fenetre_mal.png",
+      "sha256": "2d0db2ed38cd11e3c82d725185d468ca8e52df54f0a72f014196bec77a266ad3",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/fenetre_mal.png",
+      "archiveSha256": "2d0db2ed38cd11e3c82d725185d468ca8e52df54f0a72f014196bec77a266ad3"
+    },
+    {
+      "path": "data/GUI/Images/fenetre.jpg",
+      "sha256": "0754a45f1134bea0b3df6bff48090b9cbae41ed41c0e292b04d26cbd41875954",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/fenetre.jpg",
+      "archiveSha256": "0754a45f1134bea0b3df6bff48090b9cbae41ed41c0e292b04d26cbd41875954"
+    },
+    {
+      "path": "data/GUI/Images/fleche_1.png",
+      "sha256": "7345e09b3771a2d585b51dcedb3228571586bcafb877174be96cdbaebbb8972c",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/fleche_1.png",
+      "archiveSha256": "7345e09b3771a2d585b51dcedb3228571586bcafb877174be96cdbaebbb8972c"
+    },
+    {
+      "path": "data/GUI/Images/fleche_2.png",
+      "sha256": "da122da1194e351f5471274eccbc3dfe0571e791683405a623d3bc2a47aebdd8",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/fleche_2.png",
+      "archiveSha256": "da122da1194e351f5471274eccbc3dfe0571e791683405a623d3bc2a47aebdd8"
+    },
+    {
+      "path": "data/GUI/Images/fleche_3.png",
+      "sha256": "dffb3804e14c67142a2d7d8b95143f3ddfc0b08fbf3b1d4fc7b4a92dacbe9ae7",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/fleche_3.png",
+      "archiveSha256": "dffb3804e14c67142a2d7d8b95143f3ddfc0b08fbf3b1d4fc7b4a92dacbe9ae7"
+    },
+    {
+      "path": "data/GUI/Images/fleche_4.png",
+      "sha256": "8db7e74a5fdb6179507187b7497b406e00be1ed492c69bd9c5932e738953f65c",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/fleche_4.png",
+      "archiveSha256": "8db7e74a5fdb6179507187b7497b406e00be1ed492c69bd9c5932e738953f65c"
+    },
+    {
+      "path": "data/GUI/Images/fleche_combo_box.png",
+      "sha256": "694f99e94b98409c7176518770863e7159ac23b5c80c09ca289918e6b1310a5b",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/fleche_combo_box.png",
+      "archiveSha256": "694f99e94b98409c7176518770863e7159ac23b5c80c09ca289918e6b1310a5b"
+    },
+    {
+      "path": "data/GUI/Images/fleche_VA_left.png",
+      "sha256": "5915155c285888032fd511b219594e28aa7aad7f1eb709c0a6c403a8c0bb5d89",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/fleche_VA_left.png",
+      "archiveSha256": "5915155c285888032fd511b219594e28aa7aad7f1eb709c0a6c403a8c0bb5d89"
+    },
+    {
+      "path": "data/GUI/Images/fleche_VA_right.png",
+      "sha256": "48385e07530be9d0498bf5caf150b9a414b994c1b85c38bf02147f1ac0b53298",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/fleche_VA_right.png",
+      "archiveSha256": "48385e07530be9d0498bf5caf150b9a414b994c1b85c38bf02147f1ac0b53298"
+    },
+    {
+      "path": "data/GUI/Images/fond-large2.png",
+      "sha256": "0dd45e89d144fbb3112a3a08676ebc5317f0ed25e128d8010c5f3ad758381200",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/fond-large2.png",
+      "archiveSha256": "0dd45e89d144fbb3112a3a08676ebc5317f0ed25e128d8010c5f3ad758381200"
+    },
+    {
+      "path": "data/GUI/Images/fond.png",
+      "sha256": "ac5f8e527ce5710c0d8411279fca74a2c94073cfc014e30b94643dc5828eae0a",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/fond.png",
+      "archiveSha256": "ac5f8e527ce5710c0d8411279fca74a2c94073cfc014e30b94643dc5828eae0a"
+    },
+    {
+      "path": "data/GUI/Images/gentil clic.png",
+      "sha256": "2f88db23bf8990085b364dfbe95f5a03923f38861c64e29f991f5b339a6d5dfc",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/gentil clic.png",
+      "archiveSha256": "2f88db23bf8990085b364dfbe95f5a03923f38861c64e29f991f5b339a6d5dfc"
+    },
+    {
+      "path": "data/GUI/Images/gentil hover.png",
+      "sha256": "ebb8f18d135c78804f2b8d2603b86cc5bb9def5a703059f544cd570ceaed4e8e",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/gentil hover.png",
+      "archiveSha256": "ebb8f18d135c78804f2b8d2603b86cc5bb9def5a703059f544cd570ceaed4e8e"
+    },
+    {
+      "path": "data/GUI/Images/gentil.png",
+      "sha256": "a903793feaefa031da57b1063cee784ac4cae3ab0d2fda6e14096b24bc16cacc",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/gentil.png",
+      "archiveSha256": "a903793feaefa031da57b1063cee784ac4cae3ab0d2fda6e14096b24bc16cacc"
+    },
+    {
+      "path": "data/GUI/Images/gentilsans ailles.png",
+      "sha256": "69e86d522dfb3c48c020481121229e967e8abc442a8f15a4d3aa805fea17ad0c",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/gentilsans ailles.png",
+      "archiveSha256": "69e86d522dfb3c48c020481121229e967e8abc442a8f15a4d3aa805fea17ad0c"
+    },
+    {
+      "path": "data/GUI/Images/hover.png",
+      "sha256": "601b597727736cf0a8dfc2347c385d85f2c743ed16e03471471685645c97ee0c",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/hover.png",
+      "archiveSha256": "601b597727736cf0a8dfc2347c385d85f2c743ed16e03471471685645c97ee0c"
+    },
+    {
+      "path": "data/GUI/Images/mal.png",
+      "sha256": "d0d26e07085b07ca75649385145d92427474b4c5617461ce9be64756d6cf195b",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/mal.png",
+      "archiveSha256": "d0d26e07085b07ca75649385145d92427474b4c5617461ce9be64756d6cf195b"
+    },
+    {
+      "path": "data/GUI/Images/map-dofus.jpg",
+      "sha256": "1c64cbe228b98e00386f39a8d3f7f09a20fc327b4d5f2beac90761bf5baed8f3",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/map-dofus.jpg",
+      "archiveSha256": "1c64cbe228b98e00386f39a8d3f7f09a20fc327b4d5f2beac90761bf5baed8f3"
+    },
+    {
+      "path": "data/GUI/Images/méchant clic.png",
+      "sha256": "959413f65dcec0bd7b41b68c10417483b19701a5c55cff1d28cb1aab98f57ff0",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/méchant clic.png",
+      "archiveSha256": "959413f65dcec0bd7b41b68c10417483b19701a5c55cff1d28cb1aab98f57ff0"
+    },
+    {
+      "path": "data/GUI/Images/méchant hover.png",
+      "sha256": "d0aa6fecf79749639617b3ef23646295b85f2b14560124e117e04cd5714dde0a",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/méchant hover.png",
+      "archiveSha256": "d0aa6fecf79749639617b3ef23646295b85f2b14560124e117e04cd5714dde0a"
+    },
+    {
+      "path": "data/GUI/Images/menu_bar.png",
+      "sha256": "6925988293d3a20d71f9114582953ab62d2b294f647e1a98b6f1e5c4739ba2a7",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/menu_bar.png",
+      "archiveSha256": "6925988293d3a20d71f9114582953ab62d2b294f647e1a98b6f1e5c4739ba2a7"
+    },
+    {
+      "path": "data/GUI/Images/normal.png",
+      "sha256": "013da7bbe2335b753aedffd86bda66956179232a7ba3c779bd32b1dc4f3b024a",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/normal.png",
+      "archiveSha256": "013da7bbe2335b753aedffd86bda66956179232a7ba3c779bd32b1dc4f3b024a"
+    },
+    {
+      "path": "data/GUI/Images/schema.png",
+      "sha256": "4b23070d3e09d6d4c9a76feee1d4f944c4bf60cb3b3243d04af94c97d1ebc09a",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/schema.png",
+      "archiveSha256": "4b23070d3e09d6d4c9a76feee1d4f944c4bf60cb3b3243d04af94c97d1ebc09a"
+    },
+    {
+      "path": "data/GUI/Images/scroll_paneh.png",
+      "sha256": "8fa84fea8e29a627b04f8da0e84c7677da97a130ac12416173778984e627a86e",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/scroll_paneh.png",
+      "archiveSha256": "8fa84fea8e29a627b04f8da0e84c7677da97a130ac12416173778984e627a86e"
+    },
+    {
+      "path": "data/GUI/Images/selected.png",
+      "sha256": "47273bdabc32db2a4a65aaec79b5e94650f04e9e3cb38c49b1f228aa9ccd8098",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/selected.png",
+      "archiveSha256": "47273bdabc32db2a4a65aaec79b5e94650f04e9e3cb38c49b1f228aa9ccd8098"
+    },
+    {
+      "path": "data/GUI/Images/slot.png",
+      "sha256": "d498be9e71b63fbca8201ed6508cdb41dbf2538b74992560df27546559ad4cc2",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/slot.png",
+      "archiveSha256": "d498be9e71b63fbca8201ed6508cdb41dbf2538b74992560df27546559ad4cc2"
+    },
+    {
+      "path": "data/GUI/Images/text_field.png",
+      "sha256": "be2c3552bccd441b08718ffa2deb87e3f27e2e8fc7101bed6851621ae5427cd5",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/text_field.png",
+      "archiveSha256": "be2c3552bccd441b08718ffa2deb87e3f27e2e8fc7101bed6851621ae5427cd5"
+    },
+    {
+      "path": "data/GUI/Images/textfield.png",
+      "sha256": "0eceb92afb60ff1c2a3db819b9305845a21cd00908fe1d0d7ba791f077c0097d",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/textfield.png",
+      "archiveSha256": "0eceb92afb60ff1c2a3db819b9305845a21cd00908fe1d0d7ba791f077c0097d"
+    },
+    {
+      "path": "data/GUI/Images/theme_gui.png",
+      "sha256": "54fbf678eb537462c7620cb1507c519d937942f1bccbe4f3e861f4f0a4252ed9",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/theme_gui.png",
+      "archiveSha256": "54fbf678eb537462c7620cb1507c519d937942f1bccbe4f3e861f4f0a4252ed9"
+    },
+    {
+      "path": "data/GUI/Images/theme_leimz - Copie.png",
+      "sha256": "f615a71abee60eba5ce83f4e7d6ae8d344b1c6f1f74fc73f3565f552e53094af",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/theme_leimz - Copie.png",
+      "archiveSha256": "f615a71abee60eba5ce83f4e7d6ae8d344b1c6f1f74fc73f3565f552e53094af"
+    },
+    {
+      "path": "data/GUI/Images/theme_leimz.png",
+      "sha256": "bec0e693293987a3c9f23309a6a80a8966d4ce1945be00e596debc6899148e42",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/theme_leimz.png",
+      "archiveSha256": "bec0e693293987a3c9f23309a6a80a8966d4ce1945be00e596debc6899148e42"
+    },
+    {
+      "path": "data/GUI/Images/Bouton/bouton-click.png",
+      "sha256": "2ffb350499590bfc31377f6ca86debbe0df1f6b077d294e2ea98097e56636c0c",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/Bouton/bouton-click.png",
+      "archiveSha256": "2ffb350499590bfc31377f6ca86debbe0df1f6b077d294e2ea98097e56636c0c"
+    },
+    {
+      "path": "data/GUI/Images/Bouton/bouton-over.png",
+      "sha256": "40bf3e78e6f0f84df2bd365755b6aaa52b03e446d753632b5818c900ea56e47a",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/Bouton/bouton-over.png",
+      "archiveSha256": "40bf3e78e6f0f84df2bd365755b6aaa52b03e446d753632b5818c900ea56e47a"
+    },
+    {
+      "path": "data/GUI/Images/Bouton/button-none.png",
+      "sha256": "936cf4435d19ed3fd7f00823fa856d339bfda88e2dc6f7e7fdbe674f1e9023b0",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/Bouton/button-none.png",
+      "archiveSha256": "936cf4435d19ed3fd7f00823fa856d339bfda88e2dc6f7e7fdbe674f1e9023b0"
+    },
+    {
+      "path": "data/GUI/Images/Bouton/theme_button_image.png",
+      "sha256": "79b5cd5455abd55637f2af4530bca2b94dc101d7330b99fb4a48c6735b99b1f1",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/Bouton/theme_button_image.png",
+      "archiveSha256": "79b5cd5455abd55637f2af4530bca2b94dc101d7330b99fb4a48c6735b99b1f1"
+    },
+    {
+      "path": "data/GUI/Images/Bouton/theme_button_image2.png",
+      "sha256": "9742f4823bd1b6f2cf00c010d93f2a4f2b6a33a2d8828e9bbcb80dd7bd452fbe",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/Bouton/theme_button_image2.png",
+      "archiveSha256": "9742f4823bd1b6f2cf00c010d93f2a4f2b6a33a2d8828e9bbcb80dd7bd452fbe"
+    },
+    {
+      "path": "data/GUI/Images/Menu/menu.png",
+      "sha256": "9c27fdd6800c158a503c68760c1981d87c27eae9a3e3ef02fead4575690ac309",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/Menu/menu.png",
+      "archiveSha256": "9c27fdd6800c158a503c68760c1981d87c27eae9a3e3ef02fead4575690ac309"
+    },
+    {
+      "path": "data/GUI/Images/Menu/menuba.png",
+      "sha256": "0fc4d0f1bff269700863ca9e8a05a1904d20b6ff75be559ca908f56ca370a0d5",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/Menu/menuba.png",
+      "archiveSha256": "0fc4d0f1bff269700863ca9e8a05a1904d20b6ff75be559ca908f56ca370a0d5"
+    },
+    {
+      "path": "data/GUI/Images/Menu/menutitle.png",
+      "sha256": "b8c5342f08e16c7e075c8b0c143d661efc9b32e80e142dc5be3b459ba2a01759",
+      "archivePath": "Leïmz Map Editor/data/GUI/Images/Menu/menutitle.png",
+      "archiveSha256": "b8c5342f08e16c7e075c8b0c143d661efc9b32e80e142dc5be3b459ba2a01759"
+    },
+    {
+      "path": "data/GUI/Theme/chaos_sphere_blue_800x600.png",
+      "sha256": "4169040cfab12234ea88ed836d380188556f7a8a9e87c3ae5acc7fa3af3fa22e",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/chaos_sphere_blue_800x600.png",
+      "archiveSha256": "4169040cfab12234ea88ed836d380188556f7a8a9e87c3ae5acc7fa3af3fa22e"
+    },
+    {
+      "path": "data/GUI/Theme/chat.png",
+      "sha256": "8837b20b28fc7c02d1ee3ad36709166e20fa81452100cbd591dbf2e4ace78970",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/chat.png",
+      "archiveSha256": "8837b20b28fc7c02d1ee3ad36709166e20fa81452100cbd591dbf2e4ace78970"
+    },
+    {
+      "path": "data/GUI/Theme/chat.xml",
+      "sha256": "160dbfc202ea52e2e20cf85bdfb21812064b4c67d6b4bf15adafb9968df045b0",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/chat.xml",
+      "archiveSha256": "160dbfc202ea52e2e20cf85bdfb21812064b4c67d6b4bf15adafb9968df045b0"
+    },
+    {
+      "path": "data/GUI/Theme/cursors.png",
+      "sha256": "eb590053bc157b04e0de94fc52371b65a9cbc17472540c6e3aaa2387f160dc18",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/cursors.png",
+      "archiveSha256": "eb590053bc157b04e0de94fc52371b65a9cbc17472540c6e3aaa2387f160dc18"
+    },
+    {
+      "path": "data/GUI/Theme/cursors.xml",
+      "sha256": "db32c4edeb8893856b1a20c28a31f7fe929b20a582fa5e07ac7df7c32b6afbb7",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/cursors.xml",
+      "archiveSha256": "db32c4edeb8893856b1a20c28a31f7fe929b20a582fa5e07ac7df7c32b6afbb7"
+    },
+    {
+      "path": "data/GUI/Theme/Eforen.png",
+      "sha256": "0ee7dad7a8adaae180643018d8cf2a3cc958654dc505d4bf6e8fd56419384819",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/Eforen.png",
+      "archiveSha256": "0ee7dad7a8adaae180643018d8cf2a3cc958654dc505d4bf6e8fd56419384819"
+    },
+    {
+      "path": "data/GUI/Theme/font_00.png",
+      "sha256": "95b2d65cadd6fa5e5aa0eb9f2042d81147d197fa5802de66116f820cdd3c10b6",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/font_00.png",
+      "archiveSha256": "95b2d65cadd6fa5e5aa0eb9f2042d81147d197fa5802de66116f820cdd3c10b6"
+    },
+    {
+      "path": "data/GUI/Theme/font_leimz_00.png",
+      "sha256": "c2e95f2cf88d1cd458562d0ce571d9ef6695c585fd2986329a3f86559670f302",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/font_leimz_00.png",
+      "archiveSha256": "c2e95f2cf88d1cd458562d0ce571d9ef6695c585fd2986329a3f86559670f302"
+    },
+    {
+      "path": "data/GUI/Theme/font_leimz.fnt",
+      "sha256": "07a07e025801c1f2a0a3018d1df4c8ff3dd5328f46daac27888273eb10989e43",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/font_leimz.fnt",
+      "archiveSha256": "07a07e025801c1f2a0a3018d1df4c8ff3dd5328f46daac27888273eb10989e43"
+    },
+    {
+      "path": "data/GUI/Theme/font.fnt",
+      "sha256": "584e9b40abc9c55d119586cfba372df88594edbbafd49b1d9623860f30ccf763",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/font.fnt",
+      "archiveSha256": "584e9b40abc9c55d119586cfba372df88594edbbafd49b1d9623860f30ccf763"
+    },
+    {
+      "path": "data/GUI/Theme/leimz_title_00.png",
+      "sha256": "0bd2f29395e241db41c0bc88f84b7d3a63e63829ce28dec95edac1307aed69f0",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/leimz_title_00.png",
+      "archiveSha256": "0bd2f29395e241db41c0bc88f84b7d3a63e63829ce28dec95edac1307aed69f0"
+    },
+    {
+      "path": "data/GUI/Theme/leimz_title.fnt",
+      "sha256": "761512789fcd251f980673203a1d055fcfed78e0cc9effb4012f159f79efebc8",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/leimz_title.fnt",
+      "archiveSha256": "761512789fcd251f980673203a1d055fcfed78e0cc9effb4012f159f79efebc8"
+    },
+    {
+      "path": "data/GUI/Theme/projet.xml",
+      "sha256": "9106fd537ffd1abb7518c371cccfbb109ef6704f87d3b8f4e63fd11b7f4324a5",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/projet.xml",
+      "archiveSha256": "9106fd537ffd1abb7518c371cccfbb109ef6704f87d3b8f4e63fd11b7f4324a5"
+    },
+    {
+      "path": "data/GUI/Theme/simple.png",
+      "sha256": "4863f88895532b43333f10606672dfbd7ccdacfe7daf9945bec27bdb6e76c589",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/simple.png",
+      "archiveSha256": "4863f88895532b43333f10606672dfbd7ccdacfe7daf9945bec27bdb6e76c589"
+    },
+    {
+      "path": "data/GUI/Theme/test_alex.png",
+      "sha256": "47e25064fde47ebfcd1e5bd8ca4ee86a05b98f5f88fcc8662719f3a5ba372136",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/test_alex.png",
+      "archiveSha256": "47e25064fde47ebfcd1e5bd8ca4ee86a05b98f5f88fcc8662719f3a5ba372136"
+    },
+    {
+      "path": "data/GUI/Theme/theme.png",
+      "sha256": "8b1d716ab42fce97b3c22fb67040f471beb18568554d0a94d5223c64ecd474ee",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/theme.png",
+      "archiveSha256": "8b1d716ab42fce97b3c22fb67040f471beb18568554d0a94d5223c64ecd474ee"
+    },
+    {
+      "path": "data/GUI/Theme/title_00.png",
+      "sha256": "0bd2f29395e241db41c0bc88f84b7d3a63e63829ce28dec95edac1307aed69f0",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/title_00.png",
+      "archiveSha256": "0bd2f29395e241db41c0bc88f84b7d3a63e63829ce28dec95edac1307aed69f0"
+    },
+    {
+      "path": "data/GUI/Theme/title.fnt",
+      "sha256": "ae7ac51c6019f41d5272bb2c4e2eecc5e6662d75b9485f5573ac9414a7326150",
+      "archivePath": "Leïmz Map Editor/data/GUI/Theme/title.fnt",
+      "archiveSha256": "ae7ac51c6019f41d5272bb2c4e2eecc5e6662d75b9485f5573ac9414a7326150"
+    },
+    {
+      "path": "data/Logo/Logo S&L.jpg",
+      "sha256": "5130abddb05319c0aa4133c12cde1a2b57042e1bf99946cf65af639e7933f46b",
+      "archivePath": "Leïmz Map Editor/data/Logo/Logo S&L.jpg",
+      "archiveSha256": "5130abddb05319c0aa4133c12cde1a2b57042e1bf99946cf65af639e7933f46b"
+    },
+    {
+      "path": "data/Maps/map_1.xml",
+      "sha256": "f0df122f9069ea5ecae81c4677e0aac6729333afd6664d9063401f8f11e4ab62",
+      "archivePath": "Leïmz Map Editor/data/Maps/map_1.xml",
+      "archiveSha256": "f0df122f9069ea5ecae81c4677e0aac6729333afd6664d9063401f8f11e4ab62"
+    },
+    {
+      "path": "data/Maps/map_test_save.xml",
+      "sha256": "e6df766e2208c526e73081e1781b6dc028783c129baac6f74326ed74947dbadb",
+      "archivePath": "Leïmz Map Editor/data/Maps/map_test_save.xml",
+      "archiveSha256": "e6df766e2208c526e73081e1781b6dc028783c129baac6f74326ed74947dbadb"
+    },
+    {
+      "path": "data/Maps/map2.xml",
+      "sha256": "eebc71e4e72f72e1fe8e25dfcc2c3e7cefda104ceedc737677c3e4d18b69f48c",
+      "archivePath": "Leïmz Map Editor/data/Maps/map2.xml",
+      "archiveSha256": "eebc71e4e72f72e1fe8e25dfcc2c3e7cefda104ceedc737677c3e4d18b69f48c"
+    },
+    {
+      "path": "data/Maps/objets.xml",
+      "sha256": "d11952d7dbb268eaafaeb2315cc52f150b4674e54b9aa8ded88c98a8525d11b6",
+      "archivePath": "Leïmz Map Editor/data/Maps/objets.xml",
+      "archiveSha256": "d11952d7dbb268eaafaeb2315cc52f150b4674e54b9aa8ded88c98a8525d11b6"
+    },
+    {
+      "path": "data/Maps/types_tiles.xml",
+      "sha256": "f7c2b536f8a97d45314782790dfa88d843f9cdd7a1bbd065e0f180edf783330c",
+      "archivePath": "Leïmz Map Editor/data/Maps/types_tiles.xml",
+      "archiveSha256": "c02e6320e52fd5c5dc1c0fbf8ea043ff81f84d87234d99f86f0a963d3806a94d"
+    },
+    {
+      "path": "data/Musics/musique1.mp3",
+      "sha256": "526a650363b785262affe9210a77ba2f8d146d275f9479b9b94e12795b0dec58",
+      "archivePath": "Leïmz Map Editor/data/Musics/musique1.mp3",
+      "archiveSha256": "526a650363b785262affe9210a77ba2f8d146d275f9479b9b94e12795b0dec58"
+    },
+    {
+      "path": "data/Musics/musique1.wav",
+      "sha256": "ee29e2c54f0fd5d7604b4e098d8e10e406e8df734ef42df1c503e4b67ac8f7dc",
+      "archivePath": "Leïmz Map Editor/data/Musics/musique1.wav",
+      "archiveSha256": "ee29e2c54f0fd5d7604b4e098d8e10e406e8df734ef42df1c503e4b67ac8f7dc"
+    },
+    {
+      "path": "data/Persos/perso_1.xml",
+      "sha256": "2a845d113dee5c4d74736375f36f9652a6451db061582f11e3874729b438662d",
+      "archivePath": "Leïmz Map Editor/data/Persos/perso_1.xml",
+      "archiveSha256": "2a845d113dee5c4d74736375f36f9652a6451db061582f11e3874729b438662d"
+    },
+    {
+      "path": "data/tiles/arbre.jpg",
+      "sha256": "03232d58c6b91e83358b351870983c42ffff4c38cfc1ccf3c26da4c2550b6e12",
+      "archivePath": "Leïmz Map Editor/data/tiles/arbre.jpg",
+      "archiveSha256": "03232d58c6b91e83358b351870983c42ffff4c38cfc1ccf3c26da4c2550b6e12"
+    },
+    {
+      "path": "data/tiles/arbre.png",
+      "sha256": "5ea41483bddf93d7c17d48e7b40bb554e03ccceb9c00c4a10361643a99fc315f",
+      "archivePath": "Leïmz Map Editor/data/tiles/arbre.png",
+      "archiveSha256": "5ea41483bddf93d7c17d48e7b40bb554e03ccceb9c00c4a10361643a99fc315f"
+    },
+    {
+      "path": "data/tiles/croix.png",
+      "sha256": "e912faffdaff53f627f6e12040b3270696ea1e1ffe56b06baefffd2cd844b85d",
+      "archivePath": "Leïmz Map Editor/data/tiles/croix.png",
+      "archiveSha256": "e912faffdaff53f627f6e12040b3270696ea1e1ffe56b06baefffd2cd844b85d"
+    },
+    {
+      "path": "data/tiles/floor_standard.png",
+      "sha256": "3db22298e56fc9b297c3ee761b1ad88e3573cf774cd5b87145847f77285df2e6",
+      "archivePath": "Leïmz Map Editor/data/tiles/floor_standard.png",
+      "archiveSha256": "3db22298e56fc9b297c3ee761b1ad88e3573cf774cd5b87145847f77285df2e6"
+    },
+    {
+      "path": "data/tiles/floor_standard2.png",
+      "sha256": "64072d4ea909813e5687b78f340f262e59c6ec20e033fd91ccab8fd665cf6d88",
+      "archivePath": "Leïmz Map Editor/data/tiles/floor_standard2.png",
+      "archiveSha256": "64072d4ea909813e5687b78f340f262e59c6ec20e033fd91ccab8fd665cf6d88"
+    },
+    {
+      "path": "data/tiles/leimz psd site - Copie.png",
+      "sha256": "9f78d26a71649515861125e1d19c7e4faf2b5f2ecbf7c40d642750dc8ba0286c",
+      "archivePath": "Leïmz Map Editor/data/tiles/leimz psd site - Copie.png",
+      "archiveSha256": "9f78d26a71649515861125e1d19c7e4faf2b5f2ecbf7c40d642750dc8ba0286c"
+    },
+    {
+      "path": "data/tiles/sdsd.png",
+      "sha256": "42bda70093208bb6e10c3c2ad9bda43561a1fa1e0e0f6584185e3d2ad63cf91a",
+      "archivePath": "Leïmz Map Editor/data/tiles/sdsd.png",
+      "archiveSha256": "42bda70093208bb6e10c3c2ad9bda43561a1fa1e0e0f6584185e3d2ad63cf91a"
+    },
+    {
+      "path": "data/tiles/table.png",
+      "sha256": "ca8d1687da64186d2ef39b2f7e532022bc70150c1b742e85617d31df387578c1",
+      "archivePath": "Leïmz Map Editor/data/tiles/table.png",
+      "archiveSha256": "ca8d1687da64186d2ef39b2f7e532022bc70150c1b742e85617d31df387578c1"
+    },
+    {
+      "path": "data/tiles/tile_chemin.png",
+      "sha256": "64d45bc16631ad1109e3b10ed85092d406ea34cbcee694272ec65e201cbb0371",
+      "archivePath": "Leïmz Map Editor/data/tiles/tile_chemin.png",
+      "archiveSha256": "64d45bc16631ad1109e3b10ed85092d406ea34cbcee694272ec65e201cbb0371"
+    },
+    {
+      "path": "data/tiles/tile_monstre.png",
+      "sha256": "a34b0fca464fc5d3c472d8353fef283be0b73a65646beccf64ecf9d5d2ebcb5d",
+      "archivePath": "Leïmz Map Editor/data/tiles/tile_monstre.png",
+      "archiveSha256": "a34b0fca464fc5d3c472d8353fef283be0b73a65646beccf64ecf9d5d2ebcb5d"
+    },
+    {
+      "path": "data/tiles/tile_over.png",
+      "sha256": "e082565412290d91c3a6080a7bbf5103c1224d74e86515d7e2dfd1aef5f7c28b",
+      "archivePath": "Leïmz Map Editor/data/tiles/tile_over.png",
+      "archiveSha256": "e082565412290d91c3a6080a7bbf5103c1224d74e86515d7e2dfd1aef5f7c28b"
+    },
+    {
+      "path": "data/tiles/tile_simple.png",
+      "sha256": "ebed2e36e2009f7762c0a66ff26e553c340f71ecd5ee64d027341db98a3dd62c",
+      "archivePath": "Leïmz Map Editor/data/tiles/tile_simple.png",
+      "archiveSha256": "ebed2e36e2009f7762c0a66ff26e553c340f71ecd5ee64d027341db98a3dd62c"
+    },
+    {
+      "path": "data/tiles/tileSimple.png",
+      "sha256": "29d340e87f040bf3e08c7800c5f04f7e8a1a2c4e6fa05ea2a0f34b6eda74c17a",
+      "archivePath": "Leïmz Map Editor/data/tiles/tileSimple.png",
+      "archiveSha256": "29d340e87f040bf3e08c7800c5f04f7e8a1a2c4e6fa05ea2a0f34b6eda74c17a"
+    },
+    {
+      "path": "data/tiles/tree.png",
+      "sha256": "94d3ac0f1da2687f21ff86000b7972d9dbb8407eb2fb5b732f38ec6934a92eff",
+      "archivePath": "Leïmz Map Editor/data/tiles/tree.png",
+      "archiveSha256": "94d3ac0f1da2687f21ff86000b7972d9dbb8407eb2fb5b732f38ec6934a92eff"
+    },
+    {
+      "path": "data/tiles/herbe/herbe haute.png",
+      "sha256": "75e14ddec550b9f301fc7690ca0680ced8ba4500652d0497ce6a86e26af746f8",
+      "archivePath": "Leïmz Map Editor/data/tiles/herbe/herbe haute.png",
+      "archiveSha256": "75e14ddec550b9f301fc7690ca0680ced8ba4500652d0497ce6a86e26af746f8"
+    },
+    {
+      "path": "data/tiles/herbe/herbe moyenne.png",
+      "sha256": "d96d36d19736037bcf0c41810a0881eaf8b43b2ebf9785b35028fe3709382d98",
+      "archivePath": "Leïmz Map Editor/data/tiles/herbe/herbe moyenne.png",
+      "archiveSha256": "d96d36d19736037bcf0c41810a0881eaf8b43b2ebf9785b35028fe3709382d98"
+    },
+    {
+      "path": "data/tiles/herbe/herbe simple.png",
+      "sha256": "d66ca00e4d373b6e31ccdfc9871092c6fcb09fa8b255edd82e92cb322dc6a6e4",
+      "archivePath": "Leïmz Map Editor/data/tiles/herbe/herbe simple.png",
+      "archiveSha256": "d66ca00e4d373b6e31ccdfc9871092c6fcb09fa8b255edd82e92cb322dc6a6e4"
+    },
+    {
+      "path": "data/tiles/OldTiles/pierre/tile_pierre_bas.png",
+      "sha256": "0a5ba3fd132a2491f4e98c98692fa9df7a35f948ed41d22f3133e0bd9dddd05f",
+      "archivePath": "Leïmz Map Editor/data/tiles/OldTiles/pierre/tile_pierre_bas.png",
+      "archiveSha256": "0a5ba3fd132a2491f4e98c98692fa9df7a35f948ed41d22f3133e0bd9dddd05f"
+    },
+    {
+      "path": "data/tiles/OldTiles/pierre/tile_pierre_coinBas.png",
+      "sha256": "1b02802d8b9776ae6312635d33a54e1aebecdd4a48b0dcc8c67081cb0c4de08a",
+      "archivePath": "Leïmz Map Editor/data/tiles/OldTiles/pierre/tile_pierre_coinBas.png",
+      "archiveSha256": "1b02802d8b9776ae6312635d33a54e1aebecdd4a48b0dcc8c67081cb0c4de08a"
+    },
+    {
+      "path": "data/tiles/OldTiles/pierre/tile_pierre_coinDroit.png",
+      "sha256": "560726560fc99c5d49d0f94452b26c61d4337ea244acffed3adf5966b399d291",
+      "archivePath": "Leïmz Map Editor/data/tiles/OldTiles/pierre/tile_pierre_coinDroit.png",
+      "archiveSha256": "560726560fc99c5d49d0f94452b26c61d4337ea244acffed3adf5966b399d291"
+    },
+    {
+      "path": "data/tiles/OldTiles/pierre/tile_pierre_coinGauche.png",
+      "sha256": "c2ea9801ed98be132c95d521cc4527900c7bb1e78da3c10fda2991a324d68237",
+      "archivePath": "Leïmz Map Editor/data/tiles/OldTiles/pierre/tile_pierre_coinGauche.png",
+      "archiveSha256": "c2ea9801ed98be132c95d521cc4527900c7bb1e78da3c10fda2991a324d68237"
+    },
+    {
+      "path": "data/tiles/OldTiles/pierre/tile_pierre_coinHaut.png",
+      "sha256": "dd1225e66c1af990cd73b5dadea5501ba1a9fe1b439dc10b2240181cb9623eca",
+      "archivePath": "Leïmz Map Editor/data/tiles/OldTiles/pierre/tile_pierre_coinHaut.png",
+      "archiveSha256": "dd1225e66c1af990cd73b5dadea5501ba1a9fe1b439dc10b2240181cb9623eca"
+    },
+    {
+      "path": "data/tiles/OldTiles/pierre/tile_pierre_droit.png",
+      "sha256": "67518a648cd2a4e7bb2aba574143e2502ffea0eaad80d3ca0a26c6caaa6128a9",
+      "archivePath": "Leïmz Map Editor/data/tiles/OldTiles/pierre/tile_pierre_droit.png",
+      "archiveSha256": "67518a648cd2a4e7bb2aba574143e2502ffea0eaad80d3ca0a26c6caaa6128a9"
+    },
+    {
+      "path": "data/tiles/OldTiles/pierre/tile_pierre_gauche.png",
+      "sha256": "71552aa5b7a5b65d4e3ed70a5d7d946f5f3555da71da2d28ebb37a580ffc5c41",
+      "archivePath": "Leïmz Map Editor/data/tiles/OldTiles/pierre/tile_pierre_gauche.png",
+      "archiveSha256": "71552aa5b7a5b65d4e3ed70a5d7d946f5f3555da71da2d28ebb37a580ffc5c41"
+    },
+    {
+      "path": "data/tiles/OldTiles/pierre/tile_pierre_haut.png",
+      "sha256": "ad778da5a77dd45708835f27aee8ebce5a729aebc5665e1404e50a19c725c307",
+      "archivePath": "Leïmz Map Editor/data/tiles/OldTiles/pierre/tile_pierre_haut.png",
+      "archiveSha256": "ad778da5a77dd45708835f27aee8ebce5a729aebc5665e1404e50a19c725c307"
+    },
+    {
+      "path": "data/tiles/OldTiles/pierre/tile_pierre.png",
+      "sha256": "c82b7186055a5416d43c68b8cea431fc9e03b849482b692211cc4f0345a0ae44",
+      "archivePath": "Leïmz Map Editor/data/tiles/OldTiles/pierre/tile_pierre.png",
+      "archiveSha256": "c82b7186055a5416d43c68b8cea431fc9e03b849482b692211cc4f0345a0ae44"
+    },
+    {
+      "path": "data/tiles/pierre/grosses pierres (clair).png",
+      "sha256": "d9dd1745c313d49ec9e6544111b07538f497d4891b5f2a47acf8b8afb5009d8f",
+      "archivePath": "Leïmz Map Editor/data/tiles/pierre/grosses pierres (clair).png",
+      "archiveSha256": "d9dd1745c313d49ec9e6544111b07538f497d4891b5f2a47acf8b8afb5009d8f"
+    },
+    {
+      "path": "data/tiles/pierre/grosses pierres (sombre).png",
+      "sha256": "94268cf556e61b7634fb0c82d37bfe0f58e312601ae119008645ea855e870040",
+      "archivePath": "Leïmz Map Editor/data/tiles/pierre/grosses pierres (sombre).png",
+      "archiveSha256": "94268cf556e61b7634fb0c82d37bfe0f58e312601ae119008645ea855e870040"
+    },
+    {
+      "path": "data/tiles/pierre/grosses pierres (très clair).png",
+      "sha256": "9c3aa2f6ba056c99687f0629b4977fb009d8aef266bb563d3204759ef06fd083",
+      "archivePath": "Leïmz Map Editor/data/tiles/pierre/grosses pierres (très clair).png",
+      "archiveSha256": "9c3aa2f6ba056c99687f0629b4977fb009d8aef266bb563d3204759ef06fd083"
+    },
+    {
+      "path": "data/tiles/pierre/grosses pierres désafectées (clair).png",
+      "sha256": "702799a9e38a64ef77b50a2c0d3f27b6f47b4e9ddfb1c1b4801b8674fb6039eb",
+      "archivePath": "Leïmz Map Editor/data/tiles/pierre/grosses pierres désafectées (clair).png",
+      "archiveSha256": "702799a9e38a64ef77b50a2c0d3f27b6f47b4e9ddfb1c1b4801b8674fb6039eb"
+    },
+    {
+      "path": "data/tiles/pierre/grosses pierres désafectées 2 (clair).png",
+      "sha256": "396f45b790d7e2aed8566dfed686a3e4352d7fe642038cd0d6f18be172d0bddb",
+      "archivePath": "Leïmz Map Editor/data/tiles/pierre/grosses pierres désafectées 2 (clair).png",
+      "archiveSha256": "396f45b790d7e2aed8566dfed686a3e4352d7fe642038cd0d6f18be172d0bddb"
+    },
+    {
+      "path": "data/tiles/pierre/grosses pierres désafectées 2.png",
+      "sha256": "60794aa97fd493fa4695b9c195c61e1d0b38afe337801f0267a891b1d1295e8e",
+      "archivePath": "Leïmz Map Editor/data/tiles/pierre/grosses pierres désafectées 2.png",
+      "archiveSha256": "60794aa97fd493fa4695b9c195c61e1d0b38afe337801f0267a891b1d1295e8e"
+    },
+    {
+      "path": "data/tiles/pierre/grosses pierres désafectées.png",
+      "sha256": "fcbd453817dda88907ba1b5d83ad75ce1e82514b8efe9d2a11f4fcc00617de32",
+      "archivePath": "Leïmz Map Editor/data/tiles/pierre/grosses pierres désafectées.png",
+      "archiveSha256": "fcbd453817dda88907ba1b5d83ad75ce1e82514b8efe9d2a11f4fcc00617de32"
+    },
+    {
+      "path": "data/tiles/pierre/grosses pierres.png",
+      "sha256": "cefdeab2f6c135f3645962b948f30dd5f7e709305509e03f82e9e133ca42212d",
+      "archivePath": "Leïmz Map Editor/data/tiles/pierre/grosses pierres.png",
+      "archiveSha256": "cefdeab2f6c135f3645962b948f30dd5f7e709305509e03f82e9e133ca42212d"
+    },
+    {
+      "path": "data/tiles/pierre/pavés (clair).png",
+      "sha256": "d99b9f86eb8cbfab1711b96348ab5b5eaf71458c0390aaf9885fe39a8b6cfc96",
+      "archivePath": "Leïmz Map Editor/data/tiles/pierre/pavés (clair).png",
+      "archiveSha256": "d99b9f86eb8cbfab1711b96348ab5b5eaf71458c0390aaf9885fe39a8b6cfc96"
+    },
+    {
+      "path": "data/tiles/pierre/pavés (sombre).png",
+      "sha256": "b712e666dd114850bc4a2a38a98d84a375b77c5aee7ab132b1086932374f20e6",
+      "archivePath": "Leïmz Map Editor/data/tiles/pierre/pavés (sombre).png",
+      "archiveSha256": "b712e666dd114850bc4a2a38a98d84a375b77c5aee7ab132b1086932374f20e6"
+    },
+    {
+      "path": "data/tiles/pierre/pavés (très clair).png",
+      "sha256": "3915cfc1b3202a17091b5f3ed7d8878c7f1c872e3b9b2dbf3b3c1c7e2b90d11e",
+      "archivePath": "Leïmz Map Editor/data/tiles/pierre/pavés (très clair).png",
+      "archiveSha256": "3915cfc1b3202a17091b5f3ed7d8878c7f1c872e3b9b2dbf3b3c1c7e2b90d11e"
+    },
+    {
+      "path": "data/tiles/pierre/pavés.png",
+      "sha256": "439a2e4a44372f9fbe7ae3383c3cc684f891423e21dbe87ee720c5194ff0a7df",
+      "archivePath": "Leïmz Map Editor/data/tiles/pierre/pavés.png",
+      "archiveSha256": "439a2e4a44372f9fbe7ae3383c3cc684f891423e21dbe87ee720c5194ff0a7df"
+    },
+    {
+      "path": "data/tiles/recovered/poteau 1.png",
+      "sha256": "4f0d8e08a15ca4532efe5b601cb28c633ef9e4d4431b9713d3f35594194ce893",
+      "archivePath": "Leimz-CLIENT/data/Images/tiles/poteau 1.png",
+      "archiveSha256": "4f0d8e08a15ca4532efe5b601cb28c633ef9e4d4431b9713d3f35594194ce893"
+    },
+    {
+      "path": "data/tiles/recovered/Tiles photoshop/boue.png",
+      "sha256": "2ce75291533096690b3ed455bfd645ba9f399dd7ff9c8dfdb3cb113072cb6e11",
+      "archivePath": "Leimz-CLIENT/data/Images/tiles/Tiles photoshop/boue.png",
+      "archiveSha256": "2ce75291533096690b3ed455bfd645ba9f399dd7ff9c8dfdb3cb113072cb6e11"
+    },
+    {
+      "path": "data/tiles/recovered/Tiles photoshop/caisse 1.png",
+      "sha256": "4add8883bc039d1158347ac64a056ca5304d81b6701838fd78c30b5bac7ddb22",
+      "archivePath": "Leimz-CLIENT/data/Images/tiles/Tiles photoshop/caisse 1.png",
+      "archiveSha256": "4add8883bc039d1158347ac64a056ca5304d81b6701838fd78c30b5bac7ddb22"
+    },
+    {
+      "path": "data/tiles/recovered/Tiles photoshop/caisse 2.png",
+      "sha256": "ed8ed68c13a54098628bde10ca99ad606868a4110651caad72ce98a00243c707",
+      "archivePath": "Leimz-CLIENT/data/Images/tiles/Tiles photoshop/caisse 2.png",
+      "archiveSha256": "ed8ed68c13a54098628bde10ca99ad606868a4110651caad72ce98a00243c707"
+    },
+    {
+      "path": "data/tiles/recovered/Tiles photoshop/grille 1.png",
+      "sha256": "a521eea78e01d337b480839e378ec7fa8f42ceaa6733334f11ca5ce0b55a25d7",
+      "archivePath": "Leimz-CLIENT/data/Images/tiles/Tiles photoshop/grille 1.png",
+      "archiveSha256": "a521eea78e01d337b480839e378ec7fa8f42ceaa6733334f11ca5ce0b55a25d7"
+    },
+    {
+      "path": "data/tiles/recovered/Tiles photoshop/grille 3.png",
+      "sha256": "5970e83d0701d6a653558d85871ae71e4651da7702fc6030b0539cd878e12a76",
+      "archivePath": "Leimz-CLIENT/data/Images/tiles/Tiles photoshop/grille 3.png",
+      "archiveSha256": "5970e83d0701d6a653558d85871ae71e4651da7702fc6030b0539cd878e12a76"
+    },
+    {
+      "path": "data/tiles/recovered/Tiles photoshop/grosses pierres désafectées 2.png",
+      "sha256": "60794aa97fd493fa4695b9c195c61e1d0b38afe337801f0267a891b1d1295e8e",
+      "archivePath": "Leimz-CLIENT/data/Images/tiles/Tiles photoshop/grosses pierres désafectées 2.png",
+      "archiveSha256": "60794aa97fd493fa4695b9c195c61e1d0b38afe337801f0267a891b1d1295e8e"
+    },
+    {
+      "path": "data/tiles/recovered/Tiles photoshop/paves ordonnes 2.png",
+      "sha256": "b18f403cb8b92d2f38f83961bc6ca0a56d659ae076a6829e3e17897caf5d8214",
+      "archivePath": "Leimz-CLIENT/data/Images/tiles/Tiles photoshop/paves ordonnes 2.png",
+      "archiveSha256": "b18f403cb8b92d2f38f83961bc6ca0a56d659ae076a6829e3e17897caf5d8214"
+    },
+    {
+      "path": "data/tiles/recovered/Tiles photoshop/paves ordonnes desafectes 1.png",
+      "sha256": "554c9f62b51318e74694647cd03079d40cfd6c6aa7b61c2d8246bde066c17a99",
+      "archivePath": "Leimz-CLIENT/data/Images/tiles/Tiles photoshop/paves ordonnes desafectes 1.png",
+      "archiveSha256": "554c9f62b51318e74694647cd03079d40cfd6c6aa7b61c2d8246bde066c17a99"
+    },
+    {
+      "path": "data/tiles/recovered/Tiles photoshop/paves ordonnes roses.png",
+      "sha256": "214aebff02b887c6a9da4910a0138f988d9dd8d34520c9bb053a48b51654cea6",
+      "archivePath": "Leimz-CLIENT/data/Images/tiles/Tiles photoshop/paves ordonnes roses.png",
+      "archiveSha256": "214aebff02b887c6a9da4910a0138f988d9dd8d34520c9bb053a48b51654cea6"
+    },
+    {
+      "path": "data/tiles/recovered/Tiles photoshop/tonneau 1.png",
+      "sha256": "2a182e733f562a9db9998b415bedfd2f827b467e6a63e424c57e0ef8c9a509af",
+      "archivePath": "Leimz-CLIENT/data/Images/tiles/Tiles photoshop/tonneau 1.png",
+      "archiveSha256": "2a182e733f562a9db9998b415bedfd2f827b467e6a63e424c57e0ef8c9a509af"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/bois (brun clair).png",
+      "sha256": "ec4acb1d7e45ce62f404187371b915ae1945430e35c69cec9230b1ba1951eb0a",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/bois (brun clair).png",
+      "archiveSha256": "ec4acb1d7e45ce62f404187371b915ae1945430e35c69cec9230b1ba1951eb0a"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/bois.png",
+      "sha256": "b1767b740f937f7760e92d54000797c08a76e5bd7ffddbfea4218faa79c516ee",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/bois.png",
+      "archiveSha256": "b1767b740f937f7760e92d54000797c08a76e5bd7ffddbfea4218faa79c516ee"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/boue.png",
+      "sha256": "2ce75291533096690b3ed455bfd645ba9f399dd7ff9c8dfdb3cb113072cb6e11",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/boue.png",
+      "archiveSha256": "2ce75291533096690b3ed455bfd645ba9f399dd7ff9c8dfdb3cb113072cb6e11"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/grosses pierres (clair).png",
+      "sha256": "d9dd1745c313d49ec9e6544111b07538f497d4891b5f2a47acf8b8afb5009d8f",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/grosses pierres (clair).png",
+      "archiveSha256": "d9dd1745c313d49ec9e6544111b07538f497d4891b5f2a47acf8b8afb5009d8f"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/grosses pierres (sombre).png",
+      "sha256": "94268cf556e61b7634fb0c82d37bfe0f58e312601ae119008645ea855e870040",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/grosses pierres (sombre).png",
+      "archiveSha256": "94268cf556e61b7634fb0c82d37bfe0f58e312601ae119008645ea855e870040"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/grosses pierres (très clair).png",
+      "sha256": "9c3aa2f6ba056c99687f0629b4977fb009d8aef266bb563d3204759ef06fd083",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/grosses pierres (très clair).png",
+      "archiveSha256": "9c3aa2f6ba056c99687f0629b4977fb009d8aef266bb563d3204759ef06fd083"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/grosses pierres désafectées (clair).png",
+      "sha256": "702799a9e38a64ef77b50a2c0d3f27b6f47b4e9ddfb1c1b4801b8674fb6039eb",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/grosses pierres désafectées (clair).png",
+      "archiveSha256": "702799a9e38a64ef77b50a2c0d3f27b6f47b4e9ddfb1c1b4801b8674fb6039eb"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/grosses pierres désafectées 2 (clair).png",
+      "sha256": "396f45b790d7e2aed8566dfed686a3e4352d7fe642038cd0d6f18be172d0bddb",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/grosses pierres désafectées 2 (clair).png",
+      "archiveSha256": "396f45b790d7e2aed8566dfed686a3e4352d7fe642038cd0d6f18be172d0bddb"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/grosses pierres désafectées 2.png",
+      "sha256": "60794aa97fd493fa4695b9c195c61e1d0b38afe337801f0267a891b1d1295e8e",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/grosses pierres désafectées 2.png",
+      "archiveSha256": "60794aa97fd493fa4695b9c195c61e1d0b38afe337801f0267a891b1d1295e8e"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/grosses pierres désafectées.png",
+      "sha256": "fcbd453817dda88907ba1b5d83ad75ce1e82514b8efe9d2a11f4fcc00617de32",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/grosses pierres désafectées.png",
+      "archiveSha256": "fcbd453817dda88907ba1b5d83ad75ce1e82514b8efe9d2a11f4fcc00617de32"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/grosses pierres.png",
+      "sha256": "cefdeab2f6c135f3645962b948f30dd5f7e709305509e03f82e9e133ca42212d",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/grosses pierres.png",
+      "archiveSha256": "cefdeab2f6c135f3645962b948f30dd5f7e709305509e03f82e9e133ca42212d"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/herbe simple.png",
+      "sha256": "d66ca00e4d373b6e31ccdfc9871092c6fcb09fa8b255edd82e92cb322dc6a6e4",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/herbe simple.png",
+      "archiveSha256": "d66ca00e4d373b6e31ccdfc9871092c6fcb09fa8b255edd82e92cb322dc6a6e4"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/maison simple 1.png",
+      "sha256": "98fc1a02b639aadf4a365b59381f642133e7678a7ee777c949d51fcaf36ff8a5",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/maison simple 1.png",
+      "archiveSha256": "98fc1a02b639aadf4a365b59381f642133e7678a7ee777c949d51fcaf36ff8a5"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/pavés (clair).png",
+      "sha256": "d99b9f86eb8cbfab1711b96348ab5b5eaf71458c0390aaf9885fe39a8b6cfc96",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/pavés (clair).png",
+      "archiveSha256": "d99b9f86eb8cbfab1711b96348ab5b5eaf71458c0390aaf9885fe39a8b6cfc96"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/pavés (sombre).png",
+      "sha256": "b712e666dd114850bc4a2a38a98d84a375b77c5aee7ab132b1086932374f20e6",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/pavés (sombre).png",
+      "archiveSha256": "b712e666dd114850bc4a2a38a98d84a375b77c5aee7ab132b1086932374f20e6"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/pavés (très clair).png",
+      "sha256": "3915cfc1b3202a17091b5f3ed7d8878c7f1c872e3b9b2dbf3b3c1c7e2b90d11e",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/pavés (très clair).png",
+      "archiveSha256": "3915cfc1b3202a17091b5f3ed7d8878c7f1c872e3b9b2dbf3b3c1c7e2b90d11e"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/pavés ordonnés roses.png",
+      "sha256": "214aebff02b887c6a9da4910a0138f988d9dd8d34520c9bb053a48b51654cea6",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/pavés ordonnés roses.png",
+      "archiveSha256": "214aebff02b887c6a9da4910a0138f988d9dd8d34520c9bb053a48b51654cea6"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/pavés ordonnés.png",
+      "sha256": "8b421fa2b3e9c5417a630c738ea573a994899c18a12aa26b844e6177b84c72a8",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/pavés ordonnés.png",
+      "archiveSha256": "8b421fa2b3e9c5417a630c738ea573a994899c18a12aa26b844e6177b84c72a8"
+    },
+    {
+      "path": "data/tiles/Tiles photoshop/pavés.png",
+      "sha256": "439a2e4a44372f9fbe7ae3383c3cc684f891423e21dbe87ee720c5194ff0a7df",
+      "archivePath": "Leïmz Map Editor/data/tiles/Tiles photoshop/pavés.png",
+      "archiveSha256": "439a2e4a44372f9fbe7ae3383c3cc684f891423e21dbe87ee720c5194ff0a7df"
+    }
+  ]
+}

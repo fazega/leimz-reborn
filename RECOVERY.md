@@ -24,3 +24,11 @@ Authentication is legacy plaintext, with direct SQL construction in historical h
 The pre-extraction recovery passed rendering, 40,000 tile-centre lookups, movement in eight directions, a barrel-boundary check and NPC discovery after movement synchronization. Extraction is checked by rebuilding both components from UTF-8 source, syntax-checking the website and running the included demo integration check against the separate seed database.
 
 The window check confirmed a constant 1000×680 game surface across states; physical placement across different monitors was not instrumented.
+
+## Cleanup and preservation checks
+
+MapEditor is now a separate component. Its test loads the recovered 200×200 map, saves only to an ignored build file, verifies all 40,000 tile coordinates/layers, reloads it and renders 120 frames. Archive hashes protect 185 editor resources; only eleven documented absolute image paths were made relative.
+
+Fast tests protect 518 content files, compare website HTML text/attributes against the original commit, exercise the preview server and check 40,000 world-coordinate lookups plus tile boundaries/collision layers without opening a game window.
+
+Repeated integration testing exposed an existing movement reply race: a late approval could apply a newer blocked candidate. Keyboard movement now keeps only one request in flight until its approval/rejection arrives. A burst-input barrel test covers this fix. This changes movement synchronization, not map content, assets, text or quests. General network-thread ownership remains a planned refactor.

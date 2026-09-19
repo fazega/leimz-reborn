@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objets>
+	<objet>
+		<nom>arbre</nom>
+		<img>data/tiles/arbre.png</img>
+		<collidable>true</collidable>
+		<base>147,294</base>
+	</objet>
+</objets>

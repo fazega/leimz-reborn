@@ -1,7 +1,7 @@
-param([ValidateSet('All','Server','Client')][string]$Component = 'All')
+param([ValidateSet('All','Server','Client','MapEditor')][string]$Component = 'All')
 . "$PSScriptRoot\common.ps1"
 $javac = Get-JavaTool 'javac'
-$components = if ($Component -eq 'All') { @('Server','Client') } else { @($Component) }
+$components = if ($Component -eq 'All') { @('Server','Client','MapEditor') } else { @($Component) }
 foreach ($name in $components) {
     $folder = Join-Path $RepoRoot $name
     $build = Join-Path $folder 'build'

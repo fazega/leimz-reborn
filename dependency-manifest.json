@@ -22,5 +22,18 @@
   "Client/lib/slick.jar": "43169a7289a4a42970c8aecfe07938184e64ce8dd67cc9015ff511f1b41225e3",
   "Client/lib/TWL.jar": "804b8f34b4984014f0cebfe3c31260a99dde619a6ba90835405dcd542139237d",
   "Client/lib/xpp3-1.1.4c.jar": "0341395a481bb887803957145a6a37879853dd625e9244c2ea2509d9bb7531b9",
-  "Server/lib/mysql-connector-java-5.1.18-bin.jar": "5ce7735be853c1a6deaf88b6ea7659fb0f4aff2beb717430bd28efae3de35695"
+  "Server/lib/mysql-connector-java-5.1.18-bin.jar": "5ce7735be853c1a6deaf88b6ea7659fb0f4aff2beb717430bd28efae3de35695",
+  "MapEditor/lib/jdom.jar": "95913f3e5e691472ad5fede8ac55e35070c230129c9ca5dc32465ff0b5335878",
+  "MapEditor/lib/jinput-dx8.dll": "f6ee33701bfbba481870f4a370d707b87001fb3213efcc60bff325013b4e219c",
+  "MapEditor/lib/jinput-dx8_64.dll": "511dc50c2001d3e25845dd479ca82fdfc9d42403f9aa69c6493257c66ddf0266",
+  "MapEditor/lib/jinput-raw.dll": "0fcd33e00ba5c51f3fdf3613d89c6e9e00381fef03b550412ea73bc837237dcf",
+  "MapEditor/lib/jinput-raw_64.dll": "74cd74d55ea20e8fcea7aed8b97c2cf096da1fcde3faf183f815a4dce9364ec3",
+  "MapEditor/lib/lwjgl.dll": "cdd55995e22b64cdbd4a50f9d7ac6dcd61e23f14ce0fdef4663d900aafc86160",
+  "MapEditor/lib/lwjgl.jar": "a6871db33ea8bda33239bc925e1f411d15a6d80032809a403fb86c03315d2d8c",
+  "MapEditor/lib/lwjgl64.dll": "e07d5633f0f907ba289ca3b70b17fa4c4fe6f71ad2f91c58bedb146fd46cdbd5",
+  "MapEditor/lib/OpenAL32.dll": "cd666aa8275e8111b2d45b4db0395d11d42019c79c3c81b0f3e31619125fca17",
+  "MapEditor/lib/OpenAL64.dll": "99068b19ca0f0ea6e9266e8045e80b4a7c4e022eddc65fb147034e1fe022bf36",
+  "MapEditor/lib/slick.jar": "43169a7289a4a42970c8aecfe07938184e64ce8dd67cc9015ff511f1b41225e3",
+  "MapEditor/lib/TWL.jar": "8ea38d29fd57fa24e8faa08a0b11f05ffe2278474e5eb75336946ce2cdc889ed",
+  "MapEditor/lib/xpp3-1.1.4c.jar": "0341395a481bb887803957145a6a37879853dd625e9244c2ea2509d9bb7531b9"
 }

@@ -37,3 +37,23 @@ Local prototype only. No public forum, registration, live game status, game down
 ## Latest visual refinement
 
 Buttons use a sculpted iron plaque (`assets/button.svg`) with indented sides and layered bevels. Frames and inset panels have gently asymmetric corners. The night scenery is scaled to 1080px on desktop and 850px on mobile, with soft side masks and a bounded lower gradient into the exact page background color (`#020505`). Checked at 1280px, 1920px and 390px viewport widths, including the footer and mobile gallery; no horizontal overflow at mobile size.
+
+## Source layout and maintenance
+
+- `index.html`: French content, navigation, five page sections and the gallery dialog.
+- `style.css`: shared layout and components, followed by responsive rules and the latest ornamental refinements. Rule order matters because later rules override earlier ones.
+- `app.js`: hash routing, decorative isometric tiles, gallery dialog controls and gallery filters, in that order.
+- `server.cjs`: local static-file preview server; it does not provide game or account APIs.
+- `assets/`: images and SVG ornaments. Keep original artwork separate from layout and text.
+
+Run `node --check app.js` and `node --check server.cjs` after JavaScript edits (or `npm run check` when npm is available). To choose another preview port in PowerShell, use `$env:PORT = '4174'` before starting the server.
+
+HTML, CSS and JavaScript use Prettier 3.6.2 formatting. If npm is installed, reproduce it with `npx prettier@3.6.2 --write index.html style.css app.js server.cjs`. Formatting does not require a production dependency or website build step.
+
+## Regression tests
+
+Run `node --test tests/website.test.cjs` (or `npm test`). Tests use Node's built-in test runner and require no external packages. They start and stop a separate preview server on an automatically selected port, leaving an existing preview alone.
+
+The checked-in `tests/fixtures/content-before-cleanup.json` records every HTML element, attribute and non-empty text node from commit `759151928ab19f76ffcb256bddee1098129a8b49`. Comparison normalizes formatting whitespace but preserves French wording, routes, gallery metadata, asset references and element order. It is a content regression check, not a browser layout or JavaScript equivalence proof. Do not regenerate the fixture merely to make a failing test pass; intentional content changes need an explicit review of the baseline update.
+
+HTTP checks cover exact file bytes, MIME types, cache headers, missing files, malformed URL encoding, path traversal rejection and custom-port logging. Asset hashes are additionally checked by the repository's content-preservation verification.

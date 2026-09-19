@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<classe>
+	<nom>Nain</nom>
+
+	<sorts>
+		<sort><nom>Coup de Poing</nom></sort>
+	</sorts>
+
+	<caracs>
+		<vie>150</vie>
+		<energie>5000</energie>
+		<deplacement>10</deplacement>
+		<endurance>6</endurance> <!--En seconde, temps au bout duquel le perso perd 1 point d'energie-->
+		<precision>60</precision>
+		<dommages_cac>35</dommages_cac>
+		<dommages_magie>0</dommages_magie>
+	</caracs>
+</classe>

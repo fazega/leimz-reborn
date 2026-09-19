@@ -1,0 +1,1595 @@
+{
+  "sourceCommit": "759151928ab19f76ffcb256bddee1098129a8b49",
+  "description": "All HTML elements, attributes and non-empty text nodes from the pre-cleanup website. Whitespace is normalized; route names, gallery metadata and French text are preserved.",
+  "content": [
+    {
+      "open": "html",
+      "attributes": {
+        "lang": "fr"
+      }
+    },
+    {
+      "open": "head",
+      "attributes": {}
+    },
+    {
+      "open": "meta",
+      "attributes": {
+        "charset": "utf-8"
+      }
+    },
+    {
+      "open": "meta",
+      "attributes": {
+        "name": "viewport",
+        "content": "width=device-width,initial-scale=1"
+      }
+    },
+    {
+      "open": "meta",
+      "attributes": {
+        "name": "description",
+        "content": "Retrouvez le monde de Leïmz : captures du jeu, dessins originaux, légendes et souvenirs des aventuriers."
+      }
+    },
+    {
+      "open": "link",
+      "attributes": {
+        "rel": "icon",
+        "href": "assets/logo-hd.png"
+      }
+    },
+    {
+      "open": "title",
+      "attributes": {}
+    },
+    {
+      "text": "Leïmz Online — Le carnet des aventuriers"
+    },
+    {
+      "close": "title"
+    },
+    {
+      "open": "link",
+      "attributes": {
+        "rel": "stylesheet",
+        "href": "style.css"
+      }
+    },
+    {
+      "close": "head"
+    },
+    {
+      "open": "body",
+      "attributes": {}
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "landscape",
+        "aria-hidden": "true"
+      }
+    },
+    {
+      "close": "div"
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "site"
+      }
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "topbar"
+      }
+    },
+    {
+      "open": "span",
+      "attributes": {}
+    },
+    {
+      "text": "LEÏMZ ONLINE · LE CARNET DES AVENTURIERS"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "href": "#faq",
+        "data-route": "faq"
+      }
+    },
+    {
+      "text": "À propos"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "open": "span",
+      "attributes": {
+        "class": "top-icons",
+        "aria-hidden": "true"
+      }
+    },
+    {
+      "text": "✉ &nbsp; ◆"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "open": "header",
+      "attributes": {}
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "href": "#accueil",
+        "data-route": "accueil",
+        "aria-label": "Leïmz, accueil"
+      }
+    },
+    {
+      "open": "img",
+      "attributes": {
+        "class": "brand",
+        "src": "assets/logo-hd.png",
+        "alt": "Leïmz Online"
+      }
+    },
+    {
+      "close": "a"
+    },
+    {
+      "close": "header"
+    },
+    {
+      "open": "nav",
+      "attributes": {
+        "aria-label": "Navigation principale"
+      }
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "nav-links"
+      }
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "href": "#accueil",
+        "data-route": "accueil",
+        "class": "active",
+        "aria-current": "page"
+      }
+    },
+    {
+      "text": "Accueil"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "href": "#univers",
+        "data-route": "univers"
+      }
+    },
+    {
+      "text": "Le jeu"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "href": "#galerie",
+        "data-route": "galerie"
+      }
+    },
+    {
+      "text": "Médias"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "href": "#communaute",
+        "data-route": "communaute"
+      }
+    },
+    {
+      "text": "Les forums"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "href": "#faq",
+        "data-route": "faq"
+      }
+    },
+    {
+      "text": "F.A.Q."
+    },
+    {
+      "close": "a"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "close": "nav"
+    },
+    {
+      "open": "main",
+      "attributes": {}
+    },
+    {
+      "open": "section",
+      "attributes": {
+        "data-page": "accueil",
+        "aria-label": "Accueil"
+      }
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "frame main-frame"
+      }
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "screenshot"
+      }
+    },
+    {
+      "open": "img",
+      "attributes": {
+        "src": "assets/esplanade.png",
+        "alt": "L’esplanade pavée du jeu Leïmz original"
+      }
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "banner-caption"
+      }
+    },
+    {
+      "open": "span",
+      "attributes": {}
+    },
+    {
+      "text": "PREMIERS PAS SUR LEÏMZ"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "open": "button",
+      "attributes": {
+        "data-open": "assets/esplanade.png",
+        "data-title": "L’esplanade — capture originale",
+        "aria-label": "Agrandir la capture"
+      }
+    },
+    {
+      "text": "⤢"
+    },
+    {
+      "close": "button"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "columns"
+      }
+    },
+    {
+      "open": "article",
+      "attributes": {
+        "class": "inset"
+      }
+    },
+    {
+      "open": "span",
+      "attributes": {
+        "class": "kicker"
+      }
+    },
+    {
+      "text": "LE JOURNAL DES AVENTURIERS"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "open": "h1",
+      "attributes": {}
+    },
+    {
+      "text": "Leïmz, l’aventure continue"
+    },
+    {
+      "close": "h1"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "Il est des mondes que l’on n’oublie pas. Un chemin de pierre, une première rencontre, une quête qui nous emmène un peu plus loin… Bienvenue dans les souvenirs de Leïmz."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "Ce carnet ouvre les archives du jeu : ses paysages en vue isométrique, ses personnages et les histoires imaginées pour les faire vivre. Retrouvez les images d’origine et les fragments d’un univers qui n’a pas fini de nous inspirer."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "Ancien voyageur ou nouveau curieux, prenez le temps d’explorer. Chaque détour raconte un peu de l’aventure."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "class": "read-more",
+        "href": "#galerie",
+        "data-route": "galerie"
+      }
+    },
+    {
+      "text": "Découvrir les images"
+    },
+    {
+      "open": "span",
+      "attributes": {}
+    },
+    {
+      "text": "›"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "close": "article"
+    },
+    {
+      "open": "aside",
+      "attributes": {}
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "class": "forum-sign",
+        "href": "#communaute",
+        "data-route": "communaute"
+      }
+    },
+    {
+      "open": "span",
+      "attributes": {}
+    },
+    {
+      "text": "LE COIN DES"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "open": "strong",
+      "attributes": {}
+    },
+    {
+      "text": "AVENTURIERS"
+    },
+    {
+      "close": "strong"
+    },
+    {
+      "open": "small",
+      "attributes": {}
+    },
+    {
+      "text": "ENTRER AU SALON ›"
+    },
+    {
+      "close": "small"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "side-links"
+      }
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "href": "#univers",
+        "data-route": "univers"
+      }
+    },
+    {
+      "text": "L’univers de Leïmz"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "href": "#galerie",
+        "data-route": "galerie"
+      }
+    },
+    {
+      "text": "Captures du jeu"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "href": "#galerie",
+        "data-route": "galerie",
+        "data-filter-link": "art"
+      }
+    },
+    {
+      "text": "Les carnets d’art"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "href": "#faq",
+        "data-route": "faq"
+      }
+    },
+    {
+      "text": "Bien commencer"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "open": "p",
+      "attributes": {
+        "class": "aside-note"
+      }
+    },
+    {
+      "text": "Un monde à redécouvrir,"
+    },
+    {
+      "open": "br",
+      "attributes": {}
+    },
+    {
+      "text": "une histoire à partager."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "close": "aside"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "open": "section",
+      "attributes": {
+        "class": "frame feature"
+      }
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "inset feature-content"
+      }
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "island",
+        "role": "img",
+        "aria-label": "Petit chemin isométrique composé des tuiles originales de Leïmz"
+      }
+    },
+    {
+      "close": "div"
+    },
+    {
+      "open": "article",
+      "attributes": {}
+    },
+    {
+      "open": "span",
+      "attributes": {
+        "class": "kicker"
+      }
+    },
+    {
+      "text": "LES TERRES DE LEÏMZ"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "open": "h2",
+      "attributes": {}
+    },
+    {
+      "text": "Au détour d’un chemin"
+    },
+    {
+      "close": "h2"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "La grande plaine de Nahma, le désert de Nihl, la forêt de Nep… Dans les premiers récits, Euid donna naissance à trois terres, et aux Mohms qui allaient les parcourir."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "Sur l’île d’Arasto, les Groz se transmettent l’art de la forge. Ailleurs, les légendes de Miux attendent encore leurs voyageurs."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "class": "read-more",
+        "href": "#univers",
+        "data-route": "univers"
+      }
+    },
+    {
+      "text": "Ouvrir le livre du monde"
+    },
+    {
+      "open": "span",
+      "attributes": {}
+    },
+    {
+      "text": "›"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "close": "article"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "close": "section"
+    },
+    {
+      "close": "section"
+    },
+    {
+      "open": "section",
+      "attributes": {
+        "data-page": "univers",
+        "hidden": true,
+        "class": "frame page-frame"
+      }
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "inset"
+      }
+    },
+    {
+      "open": "span",
+      "attributes": {
+        "class": "kicker"
+      }
+    },
+    {
+      "text": "FRAGMENTS DU SCÉNARIO ORIGINAL"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "open": "h1",
+      "attributes": {}
+    },
+    {
+      "text": "Un monde, trois horizons"
+    },
+    {
+      "close": "h1"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "Au commencement, Euid créa Leïmz. La grande plaine de Nahma, le désert de Nihl et la forêt de Nep formaient les trois grandes régions de ce nouveau monde."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "Les Mohms s’y installèrent, sous le regard de Miux. Sur l’île d’Arasto, les Groz découvrirent les richesses du sous-sol et devinrent forgerons de père en fils."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "lore-art"
+      }
+    },
+    {
+      "open": "img",
+      "attributes": {
+        "src": "assets/forgeron.jpg",
+        "alt": "Dessin original du forgeron"
+      }
+    },
+    {
+      "open": "div",
+      "attributes": {}
+    },
+    {
+      "open": "h2",
+      "attributes": {}
+    },
+    {
+      "text": "Les visages de l’aventure"
+    },
+    {
+      "close": "h2"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "Du premier croquis aux personnages rencontrés en jeu, les archives gardent les traces d’un univers en construction."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "Ces récits sont adaptés des notes de scénario d’origine. Ils témoignent des idées imaginées pour Leïmz, sans prétendre décrire une version finale du jeu."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "class": "read-more",
+        "href": "#galerie",
+        "data-route": "galerie"
+      }
+    },
+    {
+      "text": "Feuilleter les carnets"
+    },
+    {
+      "open": "span",
+      "attributes": {}
+    },
+    {
+      "text": "›"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "close": "section"
+    },
+    {
+      "open": "section",
+      "attributes": {
+        "data-page": "galerie",
+        "hidden": true,
+        "class": "frame page-frame"
+      }
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "inset"
+      }
+    },
+    {
+      "open": "span",
+      "attributes": {
+        "class": "kicker"
+      }
+    },
+    {
+      "text": "IMAGES DU PROJET ORIGINAL"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "gallery-heading"
+      }
+    },
+    {
+      "open": "h1",
+      "attributes": {}
+    },
+    {
+      "text": "Les albums de Leïmz"
+    },
+    {
+      "close": "h1"
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "filters",
+        "aria-label": "Filtrer la galerie"
+      }
+    },
+    {
+      "open": "button",
+      "attributes": {
+        "data-filter": "all",
+        "class": "selected",
+        "aria-pressed": "true"
+      }
+    },
+    {
+      "text": "Tout"
+    },
+    {
+      "close": "button"
+    },
+    {
+      "open": "button",
+      "attributes": {
+        "data-filter": "game",
+        "aria-pressed": "false"
+      }
+    },
+    {
+      "text": "En jeu"
+    },
+    {
+      "close": "button"
+    },
+    {
+      "open": "button",
+      "attributes": {
+        "data-filter": "art",
+        "aria-pressed": "false"
+      }
+    },
+    {
+      "text": "Artworks"
+    },
+    {
+      "close": "button"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "gallery"
+      }
+    },
+    {
+      "open": "button",
+      "attributes": {
+        "class": "gallery-card",
+        "data-kind": "game",
+        "data-open": "assets/esplanade.png",
+        "data-title": "L’esplanade"
+      }
+    },
+    {
+      "open": "img",
+      "attributes": {
+        "src": "assets/esplanade.png",
+        "alt": "L’esplanade"
+      }
+    },
+    {
+      "open": "span",
+      "attributes": {}
+    },
+    {
+      "text": "L’esplanade"
+    },
+    {
+      "open": "em",
+      "attributes": {}
+    },
+    {
+      "text": "⤢"
+    },
+    {
+      "close": "em"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "close": "button"
+    },
+    {
+      "open": "button",
+      "attributes": {
+        "class": "gallery-card",
+        "data-kind": "game",
+        "data-open": "assets/quest.png",
+        "data-title": "Au fil des quêtes"
+      }
+    },
+    {
+      "open": "img",
+      "attributes": {
+        "src": "assets/quest.png",
+        "alt": "Dialogue de quête"
+      }
+    },
+    {
+      "open": "span",
+      "attributes": {}
+    },
+    {
+      "text": "Au fil des quêtes"
+    },
+    {
+      "open": "em",
+      "attributes": {}
+    },
+    {
+      "text": "⤢"
+    },
+    {
+      "close": "em"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "close": "button"
+    },
+    {
+      "open": "button",
+      "attributes": {
+        "class": "gallery-card",
+        "data-kind": "game",
+        "data-open": "assets/character.png",
+        "data-title": "Créer son personnage"
+      }
+    },
+    {
+      "open": "img",
+      "attributes": {
+        "src": "assets/character.png",
+        "alt": "Création de personnage"
+      }
+    },
+    {
+      "open": "span",
+      "attributes": {}
+    },
+    {
+      "text": "Créer son personnage"
+    },
+    {
+      "open": "em",
+      "attributes": {}
+    },
+    {
+      "text": "⤢"
+    },
+    {
+      "close": "em"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "close": "button"
+    },
+    {
+      "open": "button",
+      "attributes": {
+        "class": "gallery-card",
+        "data-kind": "art",
+        "data-open": "assets/forgeron.jpg",
+        "data-title": "Le forgeron — étude originale"
+      }
+    },
+    {
+      "open": "img",
+      "attributes": {
+        "src": "assets/forgeron.jpg",
+        "alt": "Dessin du forgeron"
+      }
+    },
+    {
+      "open": "span",
+      "attributes": {}
+    },
+    {
+      "text": "Le forgeron"
+    },
+    {
+      "open": "em",
+      "attributes": {}
+    },
+    {
+      "text": "⤢"
+    },
+    {
+      "close": "em"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "close": "button"
+    },
+    {
+      "open": "button",
+      "attributes": {
+        "class": "gallery-card",
+        "data-kind": "art",
+        "data-open": "assets/troll.jpg",
+        "data-title": "Le troll — étude originale"
+      }
+    },
+    {
+      "open": "img",
+      "attributes": {
+        "src": "assets/troll.jpg",
+        "alt": "Dessin du troll"
+      }
+    },
+    {
+      "open": "span",
+      "attributes": {}
+    },
+    {
+      "text": "Le troll"
+    },
+    {
+      "open": "em",
+      "attributes": {}
+    },
+    {
+      "text": "⤢"
+    },
+    {
+      "close": "em"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "close": "button"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "open": "p",
+      "attributes": {
+        "class": "caption"
+      }
+    },
+    {
+      "text": "Captures et dessins conservés dans les archives. Cliquez sur une image pour l’agrandir."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "close": "section"
+    },
+    {
+      "open": "section",
+      "attributes": {
+        "data-page": "communaute",
+        "hidden": true,
+        "class": "frame page-frame"
+      }
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "inset"
+      }
+    },
+    {
+      "open": "span",
+      "attributes": {
+        "class": "kicker"
+      }
+    },
+    {
+      "text": "LE COIN DES AVENTURIERS"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "open": "h1",
+      "attributes": {}
+    },
+    {
+      "text": "Un endroit pour se retrouver"
+    },
+    {
+      "close": "h1"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "Les forums faisaient partie du premier site de Leïmz. Ce salon en reprend l’esprit : un lieu pour parler du monde, raconter une découverte et partager ses souvenirs."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "notice"
+      }
+    },
+    {
+      "open": "h2",
+      "attributes": {}
+    },
+    {
+      "text": "Le salon se prépare"
+    },
+    {
+      "close": "h2"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "Cette version locale présente le futur espace communautaire. Les discussions et les comptes du forum ne sont pas encore ouverts."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "open": "h2",
+      "attributes": {}
+    },
+    {
+      "text": "En attendant, explorons ensemble"
+    },
+    {
+      "close": "h2"
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "community-links"
+      }
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "href": "#univers",
+        "data-route": "univers"
+      }
+    },
+    {
+      "text": "Les légendes du monde"
+    },
+    {
+      "open": "span",
+      "attributes": {}
+    },
+    {
+      "text": "›"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "href": "#galerie",
+        "data-route": "galerie"
+      }
+    },
+    {
+      "text": "Souvenirs en images"
+    },
+    {
+      "open": "span",
+      "attributes": {}
+    },
+    {
+      "text": "›"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "href": "#faq",
+        "data-route": "faq"
+      }
+    },
+    {
+      "text": "Questions des voyageurs"
+    },
+    {
+      "open": "span",
+      "attributes": {}
+    },
+    {
+      "text": "›"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "close": "section"
+    },
+    {
+      "open": "section",
+      "attributes": {
+        "data-page": "faq",
+        "hidden": true,
+        "class": "frame page-frame"
+      }
+    },
+    {
+      "open": "div",
+      "attributes": {
+        "class": "inset"
+      }
+    },
+    {
+      "open": "span",
+      "attributes": {
+        "class": "kicker"
+      }
+    },
+    {
+      "text": "LE GUIDE DU VOYAGEUR"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "open": "h1",
+      "attributes": {}
+    },
+    {
+      "text": "Les questions au coin du feu"
+    },
+    {
+      "close": "h1"
+    },
+    {
+      "open": "details",
+      "attributes": {
+        "open": true
+      }
+    },
+    {
+      "open": "summary",
+      "attributes": {}
+    },
+    {
+      "text": "Qu’est-ce que Leïmz ?"
+    },
+    {
+      "close": "summary"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "Leïmz est un projet de jeu en ligne développé en Java, avec un univers en vue isométrique. Ce fansite rassemble ses premières images, ses dessins et ses histoires."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "close": "details"
+    },
+    {
+      "open": "details",
+      "attributes": {}
+    },
+    {
+      "open": "summary",
+      "attributes": {}
+    },
+    {
+      "text": "Comment jouer aujourd’hui ?"
+    },
+    {
+      "close": "summary"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "Le jeu original utilise un client Java et un serveur séparé. Ce site ne lance pas le jeu : la version restaurée se teste localement avec ces deux applications."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "close": "details"
+    },
+    {
+      "open": "details",
+      "attributes": {}
+    },
+    {
+      "open": "summary",
+      "attributes": {}
+    },
+    {
+      "text": "Puis-je créer un compte sur ce site ?"
+    },
+    {
+      "close": "summary"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "Les inscriptions publiques et les comptes du forum ne sont pas ouverts. Le fansite est actuellement une version locale de découverte."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "close": "details"
+    },
+    {
+      "open": "details",
+      "attributes": {}
+    },
+    {
+      "open": "summary",
+      "attributes": {}
+    },
+    {
+      "text": "D’où viennent les images et les récits ?"
+    },
+    {
+      "close": "summary"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "Le logo, les captures, les dessins et les tuiles isométriques sont issus des archives de Leïmz. Les récits sont adaptés des notes de scénario originales. Le décor de nuit a été recréé à partir de la charte graphique."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "close": "details"
+    },
+    {
+      "open": "details",
+      "attributes": {}
+    },
+    {
+      "open": "summary",
+      "attributes": {}
+    },
+    {
+      "text": "Une nouvelle version est-elle annoncée ?"
+    },
+    {
+      "close": "summary"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "Le projet est en cours de redécouverte et de remise en route. Aucune date de sortie publique n’est annoncée."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "close": "details"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "close": "section"
+    },
+    {
+      "close": "main"
+    },
+    {
+      "open": "footer",
+      "attributes": {}
+    },
+    {
+      "open": "div",
+      "attributes": {}
+    },
+    {
+      "open": "span",
+      "attributes": {}
+    },
+    {
+      "text": "LEÏMZ · LE CARNET DES AVENTURIERS"
+    },
+    {
+      "close": "span"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "text": "Les premiers souvenirs d’un monde à retrouver."
+    },
+    {
+      "close": "p"
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "href": "#faq",
+        "data-route": "faq"
+      }
+    },
+    {
+      "text": "À propos du fansite"
+    },
+    {
+      "close": "a"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "open": "a",
+      "attributes": {
+        "href": "#accueil",
+        "data-route": "accueil",
+        "aria-label": "Retour à l’accueil"
+      }
+    },
+    {
+      "open": "img",
+      "attributes": {
+        "src": "assets/logo-hd.png",
+        "alt": "Leïmz Online"
+      }
+    },
+    {
+      "close": "a"
+    },
+    {
+      "close": "footer"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "open": "dialog",
+      "attributes": {
+        "id": "lightbox",
+        "aria-label": "Galerie des archives"
+      }
+    },
+    {
+      "open": "button",
+      "attributes": {
+        "class": "close",
+        "aria-label": "Fermer la galerie"
+      }
+    },
+    {
+      "text": "×"
+    },
+    {
+      "close": "button"
+    },
+    {
+      "open": "img",
+      "attributes": {
+        "alt": ""
+      }
+    },
+    {
+      "open": "div",
+      "attributes": {}
+    },
+    {
+      "open": "button",
+      "attributes": {
+        "id": "previous",
+        "aria-label": "Image précédente"
+      }
+    },
+    {
+      "text": "←"
+    },
+    {
+      "close": "button"
+    },
+    {
+      "open": "p",
+      "attributes": {}
+    },
+    {
+      "close": "p"
+    },
+    {
+      "open": "button",
+      "attributes": {
+        "id": "next",
+        "aria-label": "Image suivante"
+      }
+    },
+    {
+      "text": "→"
+    },
+    {
+      "close": "button"
+    },
+    {
+      "close": "div"
+    },
+    {
+      "close": "dialog"
+    },
+    {
+      "open": "script",
+      "attributes": {
+        "src": "app.js"
+      }
+    },
+    {
+      "close": "script"
+    },
+    {
+      "close": "body"
+    },
+    {
+      "close": "html"
+    }
+  ]
+}

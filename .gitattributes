@@ -8,3 +8,5 @@
 *.png binary
 *.jpg binary
 *.wav binary
+# Editor provenance tests preserve the exact archived resource bytes, including BOMs.
+MapEditor/data/** -text -whitespace
